@@ -1,10 +1,13 @@
 {
   "compilerOptions": {
+    "allowJs": true,
     "target": "es5",
     "module": "commonjs",
-    "allowJs": true,
-    "jsx": "preserve",
     "strict": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "jsx": "preserve",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
@@ -14,7 +17,6 @@
       "utils/*": ["./utils/*"],
       "hooks/*": ["./hooks/*"]
     },
-    "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true
