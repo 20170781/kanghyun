@@ -18,6 +18,11 @@ interface IndexPageProps {
     allMarkdownRemark: {
       edges: PostType[];
     };
+    file: {
+      childImageSharp: {
+        fluid: any;
+      };
+    };
   };
 }
 
@@ -30,12 +35,15 @@ const Container = styled.div`
 const IndexPage: FunctionComponent<IndexPageProps> = function ({
   data: {
     allMarkdownRemark: { edges },
+    file: {
+      childImageSharp: { fluid },
+    },
   },
 }) {
   return (
     <Container>
       <GlobalStyle />
-      <Introduction />
+      <Introduction profileImage={fluid} />
       <CategoryList selectedCategory="JavaScript" categoryList={CATEGORY_LIST} />
       <PostList posts={edges}/>
       <Footer />
@@ -69,6 +77,13 @@ export const queryPostList = graphql`
               }
             }
           }
+        }
+      }
+    }
+    file(name: { eq: "profile-image" }) {
+      childImageSharp {
+        fluid(maxWidth: 120, maxHeight: 120, fit: INSIDE, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }

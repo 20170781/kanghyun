@@ -1,10 +1,13 @@
 // 소개글 구역에 사용할 프로필 이미지
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
+import Img, { FluidObject } from 'gatsby-image';
 
-const PROFILE_IMAGE_LINK = "https://avatars.githubusercontent.com/u/70627979?v=4"
+export interface ProfileImageProps {
+    profileImage: FluidObject;
+  }
 
-const ProfileImageWrapper = styled.img`
+const ProfileImageWrapper = styled(Img)`
     width: 120px;
     height: 120px;
     margin-bottom: 30px;
@@ -17,8 +20,8 @@ const ProfileImageWrapper = styled.img`
 `;
 
 
-const ProfileImage: FunctionComponent = () => {
-    return <ProfileImageWrapper src={PROFILE_IMAGE_LINK} alt="Profile Image"/>;
+const ProfileImage: FunctionComponent<ProfileImageProps> = ({profileImage}) => {
+    return <ProfileImageWrapper fluid={profileImage} alt="Profile Image"/>;
 }
 
 export default ProfileImage;
