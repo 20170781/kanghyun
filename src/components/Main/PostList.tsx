@@ -1,9 +1,10 @@
 // 여러 PostItem 묶는 포스트 리스트
-import React, { FunctionComponent, useCallback } from 'react';
+import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import { FluidObject } from 'gatsby-image';
 
 import PostItem from 'components/Main/PostItem';
+import useInfiniteScroll from 'hooks/useInfiniteScroll';
 
 export interface PostType {
   node: {
@@ -46,23 +47,11 @@ const PostList: FunctionComponent<PostListProps> = ({
   selectedCategory,
   posts,
 }) => {
-  const postListData = useCallback<any>(
-    posts.filter(
-      ({
-        node: {
-          frontmatter: { categories },
-        },
-      }: PostType) =>
-        selectedCategory !== 'All'
-          ? categories.includes(selectedCategory)
-          : true,
-    ),
-    [selectedCategory],
-  );
+  const { containerRef, postList } = useInfiniteScroll(selectedCategory, posts);
 
   return (
-    <PostListWrapper>
-      {postListData.map(({ node: { id, frontmatter } }: PostType) => (
+    <PostListWrapper ref={containerRef}>
+      {postList.map(({ node: { id, frontmatter } }: PostType) => (
         <PostItem
           {...frontmatter}
           link="<https://www.google.co.kr/>"

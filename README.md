@@ -1,24 +1,49 @@
-## 문제점 / 궁금한점
+## 문제점 / 궁금한점 / 해야할 일
 
 - EmotionJS에서 props를 styled 정의할 때 vs 호출할때 (className과 같은 속성은?)
+
 - map과 forEach의 차이점
+
+- useCallback vs useMemo
+
+  : useCallback: Returns a [memoized](https://en.wikipedia.org/wiki/Memoization) callback.
+
+    useMemo: Returns a [memoized](https://en.wikipedia.org/wiki/Memoization) value.
+
+  `useCallback(fn, deps)` = `useMemo(() => fn, deps)` 
+
 - list 관련 오류
+
+- SSR 오류
+
+- 커스텀 훅에서 카테고리별 필터링과 인피니티 스크롤을 구현하는 이유
+
+- useRef 재정리
+
+- IntersectionObserver에 대한 이해
+
+- infinite scroll 완벽 이해
+
 - 콘솔 창 에러 2개: `Each child in a list should have a unique "key" prop.`, `Expected server HTML to contain a matching <picture> in <div>`
+
 - index.tsx, PostList.tsx 간의 주고받는 데이터 확인 필요
+
 - gatsby-image 관련 부분 이해도 부족(이걸 써도 contents에 사진 저장하고, md에서 thumbnail에 이미지 url 적어줘야하는지)
 
 
 - atomic design 적용
 - 타입 모두 적용
 - ProfileImageProps를 적용했는데 any가 계속 뜸(props validation 오류를 해결하기 위해 any를 붙여줬는데, 그것 때문인듯?)
-- semantic web
-- ...파라미터 가 뭐징? : fragment??
+- gatsby 개발자 모드는 어떻게 실행할까?
+- ...파라미터에 대한 이해 : fragment??
 
 - EmotionJS styled뒤에 함수가 들어오는 것에 대하여 공부
   webkit의 이유: 크로스 브라우징 위해서(webkit: 크롬,사파리)
 
 - 블로그 기획단계부터 다시
-  첫 페이지 / (About, Portfolio, Blog) 구성?
+  - 첫 페이지 / (About, Portfolio, Blog) 구성?\
+  - semantic web
+  - 블로그 리스트 순서?
 
 - CategoryList
   - 함수 파라미터 타입을 함수 return 타입의 제네릭으로 주느닞?
@@ -64,10 +89,4 @@
 
    : 함수 파라미터에서 data 구조로 받아오고, 필요한 변수에 {}를 붙여 함수 내 변수 선언, 아니면 {data}로 파라미터를 받아오고, 함수 내에서 data.allMarkdownRemak. ... 이런 식으로 사용할 수도 있다. 
 
-8. useCallback vs useMemo
-
-   useCallback: Returns a [memoized](https://en.wikipedia.org/wiki/Memoization) callback.
-
-   useMemo: Returns a [memoized](https://en.wikipedia.org/wiki/Memoization) value.
-
-   `useCallback(fn, deps)` = `useMemo(() => fn, deps)`
+8. 
