@@ -1,8 +1,9 @@
 // 여러 PostItem 묶는 포스트 리스트
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useCallback } from 'react';
 import styled from '@emotion/styled';
-import PostItem from 'components/Main/PostItem';
 import { FluidObject } from 'gatsby-image';
+
+import PostItem from 'components/Main/PostItem';
 
 export interface PostType {
   node: {
@@ -22,6 +23,7 @@ export interface PostType {
 }
 
 interface PostListProps {
+  selectedCategory: string;
   posts: PostType[];
 }
 
@@ -40,10 +42,27 @@ const PostListWrapper = styled.div`
   }
 `;
 
-const PostList: FunctionComponent<PostListProps> = ({ posts }) => {
+const PostList: FunctionComponent<PostListProps> = ({
+  selectedCategory,
+  posts,
+}) => {
+  const postListData = useCallback<any>(
+    posts.filter(
+      ({
+        node: {
+          frontmatter: { categories },
+        },
+      }: PostType) =>
+        selectedCategory !== 'All'
+          ? categories.includes(selectedCategory)
+          : true,
+    ),
+    [selectedCategory],
+  );
+
   return (
     <PostListWrapper>
-      {posts.map(({ node: { id, frontmatter } }: PostType) => (
+      {postListData.map(({ node: { id, frontmatter } }: PostType) => (
         <PostItem
           {...frontmatter}
           link="<https://www.google.co.kr/>"

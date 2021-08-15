@@ -1,26 +1,26 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useCallback } from 'react';
 import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
+import queryString, { ParsedQuery } from 'query-string';
+
 import GlobalStyle from 'components/Common/GlobalStyle';
 import Introduction from 'components/Main/Introduction';
+import { ProfileImageProps } from 'components/Main/ProfileImage';
 import Footer from 'components/Common/Footer';
-import CategoryList from 'components/Main/CategoryList';
+import CategoryList, { CategoryListProps } from 'components/Main/CategoryList';
 import PostList, { PostType } from 'components/Main/PostList';
 
-const CATEGORY_LIST = {
-  All: 5,
-  JavaScript: 3,
-  TypeScript: 2,
-};
-
 interface IndexPageProps {
+  location: {
+    search: string;
+  };
   data: {
     allMarkdownRemark: {
       edges: PostType[];
     };
     file: {
       childImageSharp: {
-        fluid: any;
+        fluid: ProfileImageProps['profileImage'];
       };
     };
   };
@@ -33,6 +33,7 @@ const Container = styled.div`
 `;
 
 const IndexPage: FunctionComponent<IndexPageProps> = ({
+  location: { search },
   data: {
     allMarkdownRemark: { edges },
     file: {
@@ -40,15 +41,46 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({
     },
   },
 }: any) => {
+  const parsed: ParsedQuery<string> = queryString.parse(search);
+  const selectedCategory: string =
+    typeof parsed.category !== 'string' || !parsed.category
+      ? 'All'
+      : parsed.category;
+
+  const categoryList = useCallback(
+    edges.reduce(
+      (
+        list: CategoryListProps['categoryList'], // acc
+        {
+          node: {
+            frontmatter: { categories }, // cur
+          },
+        }: PostType,
+      ) => {
+        categories.forEach((category) => {
+          if (category in list) {
+            list[category] += 1;
+          } else {
+            list[category] = 1;
+          }
+        });
+        list.All += 1;
+        return list;
+      },
+      { All: 0 },
+    ),
+    [],
+  );
+
   return (
     <Container>
       <GlobalStyle />
       <Introduction profileImage={fluid} />
       <CategoryList
-        selectedCategory="JavaScript"
-        categoryList={CATEGORY_LIST}
+        selectedCategory={selectedCategory}
+        categoryList={categoryList}
       />
-      <PostList posts={edges} />
+      <PostList posts={edges} selectedCategory={selectedCategory} />
       <Footer />
     </Container>
   );

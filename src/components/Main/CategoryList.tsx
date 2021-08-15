@@ -52,10 +52,10 @@ const CategoryItem = styled(({ active, to, ...props }: GatsbyLinkProps) => (
   }
 `;
 
-const CategoryList: FunctionComponent<CategoryListProps> = (
+const CategoryList: FunctionComponent<CategoryListProps> = ({
   selectedCategory,
   categoryList,
-) => {
+}: any) => {
   return (
     <CategoryListWrapper>
       {Object.entries(categoryList).map(([name, count]) => (
