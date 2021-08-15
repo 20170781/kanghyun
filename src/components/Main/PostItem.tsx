@@ -1,7 +1,7 @@
 // 포스트 아이템
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
-import {Link} from 'gatsby'
+import { Link } from 'gatsby';
 import Img, { FluidObject } from 'gatsby-image';
 
 interface PostItemProps {
@@ -92,31 +92,31 @@ const Summary = styled.div`
   opacity: 0.8;
 `;
 
-const PostItem: FunctionComponent<PostItemProps> = function ({
+const PostItem: FunctionComponent<PostItemProps> = ({
   title,
   date,
   categories,
   summary,
   thumbnail: {
-    childImageSharp: { fluid }
+    childImageSharp: { fluid },
   },
   link,
-}) {
-    return (
-        <PostItemWrapper to={link}>
-            <ThumbnailImage fluid={fluid} alt="Post Item Image" />
-            <PostItemContent>
-                <Title>{title}</Title>
-                <Date>{date}</Date>
-                <Category>
-                    {categories.map(category => (
-                        <CategoryItem key={category}>{category}</CategoryItem>
-                    ))}
-                </Category>
-                <Summary>{summary}</Summary>
-            </PostItemContent>
-        </PostItemWrapper>
-    )
+}: any) => {
+  return (
+    <PostItemWrapper to={link}>
+      <ThumbnailImage fluid={fluid} alt="Post Item Image" />
+      <PostItemContent>
+        <Title>{title}</Title>
+        <Date>{date}</Date>
+        <Category>
+          {categories.map((category: any) => (
+            <CategoryItem key={category}>{category}</CategoryItem>
+          ))}
+        </Category>
+        <Summary>{summary}</Summary>
+      </PostItemContent>
+    </PostItemWrapper>
+  );
 };
 
 export default PostItem;

@@ -5,7 +5,7 @@ import GlobalStyle from 'components/Common/GlobalStyle';
 import Introduction from 'components/Main/Introduction';
 import Footer from 'components/Common/Footer';
 import CategoryList from 'components/Main/CategoryList';
-import PostList, {PostType} from 'components/Main/PostList';
+import PostList, { PostType } from 'components/Main/PostList';
 
 const CATEGORY_LIST = {
   All: 5,
@@ -30,22 +30,25 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
-`
+`;
 
-const IndexPage: FunctionComponent<IndexPageProps> = function ({
+const IndexPage: FunctionComponent<IndexPageProps> = ({
   data: {
     allMarkdownRemark: { edges },
     file: {
       childImageSharp: { fluid },
     },
   },
-}) {
+}: any) => {
   return (
     <Container>
       <GlobalStyle />
       <Introduction profileImage={fluid} />
-      <CategoryList selectedCategory="JavaScript" categoryList={CATEGORY_LIST} />
-      <PostList posts={edges}/>
+      <CategoryList
+        selectedCategory="JavaScript"
+        categoryList={CATEGORY_LIST}
+      />
+      <PostList posts={edges} />
       <Footer />
     </Container>
   );
@@ -54,8 +57,10 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
 export default IndexPage;
 
 export const queryPostList = graphql`
-  {
-    allMarkdownRemark {
+  query queryPostList {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
+    ) {
       edges {
         node {
           frontmatter {

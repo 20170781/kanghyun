@@ -14,12 +14,12 @@ export interface PostType {
       categories: string[];
       thumbnail: {
         childImageSharp: {
-          fluid: FluidObject
-        }
+          fluid: FluidObject;
+        };
       };
     };
   };
-};
+}
 
 interface PostListProps {
   posts: PostType[];
@@ -40,25 +40,18 @@ const PostListWrapper = styled.div`
   }
 `;
 
-const PostList: FunctionComponent<PostListProps> = function ({posts}) {
-    return (
-      <PostListWrapper>
-        {
-          posts.map(({
-            node: {
-              id,
-              frontmatter
-            },
-          }: PostType) =>(
-            <PostItem
-            {...frontmatter}
-            link="<https://www.google.co.kr/>"
-            key={id}
-          />
-          ))
-        }
-      </PostListWrapper>
-    );
-  };
+const PostList: FunctionComponent<PostListProps> = ({ posts }) => {
+  return (
+    <PostListWrapper>
+      {posts.map(({ node: { id, frontmatter } }: PostType) => (
+        <PostItem
+          {...frontmatter}
+          link="<https://www.google.co.kr/>"
+          key={id}
+        />
+      ))}
+    </PostListWrapper>
+  );
+};
 
 export default PostList;

@@ -46,18 +46,20 @@ const Title = styled.div`
   }
 `;
 
-const Introduction: FunctionComponent<IntroductionProps> = function ({profileImage}) {
-    return (
-      <Background>
-        <Wrapper>
-          <ProfileImage profileImage={profileImage} />
-          <div>
-            <SubTitle>Nice to Meet You,</SubTitle>
-            <Title>I'm Junior Frontend Developer KangHyun.</Title>
-          </div>
-        </Wrapper>
-      </Background>
-    );
-  };
-  
-  export default Introduction;
+const Introduction: FunctionComponent<IntroductionProps> = ({
+  profileImage,
+}: any) => {
+  return (
+    <Background>
+      <Wrapper>
+        <ProfileImage profileImage={profileImage} />
+        <div>
+          <SubTitle>Nice to Meet You,</SubTitle>
+          <Title>{"I'm Junior Frontend Developer KangHyun."}</Title>
+        </div>
+      </Wrapper>
+    </Background>
+  );
+};
+
+export default Introduction;

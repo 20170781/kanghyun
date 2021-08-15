@@ -2,7 +2,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 
-const FooterWrapper = styled.div`
+const FooterWrapper = styled.span`
   display: grid;
   place-items: center;
   margin-top: auto;
@@ -16,13 +16,14 @@ const FooterWrapper = styled.div`
   }
 `;
 
-const Footer: FunctionComponent = function () {
-    return (
-      <FooterWrapper>
-        Thank You for Visiting My Blog, Have a Good Day 😆
-        <br />© 2021 Developer KangHyun, Powered By Gatsby.
-      </FooterWrapper>
-    );
-  };
+const Footer: FunctionComponent = () => {
+  return (
+    // eslint-disable-next-line jsx-a11y/accessible-emoji
+    <FooterWrapper role="img" aria-labelledby="Smile">
+      Thank You for Visiting My Blog, Have a Good Day 😆
+      <br />© 2021 Developer KangHyun, Powered By Gatsby.
+    </FooterWrapper>
+  );
+};
 
 export default Footer;

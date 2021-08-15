@@ -27,7 +27,7 @@ const defaultStyle = css`
   }
 `;
 
-const GlobalStyle: FunctionComponent = function () {
+const GlobalStyle: FunctionComponent = () => {
   return <Global styles={defaultStyle} />;
 };
 

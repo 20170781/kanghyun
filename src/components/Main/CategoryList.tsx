@@ -1,7 +1,7 @@
 // 카테고리 목록
 import React, { FunctionComponent, ReactNode } from 'react';
 import styled from '@emotion/styled';
-import {Link} from 'gatsby'
+import { Link } from 'gatsby';
 
 export interface CategoryListProps {
   selectedCategory: string;
@@ -11,13 +11,13 @@ export interface CategoryListProps {
 }
 
 type CategoryItemProps = {
-    active: boolean;
+  active: boolean;
 };
-  
+
 type GatsbyLinkProps = {
-    children: ReactNode;
-    className?: string;
-    to: string;
+  children: ReactNode;
+  className?: string;
+  to: string;
 } & CategoryItemProps;
 
 const CategoryListWrapper = styled.div`
@@ -33,41 +33,41 @@ const CategoryListWrapper = styled.div`
   }
 `;
 
-//?
+// ?
 const CategoryItem = styled(({ active, to, ...props }: GatsbyLinkProps) => (
-    <Link to={to} {...props} />
-  ))<CategoryItemProps>`
-    margin-right: 20px;
-    padding: 5px 0;
-    font-size: 18px;
-    font-weight: ${({ active }) => (active ? '800' : '400')};
-    cursor: pointer;
-  
-    &:last-of-type {
-      margin-right: 0;
-    }
+  <Link to={to} {...props} />
+))<CategoryItemProps>`
+  margin-right: 20px;
+  padding: 5px 0;
+  font-size: 18px;
+  font-weight: ${({ active }) => (active ? '800' : '400')};
+  cursor: pointer;
 
-    @media (max-width: 768px) {
-      font-size: 15px;
-    }
-  `;
+  &:last-of-type {
+    margin-right: 0;
+  }
 
-const CategoryList: FunctionComponent<CategoryListProps> = function ({
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
+`;
+
+const CategoryList: FunctionComponent<CategoryListProps> = (
   selectedCategory,
   categoryList,
-}) {
+) => {
   return (
-      <CategoryListWrapper>
-          {Object.entries(categoryList).map(([name, count]) => (
-            <CategoryItem
-            to={`/?category=${name}`}
-            active={name === selectedCategory}
-            key={name}
-            >
-                #{name}({count})
-            </CategoryItem>
-          ))}
-      </CategoryListWrapper>
+    <CategoryListWrapper>
+      {Object.entries(categoryList).map(([name, count]) => (
+        <CategoryItem
+          to={`/?category=${name}`}
+          active={name === selectedCategory}
+          key={name}
+        >
+          #{name}({count})
+        </CategoryItem>
+      ))}
+    </CategoryListWrapper>
   );
 };
 
