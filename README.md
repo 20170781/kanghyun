@@ -24,6 +24,8 @@
 
 - infinite scroll 완벽 이해
 
+- gatsby-node.js에서 require 쓰는 이유
+
 - 콘솔 창 에러 2개: `Each child in a list should have a unique "key" prop.`, `Expected server HTML to contain a matching <picture> in <div>`
 
 - index.tsx, PostList.tsx 간의 주고받는 데이터 확인 필요

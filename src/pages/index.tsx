@@ -95,10 +95,13 @@ export const queryPostList = graphql`
     ) {
       edges {
         node {
+          id
+          fields {
+            slug
+          }
           frontmatter {
             categories
-            date
-            slug
+            date(formatString: "YYYY.MM.DD.")
             summary
             title
             thumbnail {

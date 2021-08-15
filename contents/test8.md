@@ -1,5 +1,4 @@
 ---
-slug: '/blog/my-8th-post'
 date: '2021-08-14'
 title: 'Test8
 '

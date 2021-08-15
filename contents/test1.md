@@ -1,5 +1,4 @@
 ---
-slug: '/blog/my-first-post'
 date: '2021-08-14'
 title: 'Test1'
 categories: ['JavaScript', 'SEO', 'Optimization', 'test']

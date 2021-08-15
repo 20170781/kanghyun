@@ -1,5 +1,4 @@
 ---
-slug: '/blog/my-6th-post'
 date: '2021-08-14'
 title: 'Test6'
 categories: ['TypeScript', 'SEO', 'Optimization']
