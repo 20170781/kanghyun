@@ -2,8 +2,6 @@
 
 - EmotionJS에서 props를 styled 정의할 때 vs 호출할때 (className과 같은 속성은?)
 
-- map과 forEach의 차이점
-
 - useCallback vs useMemo
 
   : useCallback: Returns a [memoized](https://en.wikipedia.org/wiki/Memoization) callback.
@@ -66,24 +64,27 @@
   - semantic web
   - 블로그 리스트 순서?
   
-  
 - 카카오 티스토리는 gatsby, next.js 둘다 안쓰고 구현한듯? 그렇다면 SEO 문제는 어떻게 해결했을까?
 
 
 
 ## 해결 목록
 
-1. GraphQL 설명 파트에서 metadataQuery를 따로 사용한게 없는데 내부 데이터를 가져옴. 
-   : 아래와 같이 변수에 Query를 담아주고, 이를 Export 해주면 Gatsby 내부적으로 요청을 보냅니다. 그럼 보낸 요청에 대한 응답으로 데이터를 Props로 전달해줍니다
+1. GraphQL Query를 변수에 선언 후, 사용하지 않고 props로 내부 데이터를 가져오는 이유('graphql 불러와서 바로 사용 하는 방법은 왜 안쓰는지?'와 통합)
+   : graphQL Data를 Gatsby에서 사용하는 방법이 두 가지가 있는데, 변수에 선언 후 해당 변수를 사용하는 방법(useStaticQuery)과 Props로 받아서 사용하는 방법(page query) 두 가지가 있다. 두 방법은 목적이 다르고 상황에 맞게 써야한다.
 
+   - `useStaticQuery` hook: to pull data into a 'building block' component
+   
+   - page query: to pull data into a page component
+   
+   아래와 같이 변수에 Query를 담아주고, 이를 Export 해주면 Gatsby 내부적으로 요청을 보냅니다. 그럼 보낸 요청에 대한 응답으로 데이터를 Props로 전달해줍니다
+   
 2. eslint, prettier가 정상작동 x
-   ... 오류 내용
-   ESLint: Failed to load config "airbnb" to extend from. 
+   오류 내용) ESLint: Failed to load config "airbnb" to extend from. 
    : airbnb-base를 설치해서 사용중이었는데, .eslintrc.js의 extends에서 airbnb로 설정하고 실행해서 생긴 오류
-   ...
 
 3. @emotion/styled, 절대 경로 오류
-   : @emotion/styled 라이브러리를 재다운로드, eslintrc.js의 rules에 'import/no-unresolved': 0, 추가
+   : @emotion/styled 라이브러리를 재다운로드, eslintrc.js의 rules에 'import/no-unresolved': 0, 추가 (동작에는 문제 없지만, EsLint에서 절대경로를 인식하지 못하는 경우 처리를 해줘야한다.)
 
 4. GraphiQL은 뭐고, GraphQL이랑 뭐가 다른거지?
 
@@ -93,18 +94,12 @@
 
 5. graphql`뒤에 query 변수명 {} 하는 이유, sort 안 order, limit은 뭐지?
 
-   : query 변수명 {}은 고유한 쿼리명을 지정할 경우 생기는 것, `sort` 필드를 이용해 GraphQL 쿼리에서 결과의 순서 제어
+   : query 변수명 {}은 고유한 쿼리명을 지정할 경우 생기는 것, `sort` 필드는 GraphQL 쿼리에서 결과의 순서 제어하는 방법이다.
 
-6. graphql 불러와서 바로 사용 하는 방법은 왜 안쓰는지?
+6. props 받아오는 방법
 
-   : 바로 가져와 쓰기 위해서는 `useStaticQuery` hook을 이용해야 한다. 두 가지의 목적이 다르기 때문에 상황에 맞게 사용하면 된다.
+   : 함수 파라미터에서 graphQL data 구조로 받아와 함수 내에서 사용하거나, 아니면 {data}로 파라미터를 받아오고, 함수 내에서 data.allMarkdownRemak. ... 이런 식으로 사용할 수도 있다. 
 
-   - `useStaticQuery` hook: to pull data into a 'building block' component
+7. map과 forEach의 차이점
 
-   - page query: to pull data into a page component
-
-7. props 받아오는 방법
-
-   : 함수 파라미터에서 data 구조로 받아오고, 필요한 변수에 {}를 붙여 함수 내 변수 선언, 아니면 {data}로 파라미터를 받아오고, 함수 내에서 data.allMarkdownRemak. ... 이런 식으로 사용할 수도 있다. 
-
-8. 
+   : return의 유무와 그에 따른 목적의 차이 발생 (정리 완료)
