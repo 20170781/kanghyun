@@ -46,6 +46,8 @@
 
 - `dangerouslySetInnerHTML` 속성을 이용해 문자열 형태 HTML 코드 가져오는 것에 대한 이해
 
+- Utterances는 script를 모든 Post에 그냥 붙여줘도 자동으로 개별 인식이 되는건가?
+
 - EmotionJS styled뒤에 함수가 들어오는 것에 대하여 공부
   webkit의 이유: 크로스 브라우징 위해서(webkit: 크롬,사파리)
 
