@@ -1,28 +1,52 @@
 ## 문제점 / 궁금한점 / 해야할 일
 
 - list 관련 오류
+
 - SSR 오류
+
 - IntersectionObserver에 대한 이해
+
 - infinite scroll 완벽 이해
+
 - gatsby-node.js에서 require 쓰는 이유, 수정 후 오류 (The "path" argument must be of type string. Received undefined at validateString)
+
 - 콘솔 창 에러 2개: `Each child in a list should have a unique "key" prop.`, `Expected server HTML to contain a matching <picture> in <div>`
+
 - index.tsx, PostList.tsx 간의 주고받는 데이터 확인 필요
+
 - gatsby-image 관련 부분 이해도 부족(이걸 써도 contents에 사진 저장하고, md에서 thumbnail에 이미지 url 적어줘야하는지)
+
 - gatsby-node.js는 뭐하는 곳인가?
+
 - ProfileImageProps를 적용했는데 any가 계속 뜸(props validation 오류를 해결하기 위해 any를 붙여줬는데, 그것 때문인듯?)
+
 - ...에 대한 이해 : fragment, 조금더 명확하게 이해하기
+
 - gatsby 개발자 모드는 어떻게 실행할까?
+
 - PostHead 부분에 인라인 속성 지정을 위해 !important 속성을 주는 것은 위험하다고 한다. 왜 위험할까?
+
 - PostHead, post_template의 data 타입 오류 (다른곳에서는 문제없음)
+
 - `dangerouslySetInnerHTML` 속성을 이용해 문자열 형태 HTML 코드 가져오는 것에 대한 이해
+
 - Utterances는 script를 모든 Post에 그냥 붙여줘도 자동으로 개별 인식이 되는건가?
+
 - EmotionJS styled뒤에 함수가 들어오는 것에 대하여 공부
   webkit의 이유: 크로스 브라우징 위해서(webkit: 크롬,사파리)
-- 노드 환경에서 url query문 제대로 인식x
+
+- category 클릭 시, 두 개 이상 표시되는 오류 해결(동작에는 문제x, 새로고침 시에 문제 발생.) 
+
+  -> 원인: node.js 환경에서 url query문을 읽어오지 못한다. 카테고리 선택 방식을 다른 방법으로 구현
+
 - CategoryList
 
   - 함수 파라미터 타입을 함수 return 타입의 제네릭으로 주느닞?
   - return 형태가 이상..?
+
+- 404.tsx가 js로 변형되지 않는 이유?
+
+- 메타 태그 추가 공부
 
 
 
@@ -86,6 +110,4 @@
 
    `useCallback(fn, deps)` = `useMemo(() => fn, deps)`  (정리 완료)
 
-10. category 클릭 시, 두 개 이상 표시되는 오류 해결(동작에는 문제x, 새로고침 시에 문제 발생.) 
-
-    -> 원인: node.js 환경에서 url query문을 읽어오지 못한다. 카테고리 선택 방식을 다른 방법으로 구현
+10. 
