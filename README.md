@@ -1,4 +1,12 @@
-## 문제점 / 궁금한점 / 해야할 일
+# 💻 개발 블로그 만들기
+
+👀 [https://kanghyun.netlify.app](https://kanghyun.netlify.app/)
+
+🔨 업데이트 진행중입니다
+
+
+
+## 🙄 문제점 / 궁금한점 / 해야할 일
 
 - list 관련 오류
 
@@ -66,7 +74,7 @@
 
 
 
-## 해결 목록
+## 😝 해결 목록
 
 1. GraphQL Query를 변수에 선언 후, 사용하지 않고 props로 내부 데이터를 가져오는 이유('graphql 불러와서 바로 사용 하는 방법은 왜 안쓰는지?'와 통합)
    : graphQL Data를 Gatsby에서 사용하는 방법이 두 가지가 있는데, 변수에 선언 후 해당 변수를 사용하는 방법(useStaticQuery)과 Props로 받아서 사용하는 방법(page query) 두 가지가 있다. 두 방법은 목적이 다르고 상황에 맞게 써야한다.
