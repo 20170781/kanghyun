@@ -2,8 +2,6 @@
 
 - list 관련 오류
 
-- SSR 오류
-
 - IntersectionObserver에 대한 이해
 
 - infinite scroll 완벽 이해
@@ -46,7 +44,11 @@
 
 - 404.tsx가 js로 변형되지 않는 이유?
 
+  gatsby-config.js에서 'gatsby-plugin-typescript'를 변경해주었더니 해결됨. (구체적인 이해 필요)
+
 - 메타 태그 추가 공부
+
+- Canonical Link Element, Sitemap, robots.txt 추가 이해
 
 
 
@@ -110,4 +112,9 @@
 
    `useCallback(fn, deps)` = `useMemo(() => fn, deps)`  (정리 완료)
 
-10. 
+10. SSR 오류
+
+    : 원인) IntersectionObserver API는 브라우저 API인데, 프로젝트 빌드 과정은 Node.js 환경에서 진행되기 때문에, IntersectionObserver가 Node.js 환경에서 정상적으로 작동하지 않는 것이다.
+
+    해결방법) React Hook인 useEffect(), useRef()를 활용해 
+

@@ -3,13 +3,16 @@ module.exports = {
     title: `Alex's Dev Blog`,
     description: `성장하는 개발 블로그입니다.`,
     author: `KangHyun`,
-    siteUrl: '<https://my-website-link.com>',
+    siteUrl: '<https://my-website.com>',
   },
   plugins: [
     'gatsby-plugin-typescript',
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     `gatsby-plugin-emotion`,
+    `gatsby-transformer-sharp`,
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-sitemap',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -24,8 +27,19 @@ module.exports = {
         path: `${__dirname}/static`,
       },
     },
-    `gatsby-transformer-sharp`,
-    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: '<https://my-website.com/>',
+        stripQueryString: true,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
