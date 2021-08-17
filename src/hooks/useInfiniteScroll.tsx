@@ -35,7 +35,8 @@ const useInfiniteScroll = (
     [selectedCategory],
   );
 
-  const observer = useRef<IntersectionObserver>(null);
+  const observer: MutableRefObject<IntersectionObserver | null> =
+    useRef<IntersectionObserver>(null);
 
   useEffect(() => {
     observer.current = new IntersectionObserver((entries, curObserver) => {
@@ -44,7 +45,7 @@ const useInfiniteScroll = (
       setCount((value) => value + 1);
       curObserver.disconnect();
     });
-  }, [count]); // 뭐 없어도 되는건가?
+  }, [count]); // count만 줘도 괜찮은가?
 
   // 카테고리 선택 시, count 초기화
   useEffect(() => setCount(1), [selectedCategory]);

@@ -50,6 +50,8 @@
 
 - Canonical Link Element, Sitemap, robots.txt 추가 이해
 
+- 유효하지 않은 siteURL on gatsby-config.js로 인해 build 및 develop 오류
+
 
 
 
