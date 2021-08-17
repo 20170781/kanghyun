@@ -3,7 +3,7 @@ module.exports = {
     title: `Alex's Dev Blog`,
     description: `성장하는 개발 블로그입니다.`,
     author: `KangHyun`,
-    siteUrl: 'https://my-website.com',
+    siteUrl: 'https://kanghyun.netlify.app',
   },
   plugins: [
     'gatsby-plugin-typescript',
@@ -30,7 +30,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'https://my-website.com/',
+        siteUrl: 'https://kanghyun.netlify.app',
         stripQueryString: true,
       },
     },
