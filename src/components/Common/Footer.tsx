@@ -2,7 +2,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 
-const FooterWrapper = styled.span`
+const FooterWrapper = styled.footer`
   display: grid;
   place-items: center;
   margin-top: auto;
