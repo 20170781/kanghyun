@@ -60,19 +60,20 @@
 
 - 유효하지 않은 siteURL on gatsby-config.js로 인해 build 및 develop 오류
 
+- 카카오 티스토리는 gatsby, next.js 둘다 안쓰고 구현한듯? 그렇다면 SEO 문제는 어떻게 해결했을까?
+
+
+
 
 
 
 - atomic design 적용
+
+- semantic web
+
 - 타입 모두 적용
-- 블로그 기획단계부터 다시
-  - 첫 페이지 / (About, Portfolio, Blog) 구성?
-  - semantic web
-  - 블로그 리스트 순서?
+
   
-- 카카오 티스토리는 gatsby, next.js 둘다 안쓰고 구현한듯? 그렇다면 SEO 문제는 어떻게 해결했을까?
-
-
 
 ## 😝 해결 목록
 
@@ -127,5 +128,3 @@
     : 원인) IntersectionObserver API는 브라우저 API인데, 프로젝트 빌드 과정은 Node.js 환경에서 진행되기 때문에, IntersectionObserver가 Node.js 환경에서 정상적으로 작동하지 않는 것이다.
 
     해결방법) React Hook인 useEffect(), useRef()를 활용해 
-
-# practice-git

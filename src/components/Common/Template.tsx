@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 
 import Footer from 'components/Common/Footer';
 import GlobalStyle from 'components/Common/GlobalStyle';
+import Header from 'components/Common/Header';
 
 interface TemplateProps {
   title: string;
@@ -63,6 +64,7 @@ const Template: FunctionComponent<TemplateProps> = ({
       </Helmet>
 
       <GlobalStyle />
+      <Header />
       {children}
       <Footer />
     </Container>

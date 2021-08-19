@@ -1,27 +1,33 @@
 // 페이지 하단 Footer
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
+import { Link } from 'gatsby';
 
 const FooterWrapper = styled.footer`
-  display: grid;
-  place-items: center;
-  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 50px 0;
   font-size: 15px;
-  text-align: center;
-  line-height: 1.5;
+  width: 768px;
+  margin: 0 auto;
 
   @media (max-width: 768px) {
     font-size: 13px;
+    width: 100%;
   }
 `;
+
+const CopyRight = styled.div``;
+
+const Github = styled(Link)``;
 
 const Footer: FunctionComponent = () => {
   return (
     // eslint-disable-next-line jsx-a11y/accessible-emoji
-    <FooterWrapper role="img" aria-labelledby="Smile">
-      Thank You for Visiting My Blog, Have a Good Day 😆
-      <br />© 2021 Developer KangHyun, Powered By Gatsby.
+    <FooterWrapper>
+      <CopyRight>© 2021 이강현 Powered By Gatsby</CopyRight>
+      <Github to="https://github.com/20170781">Github</Github>
     </FooterWrapper>
   );
 };
