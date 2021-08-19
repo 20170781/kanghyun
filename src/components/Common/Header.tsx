@@ -1,31 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
 const HeaderWrapper = styled.header`
+  position: fixed;
+  z-index: 999;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 4rem;
-  width: 768px;
+  width: 100%;
+  padding: 0 3%;
   margin: 0 auto;
-
-  @media (max-width: 768px) {
-    display: block;
-    width: 100%;
-    padding: 50px 20px;
-  }
+  background-color: ${({ scrollState }) =>
+    scrollState === 'header' ? 'none' : 'red'};
 `;
 
 const SiteTitle = styled(Link)`
   font-size: xx-large;
+
+  @media (max-width: 768px) {
+    font-size: x-large;
+  }
 `;
 
 const Menu = styled.nav``;
 
 const MenuList = styled.ul`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
 `;
 
 const MenuItem = styled.li`
@@ -38,8 +41,18 @@ const MenuItem = styled.li`
 const MenuURL = styled(Link)``;
 
 const Header = () => {
+  const [scrollState, setScrollState] = useState('header');
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      const headerClassName =
+        window.scrollY > 50 ? 'header_scrolling' : 'header';
+      setScrollState(headerClassName);
+    });
+  }, [scrollState]);
+
   return (
-    <HeaderWrapper>
+    <HeaderWrapper scrollState={scrollState}>
       <SiteTitle to="/">KANGHYUN</SiteTitle>
       <Menu>
         <MenuList>

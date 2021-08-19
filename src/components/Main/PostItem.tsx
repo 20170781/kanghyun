@@ -20,6 +20,8 @@ interface PostItemProps {
 const PostItemWrapper = styled(Link)`
   display: flex;
   flex-direction: column;
+  width: 23.5%;
+  margin-bottom: 1.618em;
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
   transition: 0.3s box-shadow;
@@ -27,6 +29,10 @@ const PostItemWrapper = styled(Link)`
 
   &:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
   }
 `;
 
