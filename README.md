@@ -18,8 +18,6 @@
 
 - 콘솔 창 에러 2개: `Each child in a list should have a unique "key" prop.`, `Expected server HTML to contain a matching <picture> in <div>`
 
-- index.tsx, PostList.tsx 간의 주고받는 데이터 확인 필요
-
 - gatsby-image 관련 부분 이해도 부족(이걸 써도 contents에 사진 저장하고, md에서 thumbnail에 이미지 url 적어줘야하는지)
 
 - gatsby-node.js는 뭐하는 곳인가?
@@ -27,8 +25,6 @@
 - ProfileImageProps를 적용했는데 any가 계속 뜸(props validation 오류를 해결하기 위해 any를 붙여줬는데, 그것 때문인듯?)
 
 - ...에 대한 이해 : fragment, 조금더 명확하게 이해하기
-
-- gatsby 개발자 모드는 어떻게 실행할까?
 
 - PostHead 부분에 인라인 속성 지정을 위해 !important 속성을 주는 것은 위험하다고 한다. 왜 위험할까?
 
@@ -61,8 +57,6 @@
 - 유효하지 않은 siteURL on gatsby-config.js로 인해 build 및 develop 오류
 
 - 카카오 티스토리는 gatsby, next.js 둘다 안쓰고 구현한듯? 그렇다면 SEO 문제는 어떻게 해결했을까?
-
-
 
 
 
