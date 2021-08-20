@@ -19,13 +19,15 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
 };
 
 // Generate a Slug Each Post Data
+// onCreateNode: 새 노드 생성될 때마다 호출되는 Gatsby 수명 메서드
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
+    // gatsby-source-filesystem 파일 경로를 URL로 변환
     const slug = createFilePath({ node, getNode });
 
-    createNodeField({ node, name: 'slug', value: slug });
+    createNodeField({ node, name: 'slug', value: `/blog${slug}` });
   }
 };
 
@@ -37,7 +39,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const queryAllMarkdownData = await graphql(
     `
       {
-        allMarkdownRemark(
+        postsRemark: allMarkdownRemark(
           sort: {
             order: DESC
             fields: [frontmatter___date, frontmatter___title]
@@ -48,7 +50,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               fields {
                 slug
               }
+              frontmatter {
+                categories
+              }
             }
+          }
+        }
+        categoriesGroup: allMarkdownRemark(limit: 2000) {
+          group(field: frontmatter___categories) {
+            fieldValue
           }
         }
       }
@@ -66,6 +76,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     'src/templates/post_template.tsx',
   );
 
+  const CategoriesTemplateComponent = path.resolve(
+    __dirname,
+    'src/templates/categories.tsx',
+  );
+
   // Page Generating Function
   const generatePostPage = ({
     node: {
@@ -81,6 +96,19 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     createPage(pageOptions);
   };
 
+  const generateCategoriesPage = ({ fieldValue }) => {
+    const pageOptions = {
+      path: `/blog/${fieldValue}`,
+      component: CategoriesTemplateComponent,
+      context: { fieldValue },
+    };
+
+    createPage(pageOptions);
+  };
+
   // Generate Post Page And Passing Slug Props for Query
-  queryAllMarkdownData.data.allMarkdownRemark.edges.forEach(generatePostPage);
+  queryAllMarkdownData.data.postsRemark.edges.forEach(generatePostPage);
+  queryAllMarkdownData.data.categoriesGroup.group.forEach(
+    generateCategoriesPage,
+  );
 };

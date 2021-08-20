@@ -74,6 +74,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = ({
 
 export default PostTemplate;
 
+// gatsby-node.js에서 context로 받은 값과 slug가 같은 데이터 출력
 export const queryMarkdownDataBySlug = graphql`
   query queryMarkdownDataBySlug($slug: String) {
     allMarkdownRemark(filter: { fields: { slug: { eq: $slug } } }) {

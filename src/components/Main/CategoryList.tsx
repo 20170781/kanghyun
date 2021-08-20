@@ -4,8 +4,7 @@ import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
 export interface CategoryListProps {
-  selectedCategory: string;
-  categoryList: {
+  group: {
     [key: string]: number;
   };
 }
@@ -34,13 +33,10 @@ const CategoryListWrapper = styled.div`
 `;
 
 // ?
-const CategoryItem = styled(({ active, to, ...props }: GatsbyLinkProps) => (
-  <Link to={to} {...props} />
-))<CategoryItemProps>`
+const CategoryItem = styled(Link)`
   margin-right: 20px;
   padding: 5px 0;
   font-size: 18px;
-  font-weight: ${({ active }) => (active ? '800' : '400')};
   cursor: pointer;
 
   &:last-of-type {
@@ -52,19 +48,18 @@ const CategoryItem = styled(({ active, to, ...props }: GatsbyLinkProps) => (
   }
 `;
 
-const CategoryList: FunctionComponent<CategoryListProps> = ({
-  selectedCategory,
+const CategoryList: FunctionComponent<any> = ({
   categoryList,
+  totalNum,
 }: any) => {
   return (
     <CategoryListWrapper>
-      {Object.entries(categoryList).map(([name, count]) => (
-        <CategoryItem
-          to={`/?category=${name}`}
-          active={name === selectedCategory}
-          key={name}
-        >
-          #{name}({count})
+      <CategoryItem to="/blog" key="All">
+        #All({totalNum})
+      </CategoryItem>
+      {categoryList.map(({ fieldValue, totalCount }) => (
+        <CategoryItem to={`/blog/${fieldValue}`} key={fieldValue}>
+          #{fieldValue}({totalCount})
         </CategoryItem>
       ))}
     </CategoryListWrapper>

@@ -27,7 +27,6 @@ export interface PostType {
 }
 
 interface PostListProps {
-  selectedCategory: string;
   posts: PostType[];
 }
 
@@ -46,11 +45,8 @@ const PostListWrapper = styled.div`
   }
 `;
 
-const PostList: FunctionComponent<PostListProps> = ({
-  selectedCategory,
-  posts,
-}) => {
-  const { containerRef, postList } = useInfiniteScroll(selectedCategory, posts);
+const PostList: FunctionComponent<PostListProps> = ({ posts }) => {
+  const { containerRef, postList } = useInfiniteScroll(posts);
 
   return (
     <PostListWrapper ref={containerRef}>

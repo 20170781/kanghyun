@@ -8,10 +8,7 @@ export type useInfiniteScrollType = {
 
 const NUMBER_OF_ITEMS_PER_PAGE = 10;
 
-const useInfiniteScroll = (
-  selectedCategory: string,
-  posts: PostType[],
-): useInfiniteScrollType => {
+const useInfiniteScroll = (posts: PostType[]): useInfiniteScrollType => {
   // 무한 스크롤을 위한 해당 DOM 참조: useRef
   const containerRef: MutableRefObject<HTMLDivElement | null> =
     useRef<HTMLDivElement>(null);
@@ -20,20 +17,20 @@ const useInfiniteScroll = (
   const [count, setCount] = useState<number>(1);
 
   // 카테고리에 따른 필터링(클릭 시에만 업데이트): useMemo
-  const postListByCategory = useMemo<PostType[]>(
-    () =>
-      posts.filter(
-        ({
-          node: {
-            frontmatter: { categories },
-          },
-        }: PostType) =>
-          selectedCategory !== 'All'
-            ? categories.includes(selectedCategory)
-            : true,
-      ),
-    [selectedCategory],
-  );
+  // const postListByCategory = useMemo<PostType[]>(
+  //   () =>
+  //     posts.filter(
+  //       ({
+  //         node: {
+  //           frontmatter: { categories },
+  //         },
+  //       }: PostType) =>
+  //         selectedCategory !== 'All'
+  //           ? categories.includes(selectedCategory)
+  //           : true,
+  //     ),
+  //   [selectedCategory],
+  // );
 
   const observer: MutableRefObject<IntersectionObserver | null> =
     useRef<IntersectionObserver>(null);
@@ -48,12 +45,12 @@ const useInfiniteScroll = (
   }, [count]); // count만 줘도 괜찮은가?
 
   // 카테고리 선택 시, count 초기화
-  useEffect(() => setCount(1), [selectedCategory]);
+  // useEffect(() => setCount(1), [selectedCategory]);
 
   // ref 선택된 component 마지막 값 도달 시
   useEffect(() => {
     if (
-      NUMBER_OF_ITEMS_PER_PAGE * count >= postListByCategory.length ||
+      NUMBER_OF_ITEMS_PER_PAGE * count >= posts.length ||
       containerRef.current === null ||
       containerRef.current.children.length === 0 ||
       observer.current === null
@@ -63,11 +60,11 @@ const useInfiniteScroll = (
     observer.current.observe(
       containerRef.current.children[containerRef.current.children.length - 1],
     );
-  }, [count, selectedCategory]);
+  }, [count, posts]);
 
   return {
     containerRef,
-    postList: postListByCategory.slice(0, count * NUMBER_OF_ITEMS_PER_PAGE),
+    postList: posts.slice(0, count * NUMBER_OF_ITEMS_PER_PAGE),
   };
 };
 
