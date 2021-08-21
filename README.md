@@ -10,10 +10,6 @@
 
 - list 관련 오류
 
-- IntersectionObserver에 대한 이해
-
-- infinite scroll 완벽 이해
-
 - gatsby-node.js에서 require 쓰는 이유, 수정 후 오류 (The "path" argument must be of type string. Received undefined at validateString)
 
 - 콘솔 창 에러 2개: `Each child in a list should have a unique "key" prop.`, `Expected server HTML to contain a matching <picture> in <div>`
@@ -122,3 +118,9 @@
     : 원인) IntersectionObserver API는 브라우저 API인데, 프로젝트 빌드 과정은 Node.js 환경에서 진행되기 때문에, IntersectionObserver가 Node.js 환경에서 정상적으로 작동하지 않는 것이다.
 
     해결방법) React Hook인 useEffect(), useRef()를 활용해 
+
+11. IntersectionObserver API와 이를 이용한 Infinite-Scroll 이해
+
+    : 정리 완료
+
+    

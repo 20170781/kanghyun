@@ -4,7 +4,7 @@ import React from 'react';
 const PortfolioPage = (props) => {
   return (
     <Template>
-      <h1>Portfolio Page</h1>;
+      <h1>Portfolio Page</h1>
     </Template>
   );
 };

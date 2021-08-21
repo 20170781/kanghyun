@@ -1,11 +1,13 @@
 import React, { FunctionComponent } from 'react';
 import { graphql } from 'gatsby';
 import { FluidObject } from 'gatsby-image';
+import styled from '@emotion/styled';
 
 import Template from 'components/Common/Template';
 import PostHead from 'components/Post/PostHead';
 import PostContent from 'components/Post/PostContent';
 import CommentWidget from 'components/Post/CommentWidget';
+import Toc from 'components/Main/Toc';
 
 interface PostTemplateProps {
   location: {
@@ -36,6 +38,10 @@ interface PostTemplateProps {
   };
 }
 
+const PostWrapper = styled.div`
+  display: flex;
+`;
+
 const PostTemplate: FunctionComponent<PostTemplateProps> = ({
   location: { href },
   data: {
@@ -58,6 +64,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = ({
     },
   } = edges[0];
 
+  // innerText  offsetTop
   return (
     <Template title={title} description={summary} url={href} image={publicURL}>
       <PostHead
@@ -66,7 +73,10 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = ({
         categories={categories}
         thumbnail={fluid}
       />
-      <PostContent html={html} />
+      <PostWrapper>
+        <PostContent html={html} />
+        <Toc />
+      </PostWrapper>
       <CommentWidget />
     </Template>
   );
