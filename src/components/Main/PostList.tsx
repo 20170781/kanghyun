@@ -1,7 +1,6 @@
 // 여러 PostItem 묶는 포스트 리스트
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
-import { FluidObject } from 'gatsby-image';
 
 import PostItem from 'components/Main/PostItem';
 import useInfiniteScroll from 'hooks/useInfiniteScroll';
@@ -17,11 +16,7 @@ export interface PostType {
       summary: string;
       date: string;
       categories: string[];
-      thumbnail: {
-        childImageSharp: {
-          fluid: FluidObject;
-        };
-      };
+      thumbnail: any;
     };
   };
 }

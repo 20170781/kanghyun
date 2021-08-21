@@ -9,48 +9,20 @@
 ## 🙄 문제점 / 궁금한점 / 해야할 일
 
 - list 관련 오류
-
-- gatsby-node.js에서 require 쓰는 이유, 수정 후 오류 (The "path" argument must be of type string. Received undefined at validateString)
-
+- gatsby-node.js에서 require 쓰는 이유, import 로 수정 시 오류 (The "path" argument must be of type string. Received undefined at validateString)
 - 콘솔 창 에러 2개: `Each child in a list should have a unique "key" prop.`, `Expected server HTML to contain a matching <picture> in <div>`
-
-- gatsby-image 관련 부분 이해도 부족(이걸 써도 contents에 사진 저장하고, md에서 thumbnail에 이미지 url 적어줘야하는지)
-
-- gatsby-node.js는 뭐하는 곳인가?
-
 - ProfileImageProps를 적용했는데 any가 계속 뜸(props validation 오류를 해결하기 위해 any를 붙여줬는데, 그것 때문인듯?)
-
-- ...에 대한 이해 : fragment, 조금더 명확하게 이해하기
-
 - PostHead 부분에 인라인 속성 지정을 위해 !important 속성을 주는 것은 위험하다고 한다. 왜 위험할까?
-
 - PostHead, post_template의 data 타입 오류 (다른곳에서는 문제없음)
-
 - `dangerouslySetInnerHTML` 속성을 이용해 문자열 형태 HTML 코드 가져오는 것에 대한 이해
-
 - Utterances는 script를 모든 Post에 그냥 붙여줘도 자동으로 개별 인식이 되는건가?
-
 - EmotionJS styled뒤에 함수가 들어오는 것에 대하여 공부
   webkit의 이유: 크로스 브라우징 위해서(webkit: 크롬,사파리)
-
-- category 클릭 시, 두 개 이상 표시되는 오류 해결(동작에는 문제x, 새로고침 시에 문제 발생.) 
-
-  -> 원인: node.js 환경에서 url query문을 읽어오지 못한다. 카테고리 선택 방식을 다른 방법으로 구현
-
-- CategoryList
-
-  - 함수 파라미터 타입을 함수 return 타입의 제네릭으로 주느닞?
-  - return 형태가 이상..?
-
-- 404.tsx가 js로 변형되지 않는 이유?
-
-  gatsby-config.js에서 'gatsby-plugin-typescript'를 변경해주었더니 해결됨. (구체적인 이해 필요)
-
 - 메타 태그 추가 공부
-
 - Canonical Link Element, Sitemap, robots.txt 추가 이해
-
 - 유효하지 않은 siteURL on gatsby-config.js로 인해 build 및 develop 오류
+
+
 
 - 카카오 티스토리는 gatsby, next.js 둘다 안쓰고 구현한듯? 그렇다면 SEO 문제는 어떻게 해결했을까?
 
@@ -119,8 +91,21 @@
 
     해결방법) React Hook인 useEffect(), useRef()를 활용해 
 
-11. IntersectionObserver API와 이를 이용한 Infinite-Scroll 이해
+11. 404.tsx가 js로 변형되지 않는 이유?
+
+    gatsby-config.js에서 'gatsby-plugin-typescript'를 변경해주었더니 해결됨.
+
+12. category 클릭 시, 두 개 이상 표시되는 오류 해결(동작에는 문제x, 새로고침 시에 문제 발생.) 
+
+    -> 원인: node.js 환경에서 url query문을 읽어오지 못한다. 카테고리 선택 방식을 다른 방법으로 구현
+
+    : category를 새로운 방식으로 구현 ([공식 문서](https://www.gatsbyjs.com/docs/adding-tags-and-categories-to-blog-posts/))
+
+13. IntersectionObserver API와 이를 이용한 Infinite-Scroll 이해
 
     : 정리 완료
 
-    
+14. gatsby-image 라이브러리 관련 이해 부족
+
+    : [gatsby-image](https://www.gatsbyjs.com/plugins/gatsby-image/) 라이브러리는 Gatsby 공식 홈페이지에서 더 이상 사용되지 않는다고 한다. 이에 대안으로 [GatsbyImage](https://www.gatsbyjs.com/docs/tutorial/part-7/ )(gatsby-image-plugin)와 [옵션](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image/#image-options)을 사용해 동일한 기능을 구현하도록 만들었다. (정리 완료)
+

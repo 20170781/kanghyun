@@ -17,7 +17,7 @@ interface IndexPageProps {
     file: {
       publicURL: string;
       childImageSharp: {
-        fluid: ProfileImageProps['profileImage'];
+        gatsbyImageData: any;
       };
     };
   };
@@ -30,7 +30,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({
     },
     file: {
       publicURL,
-      childImageSharp: { fluid },
+      childImageSharp: { gatsbyImageData },
     },
   },
 }: any) => {
@@ -41,7 +41,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({
       url={siteUrl}
       image={publicURL}
     >
-      <Introduction profileImage={fluid} />
+      <Introduction profileImage={gatsbyImageData} />
     </Template>
   );
 };
@@ -60,9 +60,15 @@ export const queryIndex = graphql`
     file(name: { eq: "profile-image" }) {
       publicURL
       childImageSharp {
-        fluid(maxWidth: 120, maxHeight: 120, fit: INSIDE, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(
+          quality: 100
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+          transformOptions: { fit: INSIDE }
+          layout: CONSTRAINED
+          width: 120
+          height: 120
+        )
       }
     }
   }

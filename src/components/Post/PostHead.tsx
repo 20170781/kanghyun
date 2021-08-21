@@ -1,17 +1,17 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
-import Img, { FluidObject } from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import PostHeadInfo, { PostHeadInfoProps } from 'components/Post/PostHeadInfo';
 
 type GatsbyImgProps = {
-  fluid: FluidObject;
+  gatsbyImageData: any;
   alt: string;
   className?: string;
 };
 
 interface PostHeadProps extends PostHeadInfoProps {
-  thumbnail: FluidObject;
+  thumbnail: any;
 }
 
 const PostHeadWrapper = styled.div`
@@ -26,7 +26,7 @@ const PostHeadWrapper = styled.div`
 
 // Img 컴포넌트에 기본적으로 적용되어있는 인라인 스타일 때문에 인라인 속성 여기에 작성
 const BackgroundImage = styled((props: GatsbyImgProps) => (
-  <Img {...props} style={{ position: 'absolute' }} />
+  <GatsbyImage {...props} style={{ position: 'absolute' }} />
 ))`
   z-index: -1;
   width: 100%;
@@ -47,7 +47,7 @@ const PostHead: FunctionComponent<PostHeadProps> = ({
 }) => {
   return (
     <PostHeadWrapper>
-      <BackgroundImage fluid={thumbnail} alt="thumbnail" />
+      <BackgroundImage image={thumbnail} alt="thumbnail" />
       <PostHeadInfo title={title} date={date} categories={categories} />
     </PostHeadWrapper>
   );

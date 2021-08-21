@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react';
 import { graphql } from 'gatsby';
-import { FluidObject } from 'gatsby-image';
 import styled from '@emotion/styled';
 
 import Template from 'components/Common/Template';
@@ -26,7 +25,7 @@ interface PostTemplateProps {
               categories: string[];
               thumbnail: {
                 childImageSharp: {
-                  fluid: FluidObject;
+                  gatsbyImageData: any;
                 };
                 publicURL: string;
               };
@@ -57,7 +56,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = ({
         date,
         categories,
         thumbnail: {
-          childImageSharp: { fluid },
+          childImageSharp: { gatsbyImageData },
           publicURL,
         },
       },
@@ -71,7 +70,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = ({
         title={title}
         date={date}
         categories={categories}
-        thumbnail={fluid}
+        thumbnail={gatsbyImageData}
       />
       <PostWrapper>
         <PostContent html={html} />
@@ -98,9 +97,12 @@ export const queryMarkdownDataBySlug = graphql`
             thumbnail {
               publicURL
               childImageSharp {
-                fluid(fit: INSIDE, quality: 100) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
+                gatsbyImageData(
+                  quality: 100
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                  transformOptions: { fit: INSIDE }
+                )
               }
             }
           }
