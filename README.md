@@ -12,7 +12,6 @@
 - gatsby-node.js에서 require 쓰는 이유, import 로 수정 시 오류 (The "path" argument must be of type string. Received undefined at validateString)
 - 콘솔 창 에러 2개: `Each child in a list should have a unique "key" prop.`, `Expected server HTML to contain a matching <picture> in <div>`
 - ProfileImageProps를 적용했는데 any가 계속 뜸(props validation 오류를 해결하기 위해 any를 붙여줬는데, 그것 때문인듯?)
-- PostHead 부분에 인라인 속성 지정을 위해 !important 속성을 주는 것은 위험하다고 한다. 왜 위험할까?
 - PostHead, post_template의 data 타입 오류 (다른곳에서는 문제없음)
 - `dangerouslySetInnerHTML` 속성을 이용해 문자열 형태 HTML 코드 가져오는 것에 대한 이해
 - Utterances는 script를 모든 Post에 그냥 붙여줘도 자동으로 개별 인식이 되는건가?
@@ -108,4 +107,8 @@
 14. gatsby-image 라이브러리 관련 이해 부족
 
     : [gatsby-image](https://www.gatsbyjs.com/plugins/gatsby-image/) 라이브러리는 Gatsby 공식 홈페이지에서 더 이상 사용되지 않는다고 한다. 이에 대안으로 [GatsbyImage](https://www.gatsbyjs.com/docs/tutorial/part-7/ )(gatsby-image-plugin)와 [옵션](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image/#image-options)을 사용해 동일한 기능을 구현하도록 만들었다. (정리 완료)
+    
+15. !important 속성을 주는 것은 위험하다고 한다. 왜 위험할까?
+
+    : CSS 소스 코드를 복잡하게 만들고, 특히 !important를 남발하게 되는 경우 디버깅이 어려워져 권장되지 않는다. 
 
