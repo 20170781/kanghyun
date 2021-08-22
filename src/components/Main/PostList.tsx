@@ -33,7 +33,7 @@ const PostListWrapper = styled.div`
   max-width: 72em;
   margin-left: auto;
   margin-right: auto;
-  padding: 50px 0 100px;
+  padding: 75px 0;
 
   @media (max-width: 1200px) {
     padding: 0 16px;

@@ -1,8 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import { graphql } from 'gatsby';
 
-import Introduction from 'components/Main/Introduction';
 import Template from 'components/Common/Template';
+import Introduction from 'components/Main/Introduction';
+import PortfolioSummary from 'components/Main/PortfolioSummary';
 
 interface IndexPageProps {
   data: {
@@ -35,6 +36,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({
       image={publicURL}
     >
       <Introduction />
+      <PortfolioSummary />
     </Template>
   );
 };
@@ -50,7 +52,7 @@ export const queryIndex = graphql`
         siteUrl
       }
     }
-    file(name: { eq: "background" }) {
+    file(name: { eq: "basic" }) {
       publicURL
     }
   }
