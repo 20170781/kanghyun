@@ -65,21 +65,22 @@ export const pageQuery = graphql`
             title
             thumbnail {
               childImageSharp {
-                fluid(
-                  maxWidth: 768
-                  maxHeight: 200
-                  fit: INSIDE
+                gatsbyImageData(
                   quality: 100
-                ) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                  transformOptions: { fit: INSIDE }
+                  layout: CONSTRAINED
+                  width: 768
+                  height: 200
+                )
               }
             }
           }
         }
       }
     }
-    file(name: { eq: "profile-image" }) {
+    file(name: { eq: "basic" }) {
       publicURL
     }
   }

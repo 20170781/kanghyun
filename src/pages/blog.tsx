@@ -93,7 +93,7 @@ export const queryPostList = graphql`
       }
       totalCount
     }
-    file(name: { eq: "profile-image" }) {
+    file(name: { eq: "basic" }) {
       publicURL
     }
   }
