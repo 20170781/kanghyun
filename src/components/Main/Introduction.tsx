@@ -1,64 +1,60 @@
-// 페이지 상단 소개글
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
-import ProfileImage, { ProfileImageProps } from 'components/Main/ProfileImage';
+import TextLoop from 'react-text-loop';
 
-type IntroductionProps = ProfileImageProps;
+const BACKGROUND_IMAGE_URL =
+  'https://pbs.twimg.com/media/E1oMV3QVgAIr1NT?format=jpg&name=large';
 
-const Background = styled.div`
+const HomeHeadWrapper = styled.div`
+  position: relative;
   width: 100%;
-  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
-  color: #ffffff;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url(${BACKGROUND_IMAGE_URL});
+  background-size: cover;
+  background-attachment: fixed;
+  background-position-x: center;
 `;
 
-const Wrapper = styled.div`
+const TextWrapper = styled.div`
+  height: 100%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  width: 768px;
-  height: 400px;
-  margin: 0 auto;
+  align-items: center;
 
-  @media (max-width: 768px) {
+  div {
     width: 100%;
-    height: 300px;
-    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 800;
   }
 `;
 
-const SubTitle = styled.div`
-  font-size: 20px;
-  font-weight: 400;
-
-  @media (max-width: 768px) {
-    font-size: 15px;
-  }
-`;
-
-const Title = styled.div`
-  margin-top: 5px;
-  font-size: 35px;
-  font-weight: 700;
-
-  @media (max-width: 768px) {
-    font-size: 25px;
-  }
-`;
-
-const Introduction: FunctionComponent<IntroductionProps> = ({
-  profileImage,
-}: any) => {
+const Introduction: FunctionComponent<any> = () => {
   return (
-    <Background>
-      <Wrapper>
-        <ProfileImage profileImage={profileImage} />
-        <div>
-          <SubTitle>Nice to Meet You,</SubTitle>
-          <Title>{"I'm Junior Frontend Developer KangHyun."}</Title>
-        </div>
-      </Wrapper>
-    </Background>
+    <HomeHeadWrapper>
+      <TextWrapper>
+        <TextLoop interval={3000}>
+          <span>
+            프론트엔드 개발자
+            <br />
+            이강현입니다
+          </span>
+          <span>
+            더 나은 세상을
+            <br />
+            만들기 위해 노력합니다
+          </span>
+          <span>
+            성장하는 모든 과정이
+            <br />
+            즐겁습니다
+          </span>
+        </TextLoop>
+      </TextWrapper>
+    </HomeHeadWrapper>
   );
 };
 
