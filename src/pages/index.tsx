@@ -2,29 +2,9 @@ import React, { FunctionComponent } from 'react';
 import { graphql } from 'gatsby';
 
 import Template from 'components/Common/Template';
-import Introduction from 'components/Main/Introduction';
-import PortfolioSummary from 'components/Main/PortfolioSummary';
-import BlogSummary from 'components/Main/BlogSummary';
+import Home from 'components/UI/templates/Home';
 
-interface IndexPageProps {
-  data: {
-    site: {
-      siteMetadata: {
-        title: string;
-        description: string;
-        siteUrl: string;
-      };
-    };
-    file: {
-      publicURL: string;
-    };
-    allMarkdownRemark: {
-      edges: any;
-    };
-  };
-}
-
-const IndexPage: FunctionComponent<IndexPageProps> = ({
+const IndexPage: FunctionComponent = ({
   data: {
     site: {
       siteMetadata: { title, description, siteUrl },
@@ -40,9 +20,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = ({
       url={siteUrl}
       image={publicURL}
     >
-      <Introduction />
-      <PortfolioSummary />
-      <BlogSummary posts={edges} />
+      <Home posts={edges} />
     </Template>
   );
 };
