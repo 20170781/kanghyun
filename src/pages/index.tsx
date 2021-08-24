@@ -52,6 +52,7 @@ export const queryIndex = graphql`
           frontmatter {
             title
             summary
+            date(formatString: "YYYY.MM.DD.")
             thumbnail {
               childImageSharp {
                 id

@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 const SUBTITLE_SIZE_DEFAULT = 1.5;
 const SUBTITLE_WEIGHT_DEFAULT = 700;
 
-const StyledSubTitle = styled.h2`
+const StyledSubTitle = styled.h3`
   font-size: ${({ size }) => size}rem;
   font-weight: ${({ weight }) => weight};
 `;
