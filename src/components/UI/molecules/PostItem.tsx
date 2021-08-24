@@ -9,7 +9,6 @@ import Title from 'components/UI/atoms/Title';
 const PostItemWrapper = styled(Link)`
   display: flex;
   flex-direction: column;
-  margin: 10px 8px;
   border-radius: 4px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
   transition: 0.3s box-shadow;

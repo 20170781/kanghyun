@@ -28,19 +28,13 @@ interface PostListProps {
 const PostListWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  max-width: 72rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 75px 0;
 
   & > .post {
-    width: 22rem;
+    width: 20rem;
     margin: 1rem;
   }
 
   @media (max-width: 1200px) {
-    padding: 0 16px;
-
     & > .post {
       width: 46%;
       margin: 2%;

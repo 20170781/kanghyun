@@ -15,9 +15,8 @@ interface TemplateProps {
 }
 
 const Container = styled.main`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  min-height: 100%;
+  position: relative;
 `;
 
 const Template: FunctionComponent<TemplateProps> = ({

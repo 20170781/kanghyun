@@ -11,7 +11,7 @@ const HeaderWrapper = styled.header`
   height: 4rem;
   width: 100%;
   padding: 0 3%;
-  margin: 0 auto;
+  top: 0;
   background-color: ${({ scrollState }) =>
     scrollState === 'header' ? 'none' : 'red'};
 `;
