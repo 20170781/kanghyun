@@ -6,10 +6,11 @@ import ThumbnailImage from 'components/UI/atoms/ThumbnailImage';
 import PostText from 'components/UI/atoms/PostText';
 import Title from 'components/UI/atoms/Title';
 
-const SlideItemWrapper = styled(Link)`
+const PostItemWrapper = styled(Link)`
   display: flex;
   flex-direction: column;
   margin: 10px 8px;
+  border-radius: 4px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
   transition: 0.3s box-shadow;
   cursor: pointer;
@@ -37,14 +38,14 @@ const PostItemContent = styled.div`
 
 const PostItem = ({ title, summary, date, thumbnail, link }) => {
   return (
-    <SlideItemWrapper to={link}>
+    <PostItemWrapper to={link} className="post">
       <ThumbnailImage imageData={thumbnail} alt="Slide Item Image" />
       <PostItemContent>
         <Title size="1.5" text={title} />
         <PostText limitLine="3" content={summary} />
         <PostText content={date} />
       </PostItemContent>
-    </SlideItemWrapper>
+    </PostItemWrapper>
   );
 };
 

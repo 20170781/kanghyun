@@ -2,7 +2,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 
-import PostItem from 'components/Main/PostItem';
+import PostItem from 'components/UI/molecules/PostItem';
 import useInfiniteScroll from 'hooks/useInfiniteScroll';
 
 export interface PostType {
@@ -28,15 +28,23 @@ interface PostListProps {
 const PostListWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 72em;
+  max-width: 72rem;
   margin-left: auto;
   margin-right: auto;
   padding: 75px 0;
 
+  & > .post {
+    width: 22rem;
+    margin: 1rem;
+  }
+
   @media (max-width: 1200px) {
     padding: 0 16px;
+
+    & > .post {
+      width: 46%;
+      margin: 2%;
+    }
   }
 `;
 

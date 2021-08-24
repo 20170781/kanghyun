@@ -1,9 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { graphql } from 'gatsby';
 
-import CategoryList from 'components/Main/CategoryList';
-import PostList, { PostType } from 'components/Main/PostList';
 import Template from 'components/Common/Template';
+import Blog from 'components/UI/templates/Blog';
 
 interface BlogPageProps {
   data: {
@@ -29,7 +28,7 @@ const BlogPage: FunctionComponent<BlogPageProps> = ({
     site: {
       siteMetadata: { title, description, siteUrl },
     },
-    allMarkdownRemark: { edges, group, totalCount },
+    allMarkdownRemark,
     file: { publicURL },
   },
 }: any) => {
@@ -40,8 +39,7 @@ const BlogPage: FunctionComponent<BlogPageProps> = ({
       url={siteUrl}
       image={publicURL}
     >
-      <CategoryList categoryList={group} totalNum={totalCount} />
-      <PostList posts={edges} />
+      <Blog {...allMarkdownRemark} />
     </Template>
   );
 };
