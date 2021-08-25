@@ -56,7 +56,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             }
           }
         }
-        categoriesGroup: allMarkdownRemark(limit: 2000) {
+        postsByTag: allMarkdownRemark(
+          sort: {
+            order: DESC
+            fields: [frontmatter___date, frontmatter___title]
+          }
+        ) {
           group(field: frontmatter___categories) {
             fieldValue
           }
@@ -76,9 +81,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     'src/page_template/post_template.tsx',
   );
 
-  const CategoriesTemplateComponent = path.resolve(
+  const BlogTemplateComponent = path.resolve(
     __dirname,
-    'src/page_template/categories.tsx',
+    'src/page_template/blog_template.tsx',
   );
 
   // Page Generating Function
@@ -87,28 +92,31 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       fields: { slug },
     },
   }) => {
-    const pageOptions = {
+    createPage({
       path: slug,
       component: PostTemplateComponent,
       context: { slug },
-    };
-
-    createPage(pageOptions);
+    });
   };
 
-  const generateCategoriesPage = ({ fieldValue }) => {
-    const pageOptions = {
+  const generateBlogPageByTag = ({ fieldValue }) => {
+    createPage({
       path: `/blog/${fieldValue}`,
-      component: CategoriesTemplateComponent,
+      component: BlogTemplateComponent,
       context: { fieldValue },
-    };
+    });
+  };
 
-    createPage(pageOptions);
+  const generateBlogPage = () => {
+    createPage({
+      path: `/blog`,
+      component: BlogTemplateComponent,
+      context: 'blog',
+    });
   };
 
   // Generate Post Page And Passing Slug Props for Query
   queryAllMarkdownData.data.postsRemark.edges.forEach(generatePostPage);
-  queryAllMarkdownData.data.categoriesGroup.group.forEach(
-    generateCategoriesPage,
-  );
+  queryAllMarkdownData.data.postsByTag.group.forEach(generateBlogPageByTag);
+  generateBlogPage();
 };
