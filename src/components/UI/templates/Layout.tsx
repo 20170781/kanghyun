@@ -2,11 +2,11 @@ import React, { FunctionComponent, ReactNode } from 'react';
 import styled from '@emotion/styled';
 import { Helmet } from 'react-helmet';
 
-import Footer from 'components/Common/Footer';
-import GlobalStyle from 'components/Common/GlobalStyle';
-import Header from 'components/Common/Header';
+import GlobalStyle from 'components/UI/atoms/GlobalStyle';
+import Footer from 'components/UI/organisms/Footer';
+import Header from 'components/UI/organisms/Header';
 
-interface TemplateProps {
+interface LayoutProps {
   title: string;
   description: string;
   url: string;
@@ -19,7 +19,7 @@ const Container = styled.main`
   position: relative;
 `;
 
-const Template: FunctionComponent<TemplateProps> = ({
+const Layout: FunctionComponent<LayoutProps> = ({
   title,
   description,
   url,
@@ -75,4 +75,4 @@ const Template: FunctionComponent<TemplateProps> = ({
   );
 };
 
-export default Template;
+export default Layout;

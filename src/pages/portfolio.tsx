@@ -1,11 +1,23 @@
-import Template from 'components/Common/Template';
 import React from 'react';
+import styled from '@emotion/styled';
+
+import Layout from 'components/UI/templates/Layout';
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const PortfolioPage = (props) => {
   return (
-    <Template>
-      <h1>Portfolio Page</h1>
-    </Template>
+    <Layout>
+      <Wrapper>
+        <h1>제작중입니다!</h1>
+      </Wrapper>
+    </Layout>
   );
 };
 

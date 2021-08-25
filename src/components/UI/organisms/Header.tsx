@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
+import PageNav from 'components/UI/molecules/PageNav';
+
 const HeaderWrapper = styled.header`
   position: fixed;
   z-index: 999;
@@ -12,8 +14,9 @@ const HeaderWrapper = styled.header`
   width: 100%;
   padding: 0 3%;
   top: 0;
+  color: white;
   background-color: ${({ scrollState }) =>
-    scrollState === 'header' ? 'none' : 'red'};
+    scrollState === 'header' ? 'none' : 'rgba(0,2,11,.9)'};
 `;
 
 const SiteTitle = styled(Link)`
@@ -23,22 +26,6 @@ const SiteTitle = styled(Link)`
     font-size: x-large;
   }
 `;
-
-const Menu = styled.nav``;
-
-const MenuList = styled.ul`
-  display: flex;
-  justify-content: flex-start;
-`;
-
-const MenuItem = styled.li`
-  list-style: none;
-  font-size: 1rem;
-  font-weight: 700;
-  margin-right: 22px;
-`;
-
-const MenuURL = styled(Link)``;
 
 const Header = () => {
   const [scrollState, setScrollState] = useState('header');
@@ -54,16 +41,7 @@ const Header = () => {
   return (
     <HeaderWrapper scrollState={scrollState}>
       <SiteTitle to="/">KANGHYUN</SiteTitle>
-      <Menu>
-        <MenuList>
-          <MenuItem>
-            <MenuURL to="/blog">BLOG</MenuURL>
-          </MenuItem>
-          <MenuItem>
-            <MenuURL to="/portfolio">PORTFOLIO</MenuURL>
-          </MenuItem>
-        </MenuList>
-      </Menu>
+      <PageNav />
     </HeaderWrapper>
   );
 };

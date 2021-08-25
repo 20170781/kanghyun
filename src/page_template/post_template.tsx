@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { graphql } from 'gatsby';
 
-import Template from 'components/Common/Template';
+import Layout from 'components/UI/templates/Layout';
 import Post from 'components/UI/templates/Post';
 
 interface PostTemplateProps {
@@ -57,7 +57,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = ({
 
   // innerText  offsetTop
   return (
-    <Template title={title} description={summary} url={href} image={publicURL}>
+    <Layout title={title} description={summary} url={href} image={publicURL}>
       <Post
         title={title}
         date={date}
@@ -65,7 +65,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = ({
         thumbnail={gatsbyImageData}
         html={html}
       />
-    </Template>
+    </Layout>
   );
 };
 

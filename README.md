@@ -6,9 +6,10 @@
 
 
 
-## 🙄 문제점 / 궁금한점 / 해야할 일
+## 🙄 문제점 / 궁금한점
 
 - list 관련 오류
+- brower.js에 대하여
 - gatsby-node.js에서 require 쓰는 이유, import 로 수정 시 오류 (The "path" argument must be of type string. Received undefined at validateString)
 - 콘솔 창 에러 2개: `Each child in a list should have a unique "key" prop.`, `Expected server HTML to contain a matching <picture> in <div>`
 - ProfileImageProps를 적용했는데 any가 계속 뜸(props validation 오류를 해결하기 위해 any를 붙여줬는데, 그것 때문인듯?)
@@ -20,21 +21,28 @@
 - 메타 태그 추가 공부
 - Canonical Link Element, Sitemap, robots.txt 추가 이해
 - 유효하지 않은 siteURL on gatsby-config.js로 인해 build 및 develop 오류
-
-
-
 - 카카오 티스토리는 gatsby, next.js 둘다 안쓰고 구현한듯? 그렇다면 SEO 문제는 어떻게 해결했을까?
 
 
 
+## 🧐 계획
 
-- atomic design 적용
+- 다크모드 추가
+- Blog에 이미지 추가
+- TOC 사이즈 조절
+- Portfolio 구현
 
-- semantic web
+- 전반적인 디자인
+- 타입 적용
+- 반응형 디자인
 
-- 타입 모두 적용
+
+- atomic design
+
+- Tag, Page 클릭 시 표시
 
   
+
 
 ## 😝 해결 목록
 

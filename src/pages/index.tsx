@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { graphql } from 'gatsby';
 
-import Template from 'components/Common/Template';
+import Layout from 'components/UI/templates/Layout';
 import Home from 'components/UI/templates/Home';
 
 const IndexPage: FunctionComponent = ({
@@ -14,14 +14,14 @@ const IndexPage: FunctionComponent = ({
   },
 }: any) => {
   return (
-    <Template
+    <Layout
       title={title}
       description={description}
       url={siteUrl}
       image={publicURL}
     >
       <Home posts={edges} />
-    </Template>
+    </Layout>
   );
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import Template from 'components/Common/Template';
+import Layout from 'components/UI/templates/Layout';
 import Blog from 'components/UI/templates/Blog';
 
 const Categories = ({
@@ -18,13 +18,13 @@ const Categories = ({
 
   const selectedData = fieldValue ? data.filtered : data.unfiltered;
   return (
-    <Template {...BlogMetaData}>
+    <Layout {...BlogMetaData}>
       <Blog
         tags={data.allFile.group}
         totalNum={data.allFile.totalCount}
         posts={selectedData.edges}
       />
-    </Template>
+    </Layout>
   );
 };
 
