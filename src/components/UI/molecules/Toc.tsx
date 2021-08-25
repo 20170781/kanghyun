@@ -7,6 +7,10 @@ const TocWrapper = styled.aside`
   top: 140px;
   width: 20%;
   height: fit-content;
+
+  @media (max-width: 1200px) {
+    display: none;
+  } ;
 `;
 
 const TocItem = styled.div`
@@ -21,7 +25,7 @@ const Toc = () => {
   const [contents, setContents] = useState({});
 
   useEffect(() => {
-    setContents(document.querySelectorAll('h3'));
+    setContents(document.querySelectorAll('h1,h2,h3'));
   }, []);
 
   const contentsArr = Object.entries(contents).map(([key, value]) => {

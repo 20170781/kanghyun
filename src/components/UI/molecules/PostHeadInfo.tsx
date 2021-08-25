@@ -1,6 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 
+import Title from 'components/UI/atoms/Title';
+import PostText from 'components/UI/atoms/PostText';
+
 export interface PostHeadInfoProps {
   title: string;
   date: string;
@@ -20,22 +23,9 @@ const PostHeadInfoWrapper = styled.div`
     width: 100%;
     padding: 40px 20px;
   }
-`;
 
-const Title = styled.div`
-  display: -webkit-box;
-  overflow: hidden;
-  overflow-wrap: break-word;
-  margin-top: auto;
-  text-overflow: ellipsis;
-  white-space: normal;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  font-size: 45px;
-  font-weight: 800;
-
-  @media (max-width: 768px) {
-    font-size: 30px;
+  & > h2 {
+    margin-top: auto;
   }
 `;
 
@@ -44,30 +34,24 @@ const PostData = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
-  font-size: 18px;
-  font-weight: 700;
 
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: flex-start;
-    font-size: 15px;
-    font-weight: 400;
   }
 `;
 
 const PostHeadInfo: FunctionComponent<PostHeadInfoProps> = ({
   title,
   date,
-  categories,
+  tags,
 }) => {
-  const goBackPage = () => window.history.back();
-
   return (
     <PostHeadInfoWrapper>
-      <Title>{title}</Title>
+      <Title text={title} size={2.5} />
       <PostData>
-        <div>{categories.join(' / ')}</div>
-        <div>{date}</div>
+        <PostText content={tags.join(' / ')} />
+        <PostText content={date} />
       </PostData>
     </PostHeadInfoWrapper>
   );

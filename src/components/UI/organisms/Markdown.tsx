@@ -9,9 +9,9 @@ const MarkdownRenderer = styled.div`
   // Renderer Style
   display: flex;
   flex-direction: column;
-  width: 768px;
+  width: 75%;
   margin: 0 auto;
-  padding: 100px 0;
+  padding-top: 100px;
   word-break: break-all;
 
   // Markdown Style
@@ -129,8 +129,8 @@ const MarkdownRenderer = styled.div`
   }
 `;
 
-const PostContent: FunctionComponent<PostContentProps> = ({ html }) => {
+const Markdown: FunctionComponent<PostContentProps> = ({ html }) => {
   return <MarkdownRenderer dangerouslySetInnerHTML={{ __html: html }} />;
 };
 
-export default PostContent;
+export default Markdown;
