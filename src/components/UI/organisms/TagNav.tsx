@@ -13,11 +13,11 @@ const TagListWrapper = styled.div`
   }
 `;
 
-const TagNav = ({ tags, totalCount }) => {
+const TagNav = ({ tags, totalNum }) => {
   return (
     <TagListWrapper>
       <PostText content="태그 목록" weight="700" />
-      <TagList tags={tags} totalNum={totalCount} />
+      <TagList tags={tags} totalNum={totalNum} />
     </TagListWrapper>
   );
 };

@@ -12,11 +12,11 @@ const BlogWrapper = styled.div`
   padding: 75px 0;
 `;
 
-const Blog = ({ group, totalCount, edges }) => {
+const Blog = ({ tags, totalNum, posts }) => {
   return (
     <BlogWrapper>
-      <TagNav tags={group} totalNum={totalCount} />
-      <PostList posts={edges} />
+      <TagNav tags={tags} totalNum={totalNum} />
+      <PostList posts={posts} />
     </BlogWrapper>
   );
 };

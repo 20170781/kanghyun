@@ -1,37 +1,19 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
 
 import Template from 'components/Common/Template';
 import Blog from 'components/UI/templates/Blog';
 
-interface BlogPageProps {
-  data: {
-    site: {
-      siteMetadata: {
-        title: string;
-        description: string;
-        siteUrl: string;
-      };
-    };
-    allMarkdownRemark: {
-      edges: PostType[];
-      group: any;
-    };
-    file: {
-      publicURL: string;
-    };
-  };
-}
-
-const BlogPage: FunctionComponent<BlogPageProps> = ({
+const Categories = ({
   data: {
     site: {
       siteMetadata: { title, description, siteUrl },
     },
-    allMarkdownRemark: { edges, group, totalCount },
+    allFile: { group, totalCount },
+    allMarkdownRemark: { edges },
     file: { publicURL },
   },
-}: any) => {
+}) => {
   return (
     <Template
       title={title}
@@ -44,10 +26,10 @@ const BlogPage: FunctionComponent<BlogPageProps> = ({
   );
 };
 
-export default BlogPage;
+export default Categories;
 
-export const queryPostList = graphql`
-  query queryPostList {
+export const pageQuery = graphql`
+  query ($fieldValue: String) {
     site {
       siteMetadata {
         title
@@ -55,9 +37,18 @@ export const queryPostList = graphql`
         siteUrl
       }
     }
+    allFile(filter: { extension: { eq: "md" } }) {
+      group(field: childMarkdownRemark___frontmatter___categories) {
+        fieldValue
+        totalCount
+      }
+      totalCount
+    }
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
+      filter: { frontmatter: { categories: { in: [$fieldValue] } } }
     ) {
+      totalCount
       edges {
         node {
           id
@@ -85,11 +76,6 @@ export const queryPostList = graphql`
           }
         }
       }
-      group(field: frontmatter___categories) {
-        fieldValue
-        totalCount
-      }
-      totalCount
     }
     file(name: { eq: "basic" }) {
       publicURL
