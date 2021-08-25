@@ -5,7 +5,7 @@ const TEXT_SIZE_DEFAULT = 1;
 const LIMIT_LINE_DEFAULT = 0;
 const TEXT_WEIGHT_DEFAULT = 500;
 
-const StyledPostText = styled.p`
+const StyledText = styled.p`
   font-size: ${({ size }) => size}rem;
   font-weight: ${({ weight }) => weight};
   line-height: 26px;
@@ -17,17 +17,17 @@ const StyledPostText = styled.p`
   overflow: hidden;
 `;
 
-const PostText = ({
+const Text = ({
   content,
   size = TEXT_SIZE_DEFAULT,
   weight = TEXT_WEIGHT_DEFAULT,
   limitLine = LIMIT_LINE_DEFAULT,
 }) => {
   return (
-    <StyledPostText size={size} weight={weight} limitLine={limitLine}>
+    <StyledText size={size} weight={weight} limitLine={limitLine}>
       {content}
-    </StyledPostText>
+    </StyledText>
   );
 };
 
-export default PostText;
+export default Text;

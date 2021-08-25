@@ -3,7 +3,7 @@ import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
-import PostText from 'components/UI/atoms/PostText';
+import Text from 'components/UI/atoms/Text';
 
 const FooterWrapper = styled.footer`
   display: flex;
@@ -26,7 +26,7 @@ const Footer: FunctionComponent = () => {
   return (
     // eslint-disable-next-line jsx-a11y/accessible-emoji
     <FooterWrapper>
-      <PostText content="© 2021 이강현 Powered By Gatsby" />
+      <Text content="© 2021 이강현 Powered By Gatsby" />
       <Github to="https://github.com/20170781">Github</Github>
     </FooterWrapper>
   );

@@ -8,7 +8,6 @@ const LIMIT_LINE_DEFAULT = 2;
 const StyledTitle = styled.h2`
   font-size: ${({ size }) => size}rem;
   font-weight: ${({ weight }) => weight};
-  line-height: 2rem;
   -webkit-line-clamp: ${({ limitLine }) => limitLine};
   -webkit-box-orient: vertical;
   display: -webkit-box;

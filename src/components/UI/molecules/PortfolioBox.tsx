@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import SubTitle from 'components/UI/atoms/SubTitle';
-import PostText from 'components/UI/atoms/PostText';
+import Text from 'components/UI/atoms/Text';
 
 const BoxWrapper = styled.li`
   list-style: none;
@@ -19,7 +19,7 @@ const PortfolioBox = ({ text, content }) => {
   return (
     <BoxWrapper>
       <SubTitle text={text} />
-      <PostText content={content} />
+      <Text content={content} />
     </BoxWrapper>
   );
 };

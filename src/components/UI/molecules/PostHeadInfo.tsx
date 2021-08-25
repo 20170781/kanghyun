@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 
 import Title from 'components/UI/atoms/Title';
-import PostText from 'components/UI/atoms/PostText';
+import Text from 'components/UI/atoms/Text';
 
 export interface PostHeadInfoProps {
   title: string;
@@ -50,8 +50,8 @@ const PostHeadInfo: FunctionComponent<PostHeadInfoProps> = ({
     <PostHeadInfoWrapper>
       <Title text={title} size={2.5} />
       <PostData>
-        <PostText content={tags.join(' / ')} />
-        <PostText content={date} />
+        <Text content={tags.join(' / ')} />
+        <Text content={date} />
       </PostData>
     </PostHeadInfoWrapper>
   );

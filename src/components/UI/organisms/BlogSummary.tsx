@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import PostItem from 'components/UI/molecules/PostItem';
+import PostCard from 'components/UI/molecules/PostCard';
 import Title from 'components/UI/atoms/Title';
 
 const SummarySection = styled.section`
@@ -79,7 +79,7 @@ const BlogSummary = ({ posts }) => {
                   frontmatter,
                 },
               }: PostType) => (
-                <PostItem {...frontmatter} link={slug} key={id} />
+                <PostCard {...frontmatter} link={slug} key={id} />
               ),
             )}
           </SlideList>

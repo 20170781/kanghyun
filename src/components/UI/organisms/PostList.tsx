@@ -1,8 +1,8 @@
-// 여러 PostItem 묶는 포스트 리스트
+// 여러 PostCard 묶는 포스트 리스트
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 
-import PostItem from 'components/UI/molecules/PostItem';
+import PostCard from 'components/UI/molecules/PostCard';
 import useInfiniteScroll from 'hooks/useInfiniteScroll';
 
 export interface PostType {
@@ -55,7 +55,7 @@ const PostList: FunctionComponent<PostListProps> = ({ posts }) => {
             frontmatter,
           },
         }: PostType) => (
-          <PostItem {...frontmatter} link={slug} key={id} />
+          <PostCard {...frontmatter} link={slug} key={id} />
         ),
       )}
     </PostListWrapper>
