@@ -13,7 +13,7 @@ export interface PostHeadInfoProps {
 const PostHeadInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 768px;
+  width: 75%;
   height: 100%;
   margin: 0 auto;
   padding: 60px 0;
@@ -33,9 +33,9 @@ const PostData = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 1rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 828px) {
     flex-direction: column;
     align-items: flex-start;
   }
