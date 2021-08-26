@@ -6,24 +6,30 @@ import PageNav from 'components/UI/molecules/PageNav';
 
 const HeaderWrapper = styled.header`
   position: fixed;
-  z-index: 999;
+  z-index: 10;
+  height: 4rem;
+  width: 100%;
+  top: 0;
+`;
+
+const HeaderList = styled.div`
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 4rem;
-  width: 100%;
-  padding: 0 3%;
-  top: 0;
+  margin-right: 10px;
+  padding: 0 1rem;
   color: white;
   background-color: ${({ scrollState }) =>
     scrollState === 'header' ? 'none' : 'rgba(0,2,11,.9)'};
 `;
 
 const SiteTitle = styled(Link)`
-  font-size: xx-large;
+  font-size: 1.7rem;
 
-  @media (max-width: 768px) {
-    font-size: x-large;
+  @media (max-width: 828px) {
+    font-size: 1.5rem;
   }
 `;
 
@@ -40,8 +46,10 @@ const Header = () => {
 
   return (
     <HeaderWrapper scrollState={scrollState}>
-      <SiteTitle to="/">KANGHYUN</SiteTitle>
-      <PageNav />
+      <HeaderList>
+        <SiteTitle to="/">KANGHYUN</SiteTitle>
+        <PageNav />
+      </HeaderList>
     </HeaderWrapper>
   );
 };

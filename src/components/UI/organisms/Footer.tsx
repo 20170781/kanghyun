@@ -9,14 +9,15 @@ const FooterWrapper = styled.footer`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 50px 0;
-  font-size: 15px;
-  width: 72rem;
+  width: 100%;
+  padding: 3rem 5rem;
   margin: 0 auto;
+  font-size: 1rem;
 
-  @media (max-width: 768px) {
-    font-size: 13px;
-    width: 100%;
+  @media (max-width: 828px) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 2em;
   }
 `;
 

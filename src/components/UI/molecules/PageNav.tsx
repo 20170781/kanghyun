@@ -6,13 +6,12 @@ const Menu = styled.nav``;
 
 const MenuList = styled.ul`
   display: flex;
-  justify-content: flex-start;
 `;
 
 const MenuItem = styled.li`
   list-style: none;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 500;
   margin-right: 22px;
 
   &:hover {

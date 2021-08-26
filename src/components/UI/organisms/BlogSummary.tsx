@@ -11,6 +11,7 @@ const SummarySection = styled.section`
   width: 100%;
   padding: 6rem 0;
   background-color: #f1f2f4;
+  overflow: hidden;
 
   @media (max-width: 828px) {
     padding: 4rem 1rem;

@@ -47,13 +47,6 @@ const Layout: FunctionComponent<LayoutProps> = ({
           <meta property="og:url" content={url} />
           <meta property="og:site_name" content={title} />
 
-          <meta name="twitter:card" content="summary" />
-          <meta name="twitter:title" content={title} />
-          <meta name="twitter:description" content={description} />
-          <meta name="twitter:image" content={image} />
-          <meta name="twitter:site" content="@사용자이름" />
-          <meta name="twitter:creator" content="@사용자이름" />
-
           <meta
             name="google-site-verification"
             content="Ygvyk6ZHJVAD31G3WJYZZ7FnR6c52Rvj1vSMnEMdodk"
