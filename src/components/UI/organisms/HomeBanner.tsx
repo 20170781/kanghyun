@@ -4,15 +4,12 @@ import TextLoop from 'react-text-loop';
 
 import BannerText from 'components/UI/atoms/BannerText';
 
-const BACKGROUND_IMAGE_URL =
-  'https://pbs.twimg.com/media/E1oMV3QVgAIr1NT?format=jpg&name=large';
-
 const HomeHeadWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background-image: url(${BACKGROUND_IMAGE_URL});
+  background-image: url(${({ backgroundImageURL }) => backgroundImageURL});
   background-size: cover;
   background-attachment: fixed;
   background-position-x: center;
@@ -31,9 +28,9 @@ const TextWrapper = styled.div`
   }
 `;
 
-const Introduction: FunctionComponent<any> = () => {
+const Introduction: FunctionComponent<any> = ({ backgroundImageURL }) => {
   return (
-    <HomeHeadWrapper>
+    <HomeHeadWrapper backgroundImageURL={backgroundImageURL}>
       <TextWrapper>
         <TextLoop interval={3000}>
           <BannerText>

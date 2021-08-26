@@ -4,12 +4,14 @@ import { graphql } from 'gatsby';
 import Layout from 'components/UI/templates/Layout';
 import Home from 'components/UI/templates/Home';
 
+const HOME_BACKGROUND_IMAGE_URL =
+  'https://res.cloudinary.com/du2sma6fw/image/upload/v1629941392/home_image.jpg';
+
 const IndexPage: FunctionComponent = ({
   data: {
     site: {
       siteMetadata: { title, description, siteUrl },
     },
-    file: { publicURL },
     allMarkdownRemark: { edges },
   },
 }: any) => {
@@ -18,9 +20,9 @@ const IndexPage: FunctionComponent = ({
       title={title}
       description={description}
       url={siteUrl}
-      image={publicURL}
+      image={HOME_BACKGROUND_IMAGE_URL}
     >
-      <Home posts={edges} />
+      <Home posts={edges} backgroundImageURL={HOME_BACKGROUND_IMAGE_URL} />
     </Layout>
   );
 };
@@ -35,9 +37,6 @@ export const queryIndex = graphql`
         description
         siteUrl
       }
-    }
-    file(name: { eq: "basic" }) {
-      publicURL
     }
     allMarkdownRemark(
       limit: 9

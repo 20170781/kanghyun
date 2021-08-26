@@ -9,9 +9,10 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: gray;
 `;
 
-const PortfolioPage = (props) => {
+const PortfolioPage = () => {
   return (
     <Layout>
       <Wrapper>

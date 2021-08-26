@@ -4,6 +4,9 @@ import { graphql } from 'gatsby';
 import Layout from 'components/UI/templates/Layout';
 import Blog from 'components/UI/templates/Blog';
 
+const BLOG_BACKGROUND_IMAGE_URL =
+  'https://res.cloudinary.com/du2sma6fw/image/upload/v1629942455/blog_image.jpg';
+
 const Categories = ({
   data,
   location: { href },
@@ -12,7 +15,7 @@ const Categories = ({
   const BlogMetaData = {
     title: 'Blog List',
     description: '개발 블로그 목록',
-    image: data.file.publicURL,
+    image: BLOG_BACKGROUND_IMAGE_URL,
     url: href,
   };
 
@@ -23,6 +26,7 @@ const Categories = ({
         tags={data.allFile.group}
         totalNum={data.allFile.totalCount}
         posts={selectedData.edges}
+        backgroundImageURL={BLOG_BACKGROUND_IMAGE_URL}
       />
     </Layout>
   );
@@ -64,10 +68,6 @@ export const pageQuery = graphql`
         totalCount
       }
       totalCount
-    }
-
-    file(name: { eq: "basic" }) {
-      publicURL
     }
 
     filtered: allMarkdownRemark(
