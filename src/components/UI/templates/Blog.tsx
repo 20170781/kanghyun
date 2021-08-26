@@ -1,16 +1,20 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 
+import PageIntroduction from 'components/UI/organisms/PageIntroduction';
 import TagNav from 'components/UI/organisms/TagNav';
 import PostList, { PostType } from 'components/UI/organisms/PostList';
-import PageIntroduction from '../organisms/PageIntroduction';
 
 const BlogWrapper = styled.div`
   display: flex;
   max-width: 75rem;
   margin-left: auto;
   margin-right: auto;
-  padding: 75px 0;
+  padding: 5rem 1rem;
+
+  @media (max-width: 828px) {
+    display: block;
+  }
 `;
 
 const Blog = ({ tags, totalNum, posts, backgroundImageURL }) => {

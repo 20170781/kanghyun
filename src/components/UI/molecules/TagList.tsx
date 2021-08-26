@@ -13,6 +13,12 @@ export interface CategoryListProps {
 const SyledTagList = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 828px) {
+    flex-direction: row;
+    padding-bottom: 0.5rem;
+    overflow: auto;
+  }
 `;
 
 const TagList = ({ tags, totalNum }) => {

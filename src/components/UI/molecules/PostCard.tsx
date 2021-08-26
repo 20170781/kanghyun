@@ -31,7 +31,7 @@ const PostCardContent = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
-  height: 16rem;
+  height: 14rem;
   background-color: white;
 
   & > p {

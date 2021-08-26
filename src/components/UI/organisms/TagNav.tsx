@@ -6,10 +6,18 @@ import Text from 'components/UI/atoms/Text';
 
 const TagListWrapper = styled.div`
   min-width: 9rem;
-  padding-top: 1rem;
+  padding: 1rem 0;
+
+  @media (max-width: 828px) {
+    padding: 1rem;
+  }
 
   & > p {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+
+    @media (max-width: 828px) {
+      display: none;
+    }
   }
 `;
 

@@ -12,7 +12,7 @@ const MenuItem = styled.li`
   list-style: none;
   font-size: 1rem;
   font-weight: 500;
-  margin-right: 22px;
+  margin-left: 1rem;
 
   &:hover {
     opacity: 0.6;

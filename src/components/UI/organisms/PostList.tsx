@@ -30,14 +30,21 @@ const PostListWrapper = styled.div`
   flex-wrap: wrap;
 
   & > .post {
-    width: 20rem;
-    margin: 1rem;
+    width: 30%;
+    margin: 1.6%;
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 828px) {
     & > .post {
       width: 46%;
       margin: 2%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    & > .post {
+      width: 100%;
+      margin-bottom: 2rem;
     }
   }
 `;
