@@ -2,7 +2,11 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
-const Menu = styled.nav``;
+const Menu = styled.nav`
+  height: 100%;
+  display: flex;
+  align-items: center;
+`;
 
 const MenuList = styled.ul`
   display: flex;
@@ -10,7 +14,7 @@ const MenuList = styled.ul`
 
 const MenuItem = styled.li`
   list-style: none;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 500;
   margin-left: 1rem;
 

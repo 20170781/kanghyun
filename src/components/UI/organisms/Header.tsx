@@ -18,14 +18,17 @@ const HeaderList = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-right: 10px;
-  padding: 0 1rem;
+  padding: 0 5%;
   color: white;
+  transition: background 0.3s;
   background-color: ${({ scrollState }) =>
     scrollState === 'header' ? 'none' : 'rgba(0,2,11,.9)'};
 `;
 
 const SiteTitle = styled(Link)`
+  height: 100%;
+  display: flex;
+  align-items: center;
   font-size: 1.7rem;
 
   @media (max-width: 828px) {
@@ -40,13 +43,14 @@ const Header = () => {
     window.addEventListener('scroll', () => {
       const headerClassName =
         window.scrollY > 50 ? 'header_scrolling' : 'header';
+
       setScrollState(headerClassName);
     });
   }, [scrollState]);
 
   return (
-    <HeaderWrapper scrollState={scrollState}>
-      <HeaderList>
+    <HeaderWrapper>
+      <HeaderList scrollState={scrollState}>
         <SiteTitle to="/">KANGHYUN</SiteTitle>
         <PageNav />
       </HeaderList>

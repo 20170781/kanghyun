@@ -34,6 +34,7 @@ const TextWrapper = styled.div`
 
   & p {
     margin-top: 1rem;
+
     @media (max-width: 828px) {
       font-size: 1rem;
     }
