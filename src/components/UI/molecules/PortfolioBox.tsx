@@ -6,12 +6,22 @@ import Text from 'components/UI/atoms/Text';
 
 const BoxWrapper = styled.li`
   list-style: none;
-  width: 310px;
+  width: 20rem;
   display: flex;
   flex-direction: column;
+  padding: 0 0.5rem;
 
-  & > p {
-    padding-top: 20px;
+  & > h3 {
+    padding-bottom: 1rem;
+  }
+
+  @media (max-width: 828px) {
+    width: 100%;
+    padding-bottom: 2.5rem;
+
+    & > h3 {
+      font-size: 1.2rem;
+    }
   }
 `;
 

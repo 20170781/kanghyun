@@ -9,51 +9,69 @@ import Title from 'components/UI/atoms/Title';
 
 const SummarySection = styled.section`
   width: 100%;
-  height: 110vh;
-  padding: 100px 0;
+  padding: 6rem 0;
   background-color: #f1f2f4;
+
+  @media (max-width: 828px) {
+    padding: 4rem 1rem;
+  }
 `;
 
 const SummaryWrapper = styled.div`
   max-width: 72rem;
   margin-left: auto;
   margin-right: auto;
+  padding: 0 1rem;
 
-  @media (max-width: 1200px) {
-    padding: 75px 16px;
+  @media (max-width: 828px) {
+    & h2 {
+      font-size: 1.4rem;
+    }
   }
 `;
 
 const ContentWrapper = styled.div`
-  padding-top: 30px;
+  padding-top: 1.5rem;
+
+  @media (max-width: 828px) {
+    padding-top: 1rem;
+  }
 `;
 
 const SlideList = styled(Slider)`
-  overflow-x: clip;
   position: relative;
 
-  .slick-arrow {
+  & .slick-arrow {
     position: absolute;
-    top: -20px;
-    font-size: 25px;
-    right: 8px;
+    top: -2.5rem;
+    right: 0.1rem;
     left: unset;
-    width: 40px;
-    height: 40px;
+    width: 2.5rem;
+    height: 2.5rem;
 
-    @media (max-width: 768px) {
-      visibility: hidden;
+    @media (max-width: 828px) {
+      top: -1.5rem;
     }
   }
 
-  .slick-prev {
-    right: 48px;
+  & .slick-list {
+    @media (max-width: 828px) {
+      overflow: unset;
+    }
   }
 
-  .slick-prev:before,
+  & .slick-prev {
+    right: 2.8rem;
+  }
+
+  & .slick-prev:before,
   .slick-next:before {
     color: gray;
-    font-size: 40px;
+    font-size: 2.5rem;
+  }
+
+  & .slick-slide {
+    padding: 0 0.5rem;
   }
 `;
 
@@ -64,11 +82,27 @@ const BlogSummary = ({ posts }) => {
     slidesToShow: 3,
     slidesToScroll: 3,
     initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 828,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
     <SummarySection>
       <SummaryWrapper>
-        <Title text="Latest Posts" />
+        <Title text="Latest Posts" size="2" />
         <ContentWrapper>
           <SlideList {...settings}>
             {posts.map(

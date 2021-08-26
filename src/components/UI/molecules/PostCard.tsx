@@ -9,7 +9,6 @@ import Title from 'components/UI/atoms/Title';
 const PostCardWrapper = styled(Link)`
   display: flex;
   flex-direction: column;
-  border-radius: 4px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
   transition: 0.3s box-shadow;
   cursor: pointer;
@@ -21,26 +20,35 @@ const PostCardWrapper = styled(Link)`
 
 const ThumbnailImage = styled(GatsbyImage)`
   width: 100%;
-  height: 170px;
+  height: 10rem;
 
-  @media (max-width: 768px) {
-    height: 140px;
+  @media (max-width: 828px) {
+    height: 8rem;
   }
 `;
 
 const PostCardContent = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 30px;
+  padding: 1.5rem;
   height: 16rem;
   background-color: white;
 
   & > p {
-    padding-top: 20px;
+    padding-top: 1.2rem;
   }
 
-  @media (max-width: 768px) {
-    padding: 10px;
+  @media (max-width: 828px) {
+    padding: 1rem;
+    height: 12rem;
+
+    & h2 {
+      font-size: 1.2rem;
+    }
+
+    & p {
+      font-size: 0.875rem;
+    }
   }
 `;
 

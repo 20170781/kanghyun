@@ -6,35 +6,52 @@ import Title from 'components/UI/atoms/Title';
 
 const SummarySection = styled.section`
   width: 100%;
-  height: 100vh;
-  padding: 100px 0;
+  padding: 6rem 0;
   background-color: white;
+
+  @media (max-width: 828px) {
+    padding: 4rem 1rem;
+  }
 `;
 
 const SummaryWrapper = styled.div`
   max-width: 72rem;
   margin-left: auto;
   margin-right: auto;
+  padding: 0 1rem;
 
-  @media (max-width: 1200px) {
-    padding: 75px 16px;
+  @media (max-width: 828px) {
+    & h2 {
+      font-size: 1.4rem;
+    }
   }
 `;
 
 const ContentWrapper = styled.div`
-  padding-top: 30px;
+  padding-top: 4rem;
+
+  @media (max-width: 828px) {
+    padding-top: 3rem;
+  }
 `;
 
 const PortfolioBoxes = styled.ul`
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 828px) {
+    flex-direction: column;
+  }
 `;
 
 const PortfolioSummary = () => {
   return (
     <SummarySection>
       <SummaryWrapper>
-        <Title text="제가 가진 방향성은 더 나은 세상을 만드는 것입니다." />
+        <Title
+          text="제가 가진 방향성은 더 나은 세상을 만드는 것입니다."
+          size="2"
+        />
         <ContentWrapper>
           <PortfolioBoxes>
             <PortfolioBox
