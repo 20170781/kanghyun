@@ -1,13 +1,17 @@
 // 카테고리 목록
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FC } from 'react';
 import styled from '@emotion/styled';
 
 import Tag from 'components/UI/atoms/Tag';
 
-export interface CategoryListProps {
-  group: {
-    [key: string]: number;
-  };
+export interface TagValueProps {
+  fieldValue: string;
+  totalCount: number;
+}
+
+export interface TagListType {
+  tags: TagValueProps[];
+  totalNum: number;
 }
 
 const SyledTagList = styled.div`
@@ -21,11 +25,11 @@ const SyledTagList = styled.div`
   }
 `;
 
-const TagList = ({ tags, totalNum }) => {
+const TagList: FC<TagListType> = ({ tags, totalNum }) => {
   return (
     <SyledTagList>
       <Tag tagName="All" tagNum={totalNum} tagLink={`/blog`} key="All" />
-      {tags.map(({ fieldValue, totalCount }) => (
+      {tags.map(({ fieldValue, totalCount }: TagValueProps) => (
         <Tag
           tagName={fieldValue}
           tagNum={totalCount}

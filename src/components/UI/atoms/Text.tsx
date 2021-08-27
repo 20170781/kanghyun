@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from '@emotion/styled';
 
 const TEXT_SIZE_DEFAULT = 1;
 const LIMIT_LINE_DEFAULT = 0;
 const TEXT_WEIGHT_DEFAULT = 500;
 
-const StyledText = styled.p`
+interface TextType {
+  content: string;
+  size?: number;
+  weight?: number;
+  limitLine?: number;
+}
+
+const StyledText = styled.p<Omit<TextType, 'content'>>`
   font-size: ${({ size }) => size}rem;
   font-weight: ${({ weight }) => weight};
   line-height: 26px;
@@ -17,7 +24,7 @@ const StyledText = styled.p`
   overflow: hidden;
 `;
 
-const Text = ({
+const Text: FC<TextType> = ({
   content,
   size = TEXT_SIZE_DEFAULT,
   weight = TEXT_WEIGHT_DEFAULT,

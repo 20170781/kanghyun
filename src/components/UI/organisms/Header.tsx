@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, FC } from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
@@ -12,7 +12,7 @@ const HeaderWrapper = styled.header`
   top: 0;
 `;
 
-const HeaderList = styled.div`
+const HeaderList = styled.div<{ scrollState: string }>`
   width: 100%;
   height: 100%;
   display: flex;
@@ -36,7 +36,7 @@ const SiteTitle = styled(Link)`
   }
 `;
 
-const Header = () => {
+const Header: FC = () => {
   const [scrollState, setScrollState] = useState('header');
 
   useEffect(() => {

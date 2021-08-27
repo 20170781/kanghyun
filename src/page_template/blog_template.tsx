@@ -1,13 +1,36 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from 'components/UI/templates/Layout';
 import Blog from 'components/UI/templates/Blog';
+import { PostType } from 'components/UI/organisms/PostList';
+import { TagValueProps } from 'components/UI/molecules/TagList';
 
 const BLOG_BACKGROUND_IMAGE_URL =
   'https://res.cloudinary.com/du2sma6fw/image/upload/v1629942455/blog_image.jpg';
 
-const Categories = ({
+interface BlogType {
+  data: {
+    allFile: {
+      group: TagValueProps[];
+      totalCount: number;
+    };
+    filtered: {
+      edges: PostType[];
+    };
+    unfiltered: {
+      edges: PostType[];
+    };
+  };
+  location: {
+    href: string;
+  };
+  pageContext: {
+    fieldValue: string | undefined;
+  };
+}
+
+const Categories: FC<BlogType> = ({
   data,
   location: { href },
   pageContext: { fieldValue },
@@ -41,10 +64,9 @@ export const pageQuery = graphql`
       slug
     }
     frontmatter {
-      categories
-      date(formatString: "YYYY.MM.DD.")
-      summary
       title
+      summary
+      date(formatString: "YYYY.MM.DD.")
       thumbnail {
         childImageSharp {
           gatsbyImageData(

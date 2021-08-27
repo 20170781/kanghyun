@@ -1,6 +1,7 @@
 // 여러 PostCard 묶는 포스트 리스트
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import styled from '@emotion/styled';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 import PostCard from 'components/UI/molecules/PostCard';
 import useInfiniteScroll from 'hooks/useInfiniteScroll';
@@ -15,13 +16,16 @@ export interface PostType {
       title: string;
       summary: string;
       date: string;
-      categories: string[];
-      thumbnail: any;
+      thumbnail: {
+        childImageSharp: {
+          gatsbyImageData: IGatsbyImageData;
+        };
+      };
     };
   };
 }
 
-interface PostListProps {
+export interface PostListProps {
   posts: PostType[];
 }
 
@@ -49,7 +53,7 @@ const PostListWrapper = styled.div`
   }
 `;
 
-const PostList: FunctionComponent<PostListProps> = ({ posts }) => {
+const PostList: FC<PostListProps> = ({ posts }) => {
   const { containerRef, postList } = useInfiniteScroll(posts);
 
   return (
@@ -62,7 +66,7 @@ const PostList: FunctionComponent<PostListProps> = ({ posts }) => {
             frontmatter,
           },
         }: PostType) => (
-          <PostCard {...frontmatter} link={slug} key={id} />
+          <PostCard {...frontmatter} slug={slug} key={id} />
         ),
       )}
     </PostListWrapper>

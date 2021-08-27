@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import styled from '@emotion/styled';
 
 import PortfolioBox from 'components/UI/molecules/PortfolioBox';
@@ -44,13 +44,13 @@ const PortfolioBoxes = styled.ul`
   }
 `;
 
-const PortfolioSummary = () => {
+const PortfolioSummary: FC = () => {
   return (
     <SummarySection>
       <SummaryWrapper>
         <Title
           text="제가 가진 방향성은 더 나은 세상을 만드는 것입니다."
-          size="2"
+          size={2}
         />
         <ContentWrapper>
           <PortfolioBoxes>

@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from 'react';
-import { graphql } from 'gatsby';
+import React, { FC } from 'react';
+import { graphql, PageProps } from 'gatsby';
 
 import Layout from 'components/UI/templates/Layout';
 import Home from 'components/UI/templates/Home';
@@ -7,14 +7,14 @@ import Home from 'components/UI/templates/Home';
 const HOME_BACKGROUND_IMAGE_URL =
   'https://res.cloudinary.com/du2sma6fw/image/upload/v1629941392/home_image.jpg';
 
-const IndexPage: FunctionComponent = ({
+const IndexPage: FC<PageProps> = ({
   data: {
     site: {
       siteMetadata: { title, description, siteUrl },
     },
     allMarkdownRemark: { edges },
   },
-}: any) => {
+}) => {
   return (
     <Layout
       title={title}

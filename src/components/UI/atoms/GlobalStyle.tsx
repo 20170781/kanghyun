@@ -1,6 +1,6 @@
 // 전역 스타일
 
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import { Global, css } from '@emotion/react';
 
 const defaultStyle = css`
@@ -25,7 +25,7 @@ const defaultStyle = css`
   }
 `;
 
-const GlobalStyle: FunctionComponent = () => {
+const GlobalStyle: FC = () => {
   return <Global styles={defaultStyle} />;
 };
 

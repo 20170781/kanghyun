@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
+
+interface TagType {
+  tagName: string;
+  tagNum: number;
+  tagLink: string;
+}
 
 const StyledTag = styled(Link)`
   display: flex;
@@ -23,7 +29,7 @@ const StyledTag = styled(Link)`
   }
 `;
 
-const Tag = ({ tagName, tagNum, tagLink }) => {
+const Tag: FC<TagType> = ({ tagName, tagNum, tagLink }) => {
   return (
     <StyledTag to={tagLink}>
       {tagName}

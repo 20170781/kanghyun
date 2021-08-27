@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from '@emotion/styled';
 
 import Layout from 'components/UI/templates/Layout';
@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   background-color: gray;
 `;
 
-const PortfolioPage = () => {
+const PortfolioPage: FC = () => {
   return (
     <Layout>
       <Wrapper>

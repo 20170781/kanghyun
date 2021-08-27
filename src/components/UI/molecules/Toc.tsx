@@ -1,5 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, FC } from 'react';
 import styled from '@emotion/styled';
+
+interface TocItemType {
+  innerText: string;
+  offsetTop: number;
+  localName: string;
+}
 
 const TocWrapper = styled.aside`
   position: sticky;
@@ -14,7 +20,7 @@ const TocWrapper = styled.aside`
   } ;
 `;
 
-const TocItem = styled.div`
+const TocItem = styled.div<{ paddingSize: number }>`
   cursor: pointer;
   font-size: 0.875rem;
   padding-top: ${({ paddingSize }) => 1.5 - paddingSize}rem;
@@ -27,18 +33,22 @@ const TocItem = styled.div`
   }
 `;
 
-const Toc = () => {
+const Toc: FC = () => {
   const [contents, setContents] = useState({});
 
   useEffect(() => {
     setContents(document.querySelectorAll('h2,h3'));
   }, []);
 
-  const contentsArr = Object.values(contents).map((value) => {
-    return [value.innerText, value.offsetTop, value.localName];
+  const contentsArr: TocItemType[] = Object.values(contents).map((value) => {
+    return {
+      elementTitle: value.innerText,
+      elementTop: value.offsetTop,
+      localName: value.localName,
+    };
   });
 
-  const onClickToc = (contentsTop) => {
+  const onClickToc = (contentsTop: number) => {
     if (!contentsTop) {
       return;
     }
@@ -49,20 +59,20 @@ const Toc = () => {
     });
   };
 
-  const separateTocItem = (localName) => {
+  const separateTocItem = (localName: string) => {
     const paddingSize = localName === 'h2' ? 0.875 : 1.25;
     return paddingSize;
   };
 
   return (
     <TocWrapper>
-      {contentsArr.map(([contentsName, contentsTop, localName]) => (
+      {contentsArr.map(({ elementTitle, elementTop, localName }) => (
         <TocItem
-          key={contentsName}
-          onClick={() => onClickToc(contentsTop)}
+          key={elementTitle}
+          onClick={() => onClickToc(elementTop)}
           paddingSize={separateTocItem(localName)}
         >
-          {contentsName}
+          {elementTitle}
         </TocItem>
       ))}
     </TocWrapper>

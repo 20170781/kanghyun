@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
@@ -25,7 +25,7 @@ const MenuItem = styled.li`
 
 const MenuURL = styled(Link)``;
 
-const PageNav = () => {
+const PageNav: FC = () => {
   return (
     <Menu>
       <MenuList>

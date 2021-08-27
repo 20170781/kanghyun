@@ -1,12 +1,12 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import styled from '@emotion/styled';
 
 import Text from 'components/UI/atoms/Text';
 
-export interface PostHeadInfoProps {
+export interface PostHeadInfoType {
   title: string;
   date: string;
-  categories: string[];
+  tags: string[];
 }
 
 const PostHeadInfoWrapper = styled.div`
@@ -47,11 +47,7 @@ const BlogTitle = styled.h1`
   }
 `;
 
-const PostHeadInfo: FunctionComponent<PostHeadInfoProps> = ({
-  title,
-  date,
-  tags,
-}) => {
+const PostHeadInfo: FC<PostHeadInfoType> = ({ title, date, tags }) => {
   return (
     <PostHeadInfoWrapper>
       <BlogTitle>{title}</BlogTitle>

@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from '@emotion/styled';
 
 import Title from 'components/UI/atoms/Title';
 import Text from 'components/UI/atoms/Text';
 
+interface PageIntroductionType {
+  pageName: string;
+  pageDescription: string;
+  backgroundImageURL: string;
+}
+
 const BACKGROUND_IMAGE_URL_DEFAULT =
   'https://res.cloudinary.com/du2sma6fw/image/upload/v1629943639/default_image.jpg';
 
-const HeadWrapper = styled.div`
+const HeadWrapper = styled.div<{ backgroundImageURL: string }>`
   position: relative;
   width: 100%;
   height: 400px;
@@ -41,7 +47,7 @@ const TextWrapper = styled.div`
   }
 `;
 
-const PageIntroduction = ({
+const PageIntroduction: FC<PageIntroductionType> = ({
   pageName,
   pageDescription,
   backgroundImageURL = BACKGROUND_IMAGE_URL_DEFAULT,
@@ -49,8 +55,8 @@ const PageIntroduction = ({
   return (
     <HeadWrapper backgroundImageURL={backgroundImageURL}>
       <TextWrapper>
-        <Title text={pageName} size="3" />
-        <Text content={pageDescription} size="1.2" />
+        <Title text={pageName} size={3} />
+        <Text content={pageDescription} size={1.2} />
       </TextWrapper>
     </HeadWrapper>
   );

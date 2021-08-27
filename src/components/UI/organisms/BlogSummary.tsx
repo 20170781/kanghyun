@@ -1,9 +1,10 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import styled from '@emotion/styled';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+import { PostType, PostListProps } from 'components/UI/organisms/PostList';
 import PostCard from 'components/UI/molecules/PostCard';
 import Title from 'components/UI/atoms/Title';
 
@@ -76,7 +77,7 @@ const SlideList = styled(Slider)`
   }
 `;
 
-const BlogSummary = ({ posts }) => {
+const BlogSummary: FC<PostListProps> = ({ posts }) => {
   const settings = {
     infinite: false,
     speed: 1000,
@@ -103,7 +104,7 @@ const BlogSummary = ({ posts }) => {
   return (
     <SummarySection>
       <SummaryWrapper>
-        <Title text="Latest Posts" size="2" />
+        <Title text="Latest Posts" size={2} />
         <ContentWrapper>
           <SlideList {...settings}>
             {posts.map(
@@ -114,7 +115,7 @@ const BlogSummary = ({ posts }) => {
                   frontmatter,
                 },
               }: PostType) => (
-                <PostCard {...frontmatter} link={slug} key={id} />
+                <PostCard {...frontmatter} slug={slug} key={id} />
               ),
             )}
           </SlideList>

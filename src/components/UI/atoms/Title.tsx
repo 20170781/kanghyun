@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from '@emotion/styled';
+
+interface TitleType {
+  text: string;
+  size?: number;
+  weight?: number;
+  limitLine?: number;
+}
 
 const TITLE_SIZE_DEFAULT = 1.8;
 const TITLE_WEIGHT_DEFAULT = 700;
 const LIMIT_LINE_DEFAULT = 2;
 
-const StyledTitle = styled.h2`
+const StyledTitle = styled.h2<Omit<TitleType, 'text'>>`
   font-size: ${({ size }) => size}rem;
   font-weight: ${({ weight }) => weight};
   -webkit-line-clamp: ${({ limitLine }) => limitLine};
@@ -14,7 +21,7 @@ const StyledTitle = styled.h2`
   overflow: hidden;
 `;
 
-const Title = ({
+const Title: FC<TitleType> = ({
   text,
   size = TITLE_SIZE_DEFAULT,
   weight = TITLE_WEIGHT_DEFAULT,

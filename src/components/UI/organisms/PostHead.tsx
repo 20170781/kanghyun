@@ -1,19 +1,14 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
-import PostHeadInfo, {
-  PostHeadInfoProps,
-} from 'components/UI/molecules/PostHeadInfo';
+import PostHeadInfo from 'components/UI/molecules/PostHeadInfo';
 
-type GatsbyImgProps = {
-  gatsbyImageData: any;
-  alt: string;
-  className?: string;
-};
-
-interface PostHeadProps extends PostHeadInfoProps {
-  thumbnail: any;
+interface PostHeadType {
+  title: string;
+  date: string;
+  tags: string[];
+  image: IGatsbyImageData;
 }
 
 const PostHeadWrapper = styled.div`
@@ -32,15 +27,15 @@ const BackgroundImage = styled(GatsbyImage)`
   position: absolute;
 `;
 
-const PostHead: FunctionComponent<PostHeadProps> = ({
+const PostHead: FunctionComponent<PostHeadType> = ({
   title,
   date,
   tags,
-  thumbnail,
+  image,
 }) => {
   return (
     <PostHeadWrapper>
-      <BackgroundImage image={thumbnail} alt="thumbnail" />
+      <BackgroundImage image={image} alt="thumbnail" />
       <PostHeadInfo title={title} date={date} tags={tags} />
     </PostHeadWrapper>
   );

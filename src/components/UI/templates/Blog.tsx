@@ -1,9 +1,17 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import styled from '@emotion/styled';
 
 import PageIntroduction from 'components/UI/organisms/PageIntroduction';
-import TagNav from 'components/UI/organisms/TagNav';
 import PostList, { PostType } from 'components/UI/organisms/PostList';
+import TagNav from 'components/UI/organisms/TagNav';
+import { TagValueProps } from 'components/UI/molecules/TagList';
+
+export interface BlogTemplateType {
+  tags: TagValueProps[];
+  totalNum: number;
+  posts: PostType[];
+  backgroundImageURL: string;
+}
 
 const BlogWrapper = styled.div`
   display: flex;
@@ -17,7 +25,12 @@ const BlogWrapper = styled.div`
   }
 `;
 
-const Blog = ({ tags, totalNum, posts, backgroundImageURL }) => {
+const Blog: FC<BlogTemplateType> = ({
+  tags,
+  totalNum,
+  posts,
+  backgroundImageURL,
+}) => {
   return (
     <>
       <PageIntroduction

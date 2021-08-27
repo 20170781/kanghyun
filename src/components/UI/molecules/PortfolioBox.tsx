@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from '@emotion/styled';
 
 import SubTitle from 'components/UI/atoms/SubTitle';
 import Text from 'components/UI/atoms/Text';
+
+interface PortfolioBoxType {
+  text: string;
+  content: string;
+}
 
 const BoxWrapper = styled.li`
   list-style: none;
@@ -25,7 +30,7 @@ const BoxWrapper = styled.li`
   }
 `;
 
-const PortfolioBox = ({ text, content }) => {
+const PortfolioBox: FC<PortfolioBoxType> = ({ text, content }) => {
   return (
     <BoxWrapper>
       <SubTitle text={text} />

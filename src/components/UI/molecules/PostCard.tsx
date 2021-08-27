@@ -1,10 +1,22 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
 import Text from 'components/UI/atoms/Text';
 import Title from 'components/UI/atoms/Title';
+
+export interface PostCardType {
+  title: string;
+  summary: string;
+  date: string;
+  thumbnail: {
+    childImageSharp: {
+      gatsbyImageData: IGatsbyImageData;
+    };
+  };
+  slug: string;
+}
 
 const PostCardWrapper = styled(Link)`
   display: flex;
@@ -52,14 +64,21 @@ const PostCardContent = styled.div`
   }
 `;
 
-const PostCard = ({ title, summary, date, thumbnail, link }) => {
-  const image = getImage(thumbnail);
+const PostCard: FC<PostCardType> = ({
+  title,
+  summary,
+  date,
+  thumbnail: {
+    childImageSharp: { gatsbyImageData },
+  },
+  slug,
+}) => {
   return (
-    <PostCardWrapper to={link} className="post">
-      <ThumbnailImage image={image} alt="Slide Item Image" />
+    <PostCardWrapper to={slug} className="post">
+      <ThumbnailImage image={gatsbyImageData} alt="Slide Item Image" />
       <PostCardContent>
-        <Title size="1.5" text={title} />
-        <Text limitLine="3" content={summary} />
+        <Title size={1.5} text={title} />
+        <Text limitLine={3} content={summary} />
         <Text content={date} />
       </PostCardContent>
     </PostCardWrapper>

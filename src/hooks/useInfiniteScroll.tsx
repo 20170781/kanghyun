@@ -1,4 +1,4 @@
-import { MutableRefObject, useRef, useEffect, useState, useMemo } from 'react';
+import { MutableRefObject, useRef, useEffect, useState } from 'react';
 import { PostType } from 'components/UI/organisms/PostList';
 
 export type useInfiniteScrollType = {

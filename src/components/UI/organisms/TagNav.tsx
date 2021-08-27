@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from '@emotion/styled';
 
-import TagList from 'components/UI/molecules/TagList';
+import TagList, { TagListType } from 'components/UI/molecules/TagList';
 import Text from 'components/UI/atoms/Text';
 
 const TagListWrapper = styled.div`
@@ -21,10 +21,10 @@ const TagListWrapper = styled.div`
   }
 `;
 
-const TagNav = ({ tags, totalNum }) => {
+const TagNav: FC<TagListType> = ({ tags, totalNum }) => {
   return (
     <TagListWrapper>
-      <Text content="태그 목록" weight="700" />
+      <Text content="태그 목록" weight={700} />
       <TagList tags={tags} totalNum={totalNum} />
     </TagListWrapper>
   );

@@ -1,7 +1,7 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import styled from '@emotion/styled';
 
-interface PostContentProps {
+interface MarkdownType {
   html: string;
 }
 
@@ -129,7 +129,7 @@ const MarkdownRenderer = styled.div`
   }
 `;
 
-const Markdown: FunctionComponent<PostContentProps> = ({ html }) => {
+const Markdown: FC<MarkdownType> = ({ html }) => {
   return <MarkdownRenderer dangerouslySetInnerHTML={{ __html: html }} />;
 };
 

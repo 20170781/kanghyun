@@ -1,8 +1,9 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import { graphql } from 'gatsby';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 import Layout from 'components/UI/templates/Layout';
-import Post from 'components/UI/templates/Post';
+import BlogPost from 'components/UI/templates/BlogPost';
 
 interface PostTemplateProps {
   location: {
@@ -21,7 +22,7 @@ interface PostTemplateProps {
               categories: string[];
               thumbnail: {
                 childImageSharp: {
-                  gatsbyImageData: any;
+                  gatsbyImageData: IGatsbyImageData;
                 };
                 publicURL: string;
               };
@@ -33,7 +34,7 @@ interface PostTemplateProps {
   };
 }
 
-const PostTemplate: FunctionComponent<PostTemplateProps> = ({
+const PostTemplate: FC<PostTemplateProps> = ({
   location: { href },
   data: {
     allMarkdownRemark: { edges },
@@ -58,11 +59,11 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = ({
   // innerText  offsetTop
   return (
     <Layout title={title} description={summary} url={href} image={publicURL}>
-      <Post
+      <BlogPost
         title={title}
         date={date}
         tags={categories}
-        thumbnail={gatsbyImageData}
+        image={gatsbyImageData}
         html={html}
       />
     </Layout>

@@ -6,7 +6,7 @@ import GlobalStyle from 'components/UI/atoms/GlobalStyle';
 import Footer from 'components/UI/organisms/Footer';
 import Header from 'components/UI/organisms/Header';
 
-interface LayoutProps {
+interface LayoutType {
   title: string;
   description: string;
   url: string;
@@ -19,7 +19,7 @@ const Container = styled.main`
   position: relative;
 `;
 
-const Layout: FunctionComponent<LayoutProps> = ({
+const Layout: FunctionComponent<LayoutType> = ({
   title,
   description,
   url,

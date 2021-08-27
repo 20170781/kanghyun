@@ -2,9 +2,11 @@ import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import TextLoop from 'react-text-loop';
 
-import BannerText from 'components/UI/atoms/BannerText';
+interface HomeBannerType {
+  backgroundImageURL: string;
+}
 
-const HomeHeadWrapper = styled.div`
+const HomeHeadWrapper = styled.div<{ backgroundImageURL: string }>`
   position: relative;
   width: 100%;
   height: 100vh;
@@ -28,7 +30,19 @@ const TextWrapper = styled.div`
   }
 `;
 
-const Introduction: FunctionComponent<any> = ({ backgroundImageURL }) => {
+const BannerText = styled.span`
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 800;
+
+  @media (max-width: 828px) {
+    font-size: 1.5rem;
+  }
+`;
+
+const Introduction: FunctionComponent<HomeBannerType> = ({
+  backgroundImageURL,
+}) => {
   return (
     <HomeHeadWrapper backgroundImageURL={backgroundImageURL}>
       <TextWrapper>
