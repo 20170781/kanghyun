@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Alex's Dev Blog`,
-    description: `성장하는 개발 블로그입니다.`,
-    author: `KangHyun`,
+    title: `kanghyun`,
+    description: `성장하는 FE개발자 이강현입니다.`,
+    author: `KangHyun Lee`,
     siteUrl: 'https://kanghyun.netlify.app',
   },
   plugins: [
@@ -21,15 +21,9 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-canonical-urls',
-      options: {
-        siteUrl: 'https://kanghyun.netlify.app',
-        stripQueryString: true,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
+        sitemap: 'https://kanghyun.netlify.app/sitemap.xml',
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },

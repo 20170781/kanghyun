@@ -30,35 +30,64 @@ const Layout: FunctionComponent<LayoutType> = ({
     <>
       <Header />
       <Container>
-        <Helmet>
-          <title>{title}</title>
-
-          <meta name="description" content={description} />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-          />
-          <meta httpEquiv="Content-Type" content="text/html;charset=UTF-8" />
-
-          <meta property="og:type" content="website" />
-          <meta property="og:title" content={title} />
-          <meta property="og:description" content={description} />
-          <meta property="og:image" content={image} />
-          <meta property="og:url" content={url} />
-          <meta property="og:site_name" content={title} />
-
-          <meta
-            name="google-site-verification"
-            content="Ygvyk6ZHJVAD31G3WJYZZ7FnR6c52Rvj1vSMnEMdodk"
-          />
-
-          <meta
-            name="naver-site-verification"
-            content="3276bc339090cbe961b7bd9287890935192b3a63"
-          />
-
-          <html lang="ko" />
-        </Helmet>
+        <Helmet
+          htmlAttributes={{
+            lang: 'ko',
+          }}
+          title={title}
+          link={
+            url
+              ? [
+                  {
+                    rel: 'canonical',
+                    href: url,
+                  },
+                ]
+              : []
+          }
+          meta={[
+            {
+              name: `description`,
+              content: description,
+            },
+            {
+              name: `viewport`,
+              content: 'width=device-width, initial-scale=1.0',
+            },
+            {
+              property: `og:title`,
+              content: title,
+            },
+            {
+              property: `og:description`,
+              content: description,
+            },
+            {
+              property: `og:type`,
+              content: `website`,
+            },
+            {
+              property: `og:image`,
+              content: image,
+            },
+            {
+              property: `og:url`,
+              content: url,
+            },
+            {
+              property: `og:site_name`,
+              content: title,
+            },
+            {
+              name: `google-site-verification`,
+              content: `Ygvyk6ZHJVAD31G3WJYZZ7FnR6c52Rvj1vSMnEMdodk`,
+            },
+            {
+              name: `naver-site-verification`,
+              content: `3276bc339090cbe961b7bd9287890935192b3a63`,
+            },
+          ]}
+        />
 
         <GlobalStyle />
         {children}

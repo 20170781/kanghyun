@@ -37,7 +37,7 @@ const BlogTemplate: FC<BlogType> = ({
 }) => {
   const BlogMetaData = {
     title: fieldValue ? `blog#${fieldValue} | kanghyun` : 'blog | kanghyun',
-    description: '개발 블로그 목록',
+    description: '개발 블로그',
     image: BLOG_BACKGROUND_IMAGE_URL,
     url: href,
   };

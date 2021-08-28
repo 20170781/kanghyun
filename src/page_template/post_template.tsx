@@ -7,7 +7,7 @@ import BlogPost from 'components/UI/templates/BlogPost';
 
 interface PostTemplateProps {
   location: {
-    href: string;
+    pathname: string;
   };
   data: {
     markdownRemark: {
@@ -25,11 +25,16 @@ interface PostTemplateProps {
         };
       };
     };
+    site: {
+      siteMetadata: {
+        siteUrl: string;
+      };
+    };
   };
 }
 
 const PostTemplate: FC<PostTemplateProps> = ({
-  location: { href },
+  location: { pathname },
   data: {
     markdownRemark: {
       html,
@@ -44,13 +49,16 @@ const PostTemplate: FC<PostTemplateProps> = ({
         },
       },
     },
+    site: {
+      siteMetadata: { siteUrl },
+    },
   },
 }) => {
   const postMetaData = {
     title,
     description: summary,
     image: publicURL,
-    url: href,
+    url: siteUrl + pathname,
   };
 
   // innerText  offsetTop
@@ -90,6 +98,11 @@ export const queryMarkdownDataBySlug = graphql`
             )
           }
         }
+      }
+    }
+    site {
+      siteMetadata {
+        siteUrl
       }
     }
   }

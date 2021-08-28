@@ -9,12 +9,11 @@ interface TagType {
   tagClicked?: string;
 }
 
-const StyledTag = styled(Link)<{ isTagClicked: boolean }>`
+const StyledTag = styled(Link)`
   display: flex;
   font-size: 0.875rem;
   padding-top: 0.25rem;
   line-height: 1.5;
-  font-weight: ${({ isTagClicked }) => (isTagClicked ? '700' : '500')};
   text-decoration: none;
   cursor: pointer;
 
@@ -22,11 +21,14 @@ const StyledTag = styled(Link)<{ isTagClicked: boolean }>`
     text-decoration: underline;
   }
 
+  &.tag-clicked {
+    font-weight: 700;
+    color: #acc7b4;
+  }
+
   & > span {
     font-size: 0.875rem;
-    font-weight: 500;
     padding-left: 0.125rem;
-    color: black;
   }
 
   @media (max-width: 828px) {
@@ -39,7 +41,7 @@ const Tag: FC<TagType> = ({ tagName, tagNum, tagLink, tagClicked }) => {
   const isTagClicked = tagName === realTagClicked;
 
   return (
-    <StyledTag to={tagLink} isTagClicked={isTagClicked}>
+    <StyledTag to={tagLink} className={`${isTagClicked ? 'tag-clicked' : ''}`}>
       {tagName}
       <span>({tagNum})</span>
     </StyledTag>
