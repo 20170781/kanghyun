@@ -31,13 +31,15 @@ const IndexPage: FC<IndexType> = ({
     allMarkdownRemark: { edges },
   },
 }) => {
+  const indexMedaData = {
+    title,
+    description,
+    url: siteUrl,
+    image: HOME_BACKGROUND_IMAGE_URL,
+  };
+
   return (
-    <Layout
-      title={title}
-      description={description}
-      url={siteUrl}
-      image={HOME_BACKGROUND_IMAGE_URL}
-    >
+    <Layout {...indexMedaData}>
       <Home posts={edges} backgroundImageURL={HOME_BACKGROUND_IMAGE_URL} />
     </Layout>
   );

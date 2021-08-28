@@ -10,9 +10,6 @@ interface PageIntroductionType {
   backgroundImageURL: string;
 }
 
-const BACKGROUND_IMAGE_URL_DEFAULT =
-  'https://res.cloudinary.com/du2sma6fw/image/upload/v1629943639/default_image.jpg';
-
 const HeadWrapper = styled.div<{ backgroundImageURL: string }>`
   position: relative;
   width: 100%;
@@ -50,7 +47,7 @@ const TextWrapper = styled.div`
 const PageIntroduction: FC<PageIntroductionType> = ({
   pageName,
   pageDescription,
-  backgroundImageURL = BACKGROUND_IMAGE_URL_DEFAULT,
+  backgroundImageURL,
 }) => {
   return (
     <HeadWrapper backgroundImageURL={backgroundImageURL}>
