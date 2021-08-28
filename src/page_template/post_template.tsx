@@ -10,26 +10,20 @@ interface PostTemplateProps {
     href: string;
   };
   data: {
-    allMarkdownRemark: {
-      edges: [
-        {
-          node: {
-            html: string;
-            frontmatter: {
-              title: string;
-              summary: string;
-              date: string;
-              categories: string[];
-              thumbnail: {
-                childImageSharp: {
-                  gatsbyImageData: IGatsbyImageData;
-                };
-                publicURL: string;
-              };
-            };
+    markdownRemark: {
+      html: string;
+      frontmatter: {
+        title: string;
+        summary: string;
+        date: string;
+        categories: string[];
+        thumbnail: {
+          publicURL: string;
+          childImageSharp: {
+            gatsbyImageData: IGatsbyImageData;
           };
-        },
-      ];
+        };
+      };
     };
   };
 }
@@ -37,11 +31,7 @@ interface PostTemplateProps {
 const PostTemplate: FC<PostTemplateProps> = ({
   location: { href },
   data: {
-    allMarkdownRemark: { edges },
-  },
-}) => {
-  const {
-    node: {
+    markdownRemark: {
       html,
       frontmatter: {
         title,
@@ -49,16 +39,23 @@ const PostTemplate: FC<PostTemplateProps> = ({
         date,
         categories,
         thumbnail: {
-          childImageSharp: { gatsbyImageData },
           publicURL,
+          childImageSharp: { gatsbyImageData },
         },
       },
     },
-  } = edges[0];
+  },
+}) => {
+  const postMetaData = {
+    title,
+    description: summary,
+    image: publicURL,
+    url: href,
+  };
 
   // innerText  offsetTop
   return (
-    <Layout title={title} description={summary} url={href} image={publicURL}>
+    <Layout {...postMetaData}>
       <BlogPost
         title={title}
         date={date}
@@ -75,25 +72,22 @@ export default PostTemplate;
 // gatsby-node.js에서 context로 받은 값과 slug가 같은 데이터 출력
 export const queryMarkdownDataBySlug = graphql`
   query queryMarkdownDataBySlug($slug: String) {
-    allMarkdownRemark(filter: { fields: { slug: { eq: $slug } } }) {
-      edges {
-        node {
-          html
-          frontmatter {
-            title
-            date(formatString: "YYYY.MM.DD.")
-            categories
-            thumbnail {
-              publicURL
-              childImageSharp {
-                gatsbyImageData(
-                  quality: 100
-                  placeholder: BLURRED
-                  formats: [AUTO, WEBP, AVIF]
-                  transformOptions: { fit: INSIDE }
-                )
-              }
-            }
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
+      frontmatter {
+        categories
+        date(formatString: "YYYY.MM.DD.")
+        summary
+        title
+        thumbnail {
+          publicURL
+          childImageSharp {
+            gatsbyImageData(
+              quality: 100
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+              transformOptions: { fit: INSIDE }
+            )
           }
         }
       }

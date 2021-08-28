@@ -30,13 +30,13 @@ interface BlogType {
   };
 }
 
-const Categories: FC<BlogType> = ({
+const BlogTemplate: FC<BlogType> = ({
   data,
   location: { href },
   pageContext: { fieldValue },
 }) => {
   const BlogMetaData = {
-    title: 'Blog List',
+    title: `kanghyun's blog`,
     description: '개발 블로그 목록',
     image: BLOG_BACKGROUND_IMAGE_URL,
     url: href,
@@ -55,7 +55,7 @@ const Categories: FC<BlogType> = ({
   );
 };
 
-export default Categories;
+export default BlogTemplate;
 
 export const pageQuery = graphql`
   fragment Data on MarkdownRemark {

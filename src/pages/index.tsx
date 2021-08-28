@@ -1,13 +1,29 @@
 import React, { FC } from 'react';
-import { graphql, PageProps } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import Layout from 'components/UI/templates/Layout';
 import Home from 'components/UI/templates/Home';
+import { PostType } from 'components/UI/organisms/PostList';
 
 const HOME_BACKGROUND_IMAGE_URL =
   'https://res.cloudinary.com/du2sma6fw/image/upload/v1629941392/home_image.jpg';
 
-const IndexPage: FC<PageProps> = ({
+interface IndexType {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string;
+        description: string;
+        siteUrl: string;
+      };
+    };
+    allMarkdownRemark: {
+      edges: PostType[];
+    };
+  };
+}
+
+const IndexPage: FC<IndexType> = ({
   data: {
     site: {
       siteMetadata: { title, description, siteUrl },

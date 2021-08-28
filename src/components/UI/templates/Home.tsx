@@ -3,10 +3,10 @@ import React, { FC } from 'react';
 import HomeBanner from 'components/UI/organisms/HomeBanner';
 import PortfolioSummary from 'components/UI/organisms/PortfolioSummary';
 import BlogSummary from 'components/UI/organisms/BlogSummary';
-import { PostListProps } from 'components/UI/organisms/PostList';
+import { PostType } from 'components/UI/organisms/PostList';
 
 interface HomeType {
-  posts: PostListProps;
+  posts: PostType[];
   backgroundImageURL: string;
 }
 

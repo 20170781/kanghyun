@@ -16,6 +16,7 @@ export interface PostType {
       title: string;
       summary: string;
       date: string;
+      categories?: string[];
       thumbnail: {
         childImageSharp: {
           gatsbyImageData: IGatsbyImageData;
