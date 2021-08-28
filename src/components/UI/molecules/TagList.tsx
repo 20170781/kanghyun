@@ -40,7 +40,7 @@ const TagList: FC<TagListType> = ({ tags, totalNum, tagClicked }) => {
         <Tag
           tagName={fieldValue}
           tagNum={totalCount}
-          tagLink={`/blog/${fieldValue}`}
+          tagLink={`/blog/tag/${fieldValue}`}
           tagClicked={tagClicked}
           key={fieldValue}
         />

@@ -101,7 +101,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const generateBlogPageByTag = ({ fieldValue }) => {
     createPage({
-      path: `/blog/${fieldValue}`,
+      path: `/blog/tag/${fieldValue}`,
       component: BlogTemplateComponent,
       context: { fieldValue },
     });
