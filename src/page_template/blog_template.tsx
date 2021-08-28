@@ -26,7 +26,7 @@ interface BlogType {
     href: string;
   };
   pageContext: {
-    fieldValue: string | undefined;
+    fieldValue?: string;
   };
 }
 
@@ -36,16 +36,18 @@ const BlogTemplate: FC<BlogType> = ({
   pageContext: { fieldValue },
 }) => {
   const BlogMetaData = {
-    title: `kanghyun's blog`,
+    title: fieldValue ? `blog#${fieldValue} | kanghyun` : 'blog | kanghyun',
     description: '개발 블로그 목록',
     image: BLOG_BACKGROUND_IMAGE_URL,
     url: href,
   };
 
   const selectedData = fieldValue ? data.filtered : data.unfiltered;
+
   return (
     <Layout {...BlogMetaData}>
       <Blog
+        tagClicked={fieldValue}
         tags={data.allFile.group}
         totalNum={data.allFile.totalCount}
         posts={selectedData.edges}

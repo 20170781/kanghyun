@@ -12,6 +12,7 @@ export interface TagValueProps {
 export interface TagListType {
   tags: TagValueProps[];
   totalNum: number;
+  tagClicked?: string;
 }
 
 const SyledTagList = styled.div`
@@ -25,15 +26,22 @@ const SyledTagList = styled.div`
   }
 `;
 
-const TagList: FC<TagListType> = ({ tags, totalNum }) => {
+const TagList: FC<TagListType> = ({ tags, totalNum, tagClicked }) => {
   return (
     <SyledTagList>
-      <Tag tagName="All" tagNum={totalNum} tagLink={`/blog`} key="All" />
+      <Tag
+        tagName="All"
+        tagNum={totalNum}
+        tagLink={`/blog`}
+        key="All"
+        tagClicked={tagClicked}
+      />
       {tags.map(({ fieldValue, totalCount }: TagValueProps) => (
         <Tag
           tagName={fieldValue}
           tagNum={totalCount}
           tagLink={`/blog/${fieldValue}`}
+          tagClicked={tagClicked}
           key={fieldValue}
         />
       ))}

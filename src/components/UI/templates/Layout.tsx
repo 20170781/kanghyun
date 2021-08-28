@@ -26,7 +26,6 @@ const Layout: FunctionComponent<LayoutType> = ({
   image,
   children,
 }) => {
-  console.log(url);
   return (
     <>
       <Header />

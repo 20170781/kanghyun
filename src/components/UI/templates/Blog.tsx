@@ -7,6 +7,7 @@ import TagNav from 'components/UI/organisms/TagNav';
 import { TagValueProps } from 'components/UI/molecules/TagList';
 
 export interface BlogTemplateType {
+  tagClicked?: string;
   tags: TagValueProps[];
   totalNum: number;
   posts: PostType[];
@@ -26,20 +27,23 @@ const BlogWrapper = styled.div`
 `;
 
 const Blog: FC<BlogTemplateType> = ({
+  tagClicked,
   tags,
   totalNum,
   posts,
   backgroundImageURL,
 }) => {
+  const pageName = tagClicked ? `Blog #${tagClicked}` : 'Blog';
+
   return (
     <>
       <PageIntroduction
-        pageName="Blog"
+        pageName={pageName}
         pageDescription="웹에 대해 공부하고 경험한 내용들을 나눕니다."
         backgroundImageURL={backgroundImageURL}
       />
       <BlogWrapper>
-        <TagNav tags={tags} totalNum={totalNum} />
+        <TagNav tags={tags} totalNum={totalNum} tagClicked={tagClicked} />
         <PostList posts={posts} />
       </BlogWrapper>
     </>
