@@ -23,7 +23,6 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        sitemap: 'https://kanghyun.netlify.app/sitemap.xml',
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
