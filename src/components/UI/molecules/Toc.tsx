@@ -1,12 +1,6 @@
 import React, { useEffect, useState, FC } from 'react';
 import styled from '@emotion/styled';
 
-interface TocItemType {
-  innerText: string;
-  offsetTop: number;
-  localName: string;
-}
-
 const TocWrapper = styled.aside`
   position: sticky;
   margin-top: 90px;
@@ -34,15 +28,16 @@ const TocItem = styled.div<{ paddingSize: number }>`
 `;
 
 const Toc: FC = () => {
-  const [contents, setContents] = useState({});
+  const [contents, setContents] = useState<Element[]>([]);
 
   useEffect(() => {
-    setContents(document.querySelectorAll('h2,h3'));
+    const collectedElement = Array.from(document.querySelectorAll('h2,h3'));
+    setContents(collectedElement);
   }, []);
 
-  const contentsArr: TocItemType[] = Object.values(contents).map((value) => {
+  const contentsArr = contents.map((value) => {
     return {
-      elementTitle: value.innerText,
+      elementTitle: value.innerHTML,
       elementTop: value.offsetTop,
       localName: value.localName,
     };

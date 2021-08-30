@@ -10,6 +10,9 @@ const BLOG_BACKGROUND_IMAGE_URL =
   'https://res.cloudinary.com/du2sma6fw/image/upload/v1629942455/blog_image.jpg';
 
 interface BlogType {
+  pageContext: {
+    fieldValue?: string;
+  };
   data: {
     allFile: {
       group: TagValueProps[];
@@ -22,24 +25,14 @@ interface BlogType {
       edges: PostType[];
     };
   };
-  location: {
-    href: string;
-  };
-  pageContext: {
-    fieldValue?: string;
-  };
 }
 
-const BlogTemplate: FC<BlogType> = ({
-  data,
-  location: { href },
-  pageContext: { fieldValue },
-}) => {
+const BlogTemplate: FC<BlogType> = ({ pageContext: { fieldValue }, data }) => {
   const BlogMetaData = {
     title: fieldValue ? `blog#${fieldValue} | kanghyun` : 'blog | kanghyun',
     description: '개발 블로그',
     image: BLOG_BACKGROUND_IMAGE_URL,
-    url: href,
+    url: 'https://kanghyun.netlify.app/blog',
   };
 
   const selectedData = fieldValue ? data.filtered : data.unfiltered;

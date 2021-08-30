@@ -6,8 +6,8 @@ import Layout from 'components/UI/templates/Layout';
 import BlogPost from 'components/UI/templates/BlogPost';
 
 interface PostTemplateProps {
-  location: {
-    pathname: string;
+  pageContext: {
+    slug: string;
   };
   data: {
     markdownRemark: {
@@ -34,7 +34,7 @@ interface PostTemplateProps {
 }
 
 const PostTemplate: FC<PostTemplateProps> = ({
-  location: { pathname },
+  pageContext: { slug },
   data: {
     markdownRemark: {
       html,
@@ -58,7 +58,7 @@ const PostTemplate: FC<PostTemplateProps> = ({
     title,
     description: summary,
     image: publicURL,
-    url: siteUrl + pathname,
+    url: siteUrl + slug,
   };
 
   // innerText  offsetTop
