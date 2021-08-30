@@ -16,7 +16,7 @@ interface PostTemplateProps {
         title: string;
         summary: string;
         date: string;
-        categories: string[];
+        tags: string[];
         thumbnail: {
           publicURL: string;
           childImageSharp: {
@@ -42,7 +42,7 @@ const PostTemplate: FC<PostTemplateProps> = ({
         title,
         summary,
         date,
-        categories,
+        tags,
         thumbnail: {
           publicURL,
           childImageSharp: { gatsbyImageData },
@@ -67,7 +67,7 @@ const PostTemplate: FC<PostTemplateProps> = ({
       <BlogPost
         title={title}
         date={date}
-        tags={categories}
+        tags={tags}
         image={gatsbyImageData}
         html={html}
       />
@@ -83,7 +83,7 @@ export const queryMarkdownDataBySlug = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
-        categories
+        tags
         date(formatString: "YYYY.MM.DD.")
         summary
         title

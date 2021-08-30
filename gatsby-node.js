@@ -51,7 +51,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                 slug
               }
               frontmatter {
-                categories
+                tags
               }
             }
           }
@@ -62,7 +62,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             fields: [frontmatter___date, frontmatter___title]
           }
         ) {
-          group(field: frontmatter___categories) {
+          group(field: frontmatter___tags) {
             fieldValue
           }
         }

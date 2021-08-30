@@ -87,7 +87,7 @@ export const pageQuery = graphql`
 
   query ($fieldValue: String) {
     allFile(filter: { extension: { eq: "md" } }) {
-      group(field: childMarkdownRemark___frontmatter___categories) {
+      group(field: childMarkdownRemark___frontmatter___tags) {
         fieldValue
         totalCount
       }
@@ -96,7 +96,7 @@ export const pageQuery = graphql`
 
     filtered: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
-      filter: { frontmatter: { categories: { in: [$fieldValue] } } }
+      filter: { frontmatter: { tags: { in: [$fieldValue] } } }
     ) {
       edges {
         node {
