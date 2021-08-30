@@ -43,7 +43,7 @@ const PostCardContent = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
-  height: 14rem;
+  height: 15rem;
   background-color: white;
 
   & > p {
@@ -52,7 +52,7 @@ const PostCardContent = styled.div`
 
   @media (max-width: 828px) {
     padding: 1rem;
-    height: 12rem;
+    height: 13rem;
 
     & h2 {
       font-size: 1.2rem;
@@ -60,6 +60,7 @@ const PostCardContent = styled.div`
 
     & p {
       font-size: 0.875rem;
+      line-height: 1.5;
     }
   }
 `;
@@ -77,7 +78,7 @@ const PostCard: FC<PostCardType> = ({
     <PostCardWrapper to={slug} className="post">
       <ThumbnailImage image={gatsbyImageData} alt="Slide Item Image" />
       <PostCardContent>
-        <Title size={1.5} text={title} />
+        <Title size={1.3} text={title} />
         <Text limitLine={3} content={summary} />
         <Text content={date} />
       </PostCardContent>

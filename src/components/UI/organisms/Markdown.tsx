@@ -15,9 +15,10 @@ const MarkdownRenderer = styled.div`
   word-break: break-all;
 
   // Markdown Style
-  line-height: 1.8;
-  font-size: 1rem;
+  line-height: 1.7;
+  font-size: 1.1rem;
   font-weight: 400;
+  letter-spacing: -0.004rem;
 
   // Apply Padding Attribute to All Elements
   p {
@@ -29,13 +30,13 @@ const MarkdownRenderer = styled.div`
   h2,
   h3 {
     font-weight: 800;
-    margin-bottom: 30px;
+    margin-bottom: 1.75rem;
   }
 
   * + h1,
   * + h2,
   * + h3 {
-    margin-top: 80px;
+    margin-top: 3rem;
   }
 
   hr + h1,
@@ -45,15 +46,15 @@ const MarkdownRenderer = styled.div`
   }
 
   h1 {
-    font-size: 30px;
+    font-size: 2.5rem;
   }
 
   h2 {
-    font-size: 25px;
+    font-size: 2rem;
   }
 
   h3 {
-    font-size: 20px;
+    font-size: 1.5rem;
   }
 
   // Adjust Quotation Element Style
@@ -105,18 +106,18 @@ const MarkdownRenderer = styled.div`
     width: 100%;
     padding: 5rem 1rem;
     line-height: 1.6;
-    font-size: 0.875rem;
+    font-size: 1rem;
 
     h1 {
-      font-size: 23px;
+      font-size: 1.75rem;
     }
 
     h2 {
-      font-size: 20px;
+      font-size: 1.5rem;
     }
 
     h3 {
-      font-size: 17px;
+      font-size: 1.25rem;
     }
 
     img {

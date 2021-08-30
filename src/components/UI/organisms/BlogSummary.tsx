@@ -33,10 +33,10 @@ const SummaryWrapper = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  padding-top: 1.5rem;
+  padding-top: 1rem;
 
   @media (max-width: 828px) {
-    padding-top: 1rem;
+    padding-top: 0.5rem;
   }
 `;
 
@@ -45,18 +45,20 @@ const SlideList = styled(Slider)`
 
   & .slick-arrow {
     position: absolute;
-    top: -2.5rem;
+    top: -1.5rem;
     right: 0.1rem;
     left: unset;
     width: 2.5rem;
     height: 2.5rem;
 
     @media (max-width: 828px) {
-      top: -1.5rem;
+      top: -1.25rem;
     }
   }
 
   & .slick-list {
+    padding: 0.5rem 0;
+
     @media (max-width: 828px) {
       overflow: unset;
     }

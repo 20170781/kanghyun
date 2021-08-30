@@ -15,7 +15,7 @@ interface TextType {
 const StyledText = styled.p<Omit<TextType, 'content'>>`
   font-size: ${({ size }) => size}rem;
   font-weight: ${({ weight }) => weight};
-  line-height: 26px;
+  line-height: 1.7;
   -webkit-line-clamp: ${({ limitLine }) => limitLine};
   -webkit-box-orient: vertical;
   opacity: 0.8;
