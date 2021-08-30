@@ -7,7 +7,7 @@ import { PostType } from 'components/UI/organisms/PostList';
 import { TagValueProps } from 'components/UI/molecules/TagList';
 
 const BLOG_BACKGROUND_IMAGE_URL =
-  'https://res.cloudinary.com/du2sma6fw/image/upload/v1629942455/blog_image.jpg';
+  'https://res.cloudinary.com/du2sma6fw/image/upload/v1630334649/blog_image.jpg';
 
 interface BlogType {
   pageContext: {

@@ -22,7 +22,7 @@ const HeaderList = styled.div<{ scrollState: string }>`
   color: white;
   transition: background 0.3s;
   background-color: ${({ scrollState }) =>
-    scrollState === 'header' ? 'none' : 'rgba(0,2,11,.9)'};
+    scrollState === 'header' ? 'none' : 'rgba(75,135,139,.99)'};
 `;
 
 const SiteTitle = styled(Link)`

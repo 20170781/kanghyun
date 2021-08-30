@@ -30,10 +30,15 @@ const TextWrapper = styled.div`
   }
 `;
 
-const BannerText = styled.span`
+const BannerText = styled.p`
   text-align: center;
   font-size: 2rem;
   font-weight: 800;
+
+  & > span {
+    color: #ffffff;
+    background-color: #4b878b;
+  }
 
   @media (max-width: 828px) {
     font-size: 1.5rem;
@@ -50,15 +55,20 @@ const Introduction: FunctionComponent<HomeBannerType> = ({
           <BannerText>
             프론트엔드 개발자
             <br />
-            이강현입니다
+            <span>이강현</span>입니다
           </BannerText>
           <BannerText>
-            더 나은 세상을
+            <span>끝이 없는 성장</span>을
             <br />
-            만들기 위해 노력합니다
+            지향합니다
           </BannerText>
           <BannerText>
-            성장하는 모든 과정이
+            <span>목적</span>을 가진 <span>꾸준함</span>이
+            <br />
+            제가 가진 최고의 무기입니다
+          </BannerText>
+          <BannerText>
+            무엇이든 <span>함께</span>할 때
             <br />
             즐겁습니다
           </BannerText>

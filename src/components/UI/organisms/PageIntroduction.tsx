@@ -17,8 +17,7 @@ const HeadWrapper = styled.div<{ backgroundImageURL: string }>`
   overflow: hidden;
   background-image: url(${({ backgroundImageURL }) => backgroundImageURL});
   background-size: cover;
-  background-attachment: fixed;
-  background-position-x: center;
+  background-position: bottom;
   color: white;
 
   @media (max-width: 828px) {

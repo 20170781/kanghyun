@@ -23,7 +23,7 @@ const StyledTag = styled(Link)`
 
   &.tag-clicked {
     font-weight: 700;
-    color: #acc7b4;
+    color: #4b878b;
   }
 
   & > span {

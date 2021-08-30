@@ -20,18 +20,23 @@ const SummaryWrapper = styled.div`
   margin-right: auto;
   padding: 0 1rem;
 
-  @media (max-width: 828px) {
-    & h2 {
+  & > h2 {
+    width: fit-content;
+    padding: 0.5rem;
+    font-size: 2rem;
+    line-height: 1.7;
+
+    @media (max-width: 828px) {
       font-size: 1.4rem;
     }
   }
 `;
 
 const ContentWrapper = styled.div`
-  padding-top: 4rem;
+  padding-top: 3rem;
 
   @media (max-width: 828px) {
-    padding-top: 3rem;
+    padding-top: 2rem;
   }
 `;
 
@@ -48,10 +53,10 @@ const PortfolioSummary: FC = () => {
   return (
     <SummarySection>
       <SummaryWrapper>
-        <Title
-          text="제가 가진 방향성은 더 나은 세상을 만드는 것입니다."
-          size={2}
-        />
+        <h2>
+          당연했던 불편함들을 IT 서비스를 통해 해결하여 <br /> 더 나은 세상을
+          만들고자 합니다.
+        </h2>
         <ContentWrapper>
           <PortfolioBoxes>
             <PortfolioBox

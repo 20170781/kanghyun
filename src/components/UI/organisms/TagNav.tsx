@@ -24,7 +24,7 @@ const TagListWrapper = styled.div`
 const TagNav: FC<TagListType> = ({ tags, totalNum, tagClicked }) => {
   return (
     <TagListWrapper>
-      <Text content="태그 목록" weight={700} />
+      <Text content="태그 목록" weight={700} size={1.1} />
       <TagList tags={tags} totalNum={totalNum} tagClicked={tagClicked} />
     </TagListWrapper>
   );
