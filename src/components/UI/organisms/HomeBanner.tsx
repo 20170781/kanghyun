@@ -37,7 +37,7 @@ const BannerText = styled.p`
 
   & > span {
     color: #ffffff;
-    background-color: #4b878b;
+    background-color: rgba(75, 135, 139, 0.9);
   }
 
   @media (max-width: 828px) {

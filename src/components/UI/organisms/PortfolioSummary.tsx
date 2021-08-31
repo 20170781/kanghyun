@@ -2,11 +2,12 @@ import React, { FC } from 'react';
 import styled from '@emotion/styled';
 
 import PortfolioBox from 'components/UI/molecules/PortfolioBox';
-import Title from 'components/UI/atoms/Title';
+import SeeMoreBar from 'components/UI/molecules/SeeMoreBar';
 
 const SummarySection = styled.section`
   width: 100%;
-  padding: 6rem 0;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
   background-color: white;
 
   @media (max-width: 828px) {
@@ -33,10 +34,10 @@ const SummaryWrapper = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  padding-top: 3rem;
+  padding: 3rem 0;
 
   @media (max-width: 828px) {
-    padding-top: 2rem;
+    padding: 2rem 0;
   }
 `;
 
@@ -84,6 +85,7 @@ const PortfolioSummary: FC = () => {
             />
           </PortfolioBoxes>
         </ContentWrapper>
+        <SeeMoreBar text="PORTFOLIO" to="./portfolio" />
       </SummaryWrapper>
     </SummarySection>
   );

@@ -7,10 +7,12 @@ import 'slick-carousel/slick/slick-theme.css';
 import { PostType, PostListProps } from 'components/UI/organisms/PostList';
 import PostCard from 'components/UI/molecules/PostCard';
 import Title from 'components/UI/atoms/Title';
+import SeeMoreBar from 'components/UI/molecules/SeeMoreBar';
 
 const SummarySection = styled.section`
   width: 100%;
-  padding: 6rem 0;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
   background-color: #f1f2f4;
   overflow: hidden;
 
@@ -34,9 +36,10 @@ const SummaryWrapper = styled.div`
 
 const ContentWrapper = styled.div`
   padding-top: 1rem;
+  padding-bottom: 2rem;
 
   @media (max-width: 828px) {
-    padding-top: 0.5rem;
+    padding: 0.5rem 0;
   }
 `;
 
@@ -122,6 +125,7 @@ const BlogSummary: FC<PostListProps> = ({ posts }) => {
             )}
           </SlideList>
         </ContentWrapper>
+        <SeeMoreBar text="BLOG" to="./blog" />
       </SummaryWrapper>
     </SummarySection>
   );
