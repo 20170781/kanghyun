@@ -32,9 +32,9 @@ const PageNav: FC = () => {
         <MenuItem>
           <MenuURL to="/blog">BLOG</MenuURL>
         </MenuItem>
-        <MenuItem>
+        {/* <MenuItem>
           <MenuURL to="/portfolio">PORTFOLIO</MenuURL>
-        </MenuItem>
+        </MenuItem> */}
       </MenuList>
     </Menu>
   );

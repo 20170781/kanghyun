@@ -39,7 +39,7 @@ const Blog: FC<BlogTemplateType> = ({
     <>
       <PageIntroduction
         pageName={pageName}
-        pageDescription="웹에 대해 공부하고 경험한 내용들을 나눕니다."
+        pageDescription="웹에 관하여 공부하고 경험한 내용들을 나눕니다."
         backgroundImageURL={backgroundImageURL}
       />
       <BlogWrapper>
