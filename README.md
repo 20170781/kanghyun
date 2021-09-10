@@ -8,7 +8,10 @@
 
 ## 🙄 문제점 / 궁금한점
 
-- gatsby-node.js에서 require 쓰는 이유, import 로 수정 시 오류 (The "path" argument must be of type string. Received undefined at validateString)
+- SEO에 대해 더 깊이 공부
+- TOC 구현을 위해 mouse scroll에 EventListener를 추가했는데, 서버에 무리를 주는 행위가 아닐까?
+- Gatsby는 서버를 구현하지 않았는데 어떻게 동작하는걸까?
+
 - 카카오 티스토리는 gatsby, next.js 둘다 안쓰고 구현한듯? 그렇다면 SEO 문제는 어떻게 해결했을까?
 
 
@@ -17,6 +20,7 @@
 
 - [ ] 다크모드 추가
 - [ ] Portfolio 구현
+- [ ] TOC 수정
 
 
 
