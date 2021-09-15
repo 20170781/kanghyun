@@ -64,6 +64,12 @@ const MarkdownRenderer = styled.div`
     font-size: 1.2rem;
   }
 
+  img {
+    width: 50%;
+    display: block;
+    margin: 0px auto;
+  }
+
   // Adjust Quotation Element Style
   blockquote {
     margin: 30px 0;
