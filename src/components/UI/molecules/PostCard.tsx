@@ -42,8 +42,8 @@ const ThumbnailImage = styled(GatsbyImage)`
 const PostCardContent = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
-  height: 15rem;
+  padding: 1rem;
+  height: 13rem;
   background-color: white;
 
   & > p {
@@ -51,8 +51,7 @@ const PostCardContent = styled.div`
   }
 
   @media (max-width: 828px) {
-    padding: 1rem;
-    height: 13rem;
+    height: 10rem;
 
     & h2 {
       font-size: 1.2rem;
