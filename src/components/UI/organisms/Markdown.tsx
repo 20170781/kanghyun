@@ -27,11 +27,14 @@ const MarkdownRenderer = styled.div`
 
   // Adjust Heading Element Style
   h1,
-  h2,
-  h3,
-  h4 {
+  h2 {
     font-weight: 800;
     margin-bottom: 1.75rem;
+  }
+
+  h3,
+  h4 {
+    margin-bottom: 0.75rem;
   }
 
   * + h1,
@@ -99,7 +102,7 @@ const MarkdownRenderer = styled.div`
 
   // Adjust Code Style
   pre[class*='language-'] {
-    margin: 30px 0;
+    margin: 1.5rem 0;
     padding: 15px;
     font-size: 15px;
 
