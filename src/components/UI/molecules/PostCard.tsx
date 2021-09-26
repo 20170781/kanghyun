@@ -69,14 +69,12 @@ const PostCard: FC<PostCardType> = ({
   title,
   summary,
   date,
-  thumbnail: {
-    childImageSharp: { gatsbyImageData },
-  },
+  thumbnail,
   slug,
 }) => {
   return (
     <PostCardWrapper to={slug} className="post">
-      <ThumbnailImage image={gatsbyImageData} alt="Slide Item Image" />
+      <ThumbnailImage image={thumbnail?.childImageSharp.gatsbyImageData} alt="Slide Item Image" />
       <PostCardContent>
         <Title size={1.3} text={title} />
         <Text limitLine={3} content={summary} />
