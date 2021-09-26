@@ -125,7 +125,7 @@ const BlogSummary: FC<PostListProps> = ({ posts }) => {
             )}
           </SlideList>
         </ContentWrapper>
-        <SeeMoreBar text="BLOG" to="./blog" />
+        <SeeMoreBar text="BLOG" to="/blog" />
       </SummaryWrapper>
     </SummarySection>
   );

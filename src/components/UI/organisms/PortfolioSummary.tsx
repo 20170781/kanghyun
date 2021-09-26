@@ -76,7 +76,7 @@ const PortfolioSummary: FC = () => {
             />
           </PortfolioBoxes>
         </ContentWrapper>
-        <SeeMoreBar text="PORTFOLIO" to="./portfolio" />
+        <SeeMoreBar text="PORTFOLIO" to="/portfolio" />
       </SummaryWrapper>
     </SummarySection>
   );
