@@ -2,7 +2,7 @@
 date: '2021-08-31'
 title: '함수 선언식과 함수 표현식 | 자바스크립트'
 tags: ['JavaScript', 'Study']
-summary: '함수 선언을 그동안 어떤 방식으로 해왔는지 돌아보고, 새로운 방법에는 무엇이 있으며 무엇이 좋은 방법인지 알아보자'
+summary: '함수표현식과 함수 선언식의 차이점 이해하기'
 thumbnail: './thumbnail.jpg'
 ---
 
