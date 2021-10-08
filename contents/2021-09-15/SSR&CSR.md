@@ -6,9 +6,11 @@ summary: 'Server-Side Rendering과 Client-Side Rendering의 개념 이해하기'
 thumbnail: './thumbnail.jpg'
 ---
 
+
+
 HTML, CSS, JS 등의 코드와 이미지를 가지고 웹 브라우저가 웹페이지를 화면에 그려주는 것을 **렌더링**이라고 한다.
 
-렌더링 하는 방식에 따라 대표적으로 **SSR(Server-Side Rendering)**과 **CSR(Client-Side Rendering)**으로 나누곤 하는데, 이 두가지 방법의 동작 방식과 장단점을 비교해보고 내가 만들 웹사이트에는 무엇이 더 좋을지 생각해보자.
+렌더링 하는 방식에 따라 대표적으로 **SSR**(Server-Side Rendering)과 **CSR**(Client-Side Rendering)으로 나누곤 하는데, 이 두가지 방법의 동작 방식과 장단점을 비교해보고 내가 만들 웹사이트에는 무엇이 더 좋을지 생각해보자.
 
 
 
@@ -38,7 +40,17 @@ CSR은 SPA(Single Page Application)에서 사용되는 방법으로, **클라이
 
 ![003](https://user-images.githubusercontent.com/70627979/133465145-161497a9-3095-44df-87bc-c0a724396595.jpg)
 
-CSR의 페이지 생성 과정을 살펴보면, `1. 브라우저에서 프론트 서버로 페이지  요청을 보내면` `2. 프론트 서버가 데이터를 제외한 JS, HTML, CSS와 img 등을 브라우저에 제공한다.` `3. 다시 브라우저에서 백엔드 서버로 페이지에 필요한 데이터를 요청하면` `4. 백엔드 서버는 데이터베이스에서 데이터를 가져와 제공해준다.`
+CSR의 페이지 생성 과정을 살펴보면,
+
+1. 브라우저에서 프론트 서버로 페이지  요청을 보내면
+
+2. 프론트 서버가 데이터를 제외한 JS, HTML, CSS와 img 등을 브라우저에 제공한다. 
+
+3. 다시 브라우저에서 백엔드 서버로 페이지에 필요한 데이터를 요청하면 
+
+4. 백엔드 서버는 데이터베이스에서 데이터를 가져와 제공해준다.
+
+
 
 ### 특징
 
@@ -56,6 +68,8 @@ SSR과 CSR의 장단점을 파악하고, 코드 스플리팅과 pre-render 등�
 
 간단한 예시를 들자면, 개인 블로그를 만들고 싶으면 SEO에 최적화된 SSR 방식을 이용한 기술들 중 하나를 골라 사용할 수 있다.
 
+
+
 #### Next.js
 
 하지만 이 세상에는 하이브리드라는 것이 존재한다. 
@@ -65,3 +79,10 @@ SSR과 CSR의 장단점을 파악하고, 코드 스플리팅과 pre-render 등�
 Next.js가 대표적인 하이브리드 방식 중 하나이다. Next.js와 React를 이용해 만든 사이트의 경우, 첫 페이지만 전통적인 SSR 방식으로 페이지를 생성하고, 이후 페이지 전환은 React 방식(CSR)을 이용해 만듦으로써 최적화된 SEO와 상호작용 서비스를 제공할 수 있다.
 
  (추가적인 기술은 기술 부채와 해당 기술에 의존적이게 될 수 있으므로 무조건적인 해결책이 아니다. 상황에 맞게 가져가면 된다.)
+
+
+
+참고자료
+
+- https://developers.google.com/web/updates/2019/02/rendering-on-the-web
+- https://tech.weperson.com/wedev/frontend/csr-ssr-spa-mpa-pwa/
