@@ -1,5 +1,5 @@
 ---
-date: '2021-11-09'
+date: '2021-11-10'
 title: 'Class | 자바스크립트'
 tags: ['JavaScript', 'Study']
 summary: '프로토타입 기반 패턴을 클래스 기반 패턴처럼 사용할 수 있도록 도와주는 Class 이해하기'
