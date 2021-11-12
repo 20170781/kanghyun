@@ -31,7 +31,11 @@ const Toc: FC = () => {
   const [contents, setContents] = useState<Element[]>([]);
 
   useEffect(() => {
-    const collectedElement = Array.from(document.querySelectorAll('h2,h3'));
+    let collectedElement = Array.from(document.querySelectorAll('h2,h3'));
+    
+    if (collectedElement.length > 15) { // TOC 사이즈 조절 목적
+      collectedElement = Array.from(document.querySelectorAll('h2'));
+    }
     setContents(collectedElement);
   }, []);
 
