@@ -6,8 +6,20 @@ const TocWrapper = styled.aside`
   margin-top: 90px;
   top: 140px;
   width: 20%;
-  height: fit-content;
+  max-height: calc(100vh - 256px);
+  overflow-y: auto;
   border-left: 4px solid rgb(233, 236, 239);
+
+  ::-webkit-scrollbar {
+    border-radius: 1px;
+    width: 3px;
+    background: rgb(241, 243, 245);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    z-index: 100;
+    background: rgba(75,135,139,.99)
+  }
 
   @media (max-width: 1200px) {
     display: none;
@@ -31,11 +43,7 @@ const Toc: FC = () => {
   const [contents, setContents] = useState<Element[]>([]);
 
   useEffect(() => {
-    let collectedElement = Array.from(document.querySelectorAll('h2,h3'));
-    
-    if (collectedElement.length > 15) { // TOC 사이즈 조절 목적
-      collectedElement = Array.from(document.querySelectorAll('h2'));
-    }
+    const collectedElement = Array.from(document.querySelectorAll('h2,h3'));
     setContents(collectedElement);
   }, []);
 
@@ -53,7 +61,7 @@ const Toc: FC = () => {
     }
     window.scroll({
       left: 0,
-      top: contentsTop - 70,
+      top: contentsTop - 100,
       behavior: 'smooth',
     });
   };
