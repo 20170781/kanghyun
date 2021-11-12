@@ -29,19 +29,22 @@ const MarkdownRenderer = styled.div`
   h1,
   h2 {
     font-weight: 800;
-    margin-bottom: 1.75rem;
+    margin-bottom: 1rem;
   }
 
   h3,
   h4 {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
   }
 
   * + h1,
-  * + h2,
+  * + h2 {
+    margin-top: 2.5rem;
+  }
+
   * + h3,
   * + h4 {
-    margin-top: 3rem;
+    margin-top: 1.75rem;
   }
 
   hr + h1,
@@ -85,7 +88,7 @@ const MarkdownRenderer = styled.div`
   ol,
   ul {
     margin-left: 20px;
-    padding: 30px 0;
+    padding: 16px 0;
   }
 
   // Adjust Horizontal Rule style
@@ -102,7 +105,7 @@ const MarkdownRenderer = styled.div`
 
   // Adjust Code Style
   pre[class*='language-'] {
-    margin: 1.5rem 0;
+    margin: 15px 0;
     padding: 15px;
     font-size: 15px;
 
