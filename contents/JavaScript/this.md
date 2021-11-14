@@ -3,7 +3,7 @@ date: '2021-10-06'
 title: 'this | 자바스크립트'
 tags: ['JavaScript', 'Study']
 summary: '동적으로 결정되는 this 바인딩 이해하기'
-thumbnail: './thumbnail.jpg'
+thumbnail: '../thumbnails/thumbnail_this.jpg'
 ---
 
 ## this를 사용하는 이유

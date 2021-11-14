@@ -3,7 +3,7 @@ date: '2021-08-31'
 title: '함수 선언식과 함수 표현식 | 자바스크립트'
 tags: ['JavaScript', 'Study']
 summary: '함수표현식과 함수 선언식의 차이점 이해하기'
-thumbnail: './thumbnail.jpg'
+thumbnail: '../thumbnails/thumbnail_function-declarations-and-expressions.jpg'
 ---
 
 자바스크립트를 배우고나서 **함수를 선언**할 때마다 최신 문법으로 알려진  `arrow function` 방법만을 사용해왔다. 그런데 다른 분들의 여러 코드들을 보다보니 함수를 선언하는 방식이 조금 다른 것을 볼 수 있었는데, 무엇이 어떻게 다른지 가볍게 정리해보았다. 

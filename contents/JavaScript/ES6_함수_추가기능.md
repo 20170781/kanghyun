@@ -3,7 +3,7 @@ date: '2021-11-11'
 title: 'ES6 함수 추가기능 | 자바스크립트'
 tags: ['JavaScript', 'Study']
 summary: 'ES6에서의 Method, Arrow Function, Rest parameter 이해하기'
-thumbnail: './thumbnail.jpg'
+thumbnail: '../thumbnails/thumbnail_ES6함수추가기능.jpg'
 ---
 
 ## 1. 함수의 구분

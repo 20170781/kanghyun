@@ -1,9 +1,9 @@
 ---
 date: '2021-09-28'
-title: '프로퍼티(getter/setter) | 자바스크립트'
+title: '접근자 프로퍼티 | 자바스크립트'
 tags: ['JavaScript', 'Study']
 summary: '프로퍼티에는 무엇이 있는지 알아보고, 접근자 프로퍼티에 대해 이해하기'
-thumbnail: './thumbnail.jpg'
+thumbnail: '../thumbnails/thumbnail_property-accessors.jpg'
 ---
 
 ## 데이터 프로퍼티와 접근자 프로퍼티

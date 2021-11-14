@@ -3,7 +3,7 @@ date: '2021-10-13'
 title: 'closure | 자바스크립트'
 tags: ['JavaScript', 'Study']
 summary: '함수와 그 함수가 선언된 렉시컬 환경과의 조합인 클로저 이해하기'
-thumbnail: './thumbnail.jpg'
+thumbnail: '../thumbnails/thumbnail_closure.jpg'
 ---
 
 > MDN 정의)

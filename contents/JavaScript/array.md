@@ -3,7 +3,7 @@ date: '2021-11-12'
 title: 'Array | 자바스크립트'
 tags: ['JavaScript', 'Study']
 summary: '자바스크립트에서 사용 빈도가 매우 높은 자료구조, 배열에 대해 이해하기'
-thumbnail: './thumbnail.jpg'
+thumbnail: '../thumbnails/thumbnail_array.jpg'
 ---
 
 ## 1. 배열이란?
