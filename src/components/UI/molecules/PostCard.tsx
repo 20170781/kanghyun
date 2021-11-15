@@ -32,7 +32,7 @@ const PostCardWrapper = styled(Link)`
 
 const ThumbnailImage = styled(GatsbyImage)`
   width: 100%;
-  height: 10rem;
+  height: 11rem;
 
   @media (max-width: 828px) {
     height: 8rem;
@@ -43,7 +43,7 @@ const PostCardContent = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  height: 13rem;
+  height: 14rem;
   background-color: white;
 
   & > p {
