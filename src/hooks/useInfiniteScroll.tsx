@@ -16,6 +16,7 @@ const useInfiniteScroll = (posts: PostType[]): useInfiniteScrollType => {
   // 무한 스크롤을 위한 count 값: useState
   const [count, setCount] = useState<number>(1);
 
+  // 프로젝트 빌드가 Node.js 환경에서 빌드됨으로 생기는 오류 해결
   const observer: MutableRefObject<IntersectionObserver | null> =
     useRef<IntersectionObserver>(null);
 
