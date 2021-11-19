@@ -4,8 +4,10 @@ import styled from '@emotion/styled';
 const TocWrapper = styled.aside`
   position: sticky;
   margin-top: 90px;
+  padding-bottom: 0.625rem;
   top: 140px;
   width: 20%;
+  height: fit-content;
   max-height: calc(100vh - 256px);
   overflow-y: auto;
   border-left: 4px solid rgb(233, 236, 239);
@@ -18,7 +20,7 @@ const TocWrapper = styled.aside`
 
   ::-webkit-scrollbar-thumb {
     z-index: 100;
-    background: rgba(75,135,139,.99)
+    background: rgba(75, 135, 139, 0.99);
   }
 
   @media (max-width: 1200px) {
