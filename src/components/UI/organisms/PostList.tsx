@@ -33,6 +33,7 @@ export interface PostListProps {
 const PostListWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 
   & > .post {
     width: 30%;
