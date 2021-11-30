@@ -26,7 +26,7 @@ thumbnail: '../thumbnails/thumbnail_class.jpg'
 
 ```javascript
 // 생성자 함수
-var Person = (function() {
+const Person = (function() {
 	// 생성자 함수
     function Person(name) {
         this.name = name;
@@ -94,14 +94,14 @@ class Person {
 - function 키워드를 생략한 메서드 축약 표현 사용
 - 메서드 정의할 때 콤마 필요x
 - 암묵적으로 strict mode로 실행
-- for ... in 문이나 Object.keys 메서드 등으로 열거할 수 없다. (프로퍼티 어트리뷰트 [[Enumerable]]의 값 false)
-- 내부 메서드 [[Construct]]를 갖지 않는 non-constructor다. 따라서 new 연산자와 함께 호출x
+- `for ... in` 문이나 `Object.keys` 메서드 등으로 열거할 수 없다. (프로퍼티 어트리뷰트 `[[Enumerable]]`의 값 `false`)
+- 내부 메서드 `[[Construct]]`를 갖지 않는 non-constructor다. 따라서 new 연산자와 함께 호출x
 
 
 
 ### 5.1 constructor
 
-constructor는 인스턴스를 생성하고 초기화하기 위한 특수한 메서드이다. consturctor라는 이름은 변경할 수 없다.
+`constructor`는 인스턴스를 생성하고 초기화하기 위한 특수한 메서드이다. `consturctor`라는 이름은 변경할 수 없다.
 
 ```js
 class Person {
@@ -111,17 +111,17 @@ class Person {
 }
 ```
 
-constructor는 메서드로 해석되는 것이 아니라, 클래스가 평가되어 생성한 함수 객체 코드의 일부가 된다. (프로토타입의 constructor와 관련x, -> 이는 생성자 함수를 가리킴)
+`constructor`는 메서드로 해석되는 것이 아니라, 클래스가 평가되어 생성한 함수 객체 코드의 일부가 된다. (프로토타입의 `constructor`와 관련 x, -> 이는 생성자 함수를 가리킴)
 
 생성자 함수와의 차이점
 
-- constructor는 클래스 내에 최대 한 개만 존재
+- `constructor`는 클래스 내에 최대 한 개만 존재
 
-- 생략할 수 있다. (생략 시 빈 constructor가 암묵적으로 정의, 이로 인해 빈 객체 생성)
+- 생략할 수 있다. (생략 시 빈 `constructor`가 암묵적으로 정의, 이로 인해 빈 객체 생성)
 
-- 프로퍼티가 추가되어 초기화된 인스턴스를 생성하려면 constructor 내부에서 **this**에 인스턴스 프로퍼티를 추가한다.
+- 프로퍼티가 추가되어 초기화된 인스턴스를 생성하려면 `constructor` 내부에서 **`this`**에 인스턴스 프로퍼티를 추가한다.
 
-- 인스턴스 생성 시 클래스 **외부에서 인스턴스 프로퍼티의 초기값을 전달**하려면 다음과 같이 constructor에 매개변수를 선언하고 인스턴스를 생성할 때 초기값을 전달한다.
+- 인스턴스 생성 시 클래스 **외부에서 인스턴스 프로퍼티의 초기값을 전달**하려면 다음과 같이 `constructor`에 매개변수를 선언하고 인스턴스를 생성할 때 초기값을 전달한다.
 
   ```js
   class Person {
@@ -134,13 +134,13 @@ constructor는 메서드로 해석되는 것이 아니라, 클래스가 평가�
   const me = new Person('Lee', 24);
   ```
 
-- constructor는 별도의 반환문을 갖지 않아야 한다. (new 연산자와 함께 클래스가 호출되면 생성자 함수와 동일하게 암묵적으로 this<인스턴스>를 반환하기 때문, 명시적으로 객체 반환 시 암묵적인 this 반환 무시됨)
+- `constructor`는 별도의 반환문을 갖지 않아야 한다. (new 연산자와 함께 클래스가 호출되면 생성자 함수와 동일하게 암묵적으로 `this`<인스턴스>를 반환하기 때문, 명시적으로 객체 반환 시 암묵적인 this 반환 무시됨)
 
 
 
 ### 5.2 프로토타입 메서드
 
-생성자 함수를 통해 인스턴스를 생성할 경우 프로토타입 메서드를 생성하기 위해선 명시적으로 프로토타입에 메서드를 추가해야 했다. 하지만 클래스 몸체에서 정의한 메서드는 클래스의 prototype 프로퍼티에 메서드를 추가하지 않아도 기본적으로 프로토타입 메서드가 된다.
+생성자 함수를 통해 인스턴스를 생성할 경우 프로토타입 메서드를 생성하기 위해선 명시적으로 프로토타입에 메서드를 추가해야 했다. 하지만 클래스 몸체에서 정의한 메서드는 클래스의 `prototype` 프로퍼티에 메서드를 추가하지 않아도 기본적으로 프로토타입 메서드가 된다.
 
 ```js
 // 생성자 함수
@@ -171,15 +171,17 @@ class Person {
 }
 ```
 
-메서드 내부에서 인스턴스 프로퍼티를 참조할 필요가 있다면 this를 사용, 없다면 this를 사용하지 않게 된다.
+메서드 내부에서 인스턴스 프로퍼티를 참조할 필요가 있다면 `this`를 사용, 없다면 `this`를 사용하지 않아도 된다.
 
 이처럼 클래스 몸체에 정의한 메서드는 **인스턴스의 프로토타입에 존재하는 프로토타입 메서드**가 된다.
+
+
 
 ### 5.3 정적 메서드
 
 인스턴스를 생성하지 않아도 호출할 수 있는 메서드 
 
-- 클래스에서는 메서드에 **static 키워드**를 붙이면 정적 메서드가 된다.
+- 클래스에서는 메서드에 **`static` 키워드**를 붙이면 정적 메서드가 된다.
 
 - 정적 메서드는 **클래스에 바인딩된 메서드**가 된다.
 
@@ -194,13 +196,13 @@ class Person {
 ## 6. 클래스의 인스턴스 생성 과정
 
 1. 인스턴스 생성과 this 바인딩
-   - constructor 내부 코드 실행 전 빈 객체(인스턴스) 생성, 인스턴스는 this에 바인딩된다.
-   - constructor 내부의 this는 클래스가 생성한 인스턴스 가리킴
+   - `constructor` 내부 코드 실행 전 빈 객체(인스턴스) 생성, 인스턴스는 `this`에 바인딩된다.
+   - `constructor` 내부의 `this`는 클래스가 생성한 인스턴스 가리킴
 2. 인스턴스 초기화
-   - constructor 내부 코드 실행, this에 바인딩되어 있는 인스턴스를 초기화. (프로퍼티 추가, constructor가 인수로 받은 초기값으로 초기화)
-   - constructor 생략 시 이 과정 생략
+   - `constructor` 내부 코드 실행, `this`에 바인딩되어 있는 인스턴스를 초기화. (프로퍼티 추가, `constructor`가 인수로 받은 초기값으로 초기화)
+   - `constructor` 생략 시 이 과정 생략
 3. 인스턴스 반환
-   - 인스턴스가 바인딩된 this가 암묵적으로 반환
+   - 인스턴스가 바인딩된 `this`가 암묵적으로 반환
 
 
 
@@ -208,9 +210,9 @@ class Person {
 
 ### 7.1 인스턴스 프로퍼티
 
-인스턴스 프로퍼티는 constructor 내부에서 정의
+인스턴스 프로퍼티는 `constructor` 내부에서 정의
 
-ES6의 클랫는 다른 객체 지향처럼 private, public, protected 키워드와 같은 접근 제한자를 지원하지 않는다. 따라서 인스턴스 프로퍼티는 언제나 public하다.
+ES6의 클랫는 다른 객체 지향처럼 `private`, `public`, `protected` 키워드와 같은 접근 제한자를 지원하지 않는다. 따라서 인스턴스 프로퍼티는 언제나 `public`하다.
 
 
 
@@ -254,7 +256,7 @@ getter와 setter 이름은 인스턴스 프로퍼티처럼 사용
 
 ### 7.3 클래스 필드 정의 제안
 
-**클래스 필드**: 클래스 기반 객체지향 언어에서 클래스가 생성할 인스턴스의 프로퍼티를 가리키는 용어
+**클래스 필드**: 클래스 기반 객체지향 언어에서 **클래스가 생성할 인스턴스의 프로퍼티**를 가리키는 용어
 
 Java와 달리 Javascript는 클래스 몸체에는 메서드만 선언할 수 있다. 따라서 클래스 몸체에 자바와 유사하게 클래스 필드를 선언하면 문법 에러가 발생한다.
 
@@ -270,7 +272,7 @@ class Person {
 
 ```js
 class Person{
-    name: 'Lee';	// 클래스 필드에 문자열을 할당
+  name: 'Lee';	// 클래스 필드에 문자열을 할당
 
 	getName = function() {	// 클래스 필드에 함수를 할당
         return this.name;
@@ -278,20 +280,20 @@ class Person{
 }
 ```
 
-- 함수를 클래스 필드에 할당할 수 있다.
-- 이 함수는 프로토타입 메서드가 아닌 인스턴스 메서드가 된다. (모든 클래스 필드는 인스턴스 프로퍼티가 되기 때문)
+- **함수를 클래스 필드에 할당할 수 있다.**
+- 이 함수는 **프로토타입 메서드가 아닌 인스턴스 메서드**가 된다. (모든 클래스 필드는 인스턴스 프로퍼티가 되기 때문)
 
 
 
 ### 7.4 private 필드 정의 제안
 
-ES6의 클래스도 생성자 함수와 마찬가지로 private, public, protected 키워드와 같은 접근 제한자를 지원하지 않는다. 따라서 인스턴스 프로퍼티는 인스턴스를 통해 클래스 외부에서 언제나 참조할 수 있다. (언제나 public)
+ES6의 클래스도 생성자 함수와 마찬가지로 `private`, `public`, `protected` 키워드와 같은 접근 제한자를 지원하지 않는다. 따라서 인스턴스 프로퍼티는 인스턴스를 통해 클래스 외부에서 언제나 참조할 수 있다. (언제나 `public`)
 
 하지만 2021년 private 필드를 정의할 수 있는 새로운 표준 사양이 제안되어 있다.
 
-- private 필드의 선두에는 #을 붙여준다. (private 필드를 참조할 때도 #을 붙여주어야 한다.)
+- `private` 필드의 선두에는 `#`을 붙여준다. (`private` 필드를 참조할 때도 #을 붙여주어야 한다.)
 
-- private 필드는 반드시 클래스 몸체에 정의 (constructor에 정의시 에러 발생)
+- `private` 필드는 반드시 **클래스 몸체에 정의** (`constructor`에 정의시 에러 발생)
 
   ```js
   class Person {
@@ -308,15 +310,15 @@ ES6의 클래스도 생성자 함수와 마찬가지로 private, public, protect
   console.log(me.#name);	// Error, prviate 필드는 외부에서 참조 불가능
   ```
 
-타입스크립트는 public, private, protected를 모두 지원한다.
+타입스크립트는 `public`, `private`, `protected`를 모두 지원한다.
 
 
 
 ### 7.5 static 필드 정의 제안
 
-클래스에서 static 키워드를 사용하여 정적 메서드를 정의할 수 있다. 하지만 static 키워드를 사용해 정적 필드를 정의할 수 없었다.
+클래스에서 `static` 키워드를 사용하여 정적 메서드를 정의할 수 있다. 하지만 `static` 키워드를 사용해 정적 필드를 정의할 수 없었다.
 
-static public/private 필드를 정의할 수 있는 새로운 표준 사양이 제안되었다.
+`static public/private` 필드를 정의할 수 있는 새로운 표준 사양이 제안되었다.
 
 ```js
 class MyMath {
@@ -341,7 +343,7 @@ class MyMath {
 
 
 
-클래스는 상속을 통해 기존 클래스를 확장할 수 있는 문법(extends 키워드)이 기본적으로 제공되지만 생성자 함수는 그렇지 않다.
+클래스는 상속을 통해 기존 클래스를 확장할 수 있는 문법(`extends` 키워드)이 기본적으로 제공되지만, 생성자 함수는 그렇지 않다.
 
 ```js
 class Animal {
@@ -373,11 +375,11 @@ console.log(bird.fly());	// fly
 
 ### 8.2 extends 키워드
 
-상속을 통해 클래스를 확장하려면 extends 키워드를 사용하여 상속받을 클래스를 정의한다.
+상속을 통해 클래스를 확장하려면 `extends` 키워드를 사용하여 상속받을 클래스를 정의한다.
 
 상속을 통해 확장된 클래스를 **서브클래스**(subclass, 자식 클래스)라 부르고, 서브클래스에게 상속된 클래스를 **수퍼클래스**(superclass, 부모 클래스)라 부른다.
 
-**extends 키워드**의 역할은 수퍼클래스와 서브클래스 간의 상속 관계를 설정하는 것이다. 클래스도 프로토타입을 통해 상속 관계를 구현한다.
+**`extends` 키워드**의 역할은 수퍼클래스와 서브클래스 간의 상속 관계를 설정하는 것이다. 클래스도 프로토타입을 통해 상속 관계를 구현한다.
 
 수퍼클래스와 서브클래스는 **인스턴스의 프로토타입 체인** 뿐만 아니라 **클래스 간의 프로토타입 체인**도 생성한다. 이를 통해 **프로토타입 메서드, 정적 메서드 모두 상속이 가능**하다.
 
@@ -385,7 +387,7 @@ console.log(bird.fly());	// fly
 
 ### 8.3 동적 상속
 
-extends 키워드는 클래스 뿐만 아니라 생성자 함수를 상속받아 클래스를 확장할 수도 있다. (extends 키워드 앞에는 반드시 클래스가 와야함)
+`extends` 키워드는 **클래스 뿐만 아니라 생성자 함수를 상속받아 클래스를 확장**할 수도 있다. (`extends` 키워드 앞에는 반드시 클래스가 와야함)
 
 ```js
 // 생성자 함수
@@ -397,13 +399,13 @@ function Base(a) {
 class Derived extends Base {}
 ```
 
-extends 키워드 다음에는 클래스 뿐만 아니라, [[Construct]] 내부 메서드를 갖는 함수 객체로 평가될 수 있는 모든 표현식을 사용할 수 있다. 이를 통해 동적으로 상속받은 대상을 결정할 수 있다.
+`extends` 키워드 다음에는 클래스 뿐만 아니라, `[[Construct]]` 내부 메서드를 갖는 함수 객체로 평가될 수 있는 모든 표현식을 사용할 수 있다. 이를 통해 동적으로 상속받은 대상을 결정할 수 있다.
 
 
 
 ### 8.4 서브클래스의 constructor
 
-**클래스에서 constructor를 생략**하면 클래스에 다음과 같이 비어있는 constructor가 암묵적으로 정의된다.
+**클래스에서 `constructor`를 생략**하면 클래스에 다음과 같이 비어있는 `constructor`가 암묵적으로 정의된다.
 
 ```js
 constructor() {}
@@ -411,7 +413,7 @@ constructor() {}
 
 
 
-**서브클래스에서 constructor를 생략**하면 클래스에 다음과 같은 constructor가 암묵적으로 정의된다. args는 new 연산자와 함께 클래스를 호출할 때 전달한 인수의 리스트이다.
+**서브클래스에서 `constructor`를 생략**하면 클래스에 다음과 같은 `constructor`가 암묵적으로 정의된다. `args`는 new 연산자와 함께 클래스를 호출할 때 전달한 인수의 리스트이다.
 
 ```js
 constructor(...args) {super(...args);}
@@ -419,28 +421,28 @@ constructor(...args) {super(...args);}
 
 
 
-**super()**는 수퍼클래스의 constructor를 호출하여 인스턴스를 생성한다.
+**`super()`**는 수퍼클래스의 `constructor`를 호출하여 인스턴스를 생성한다.
 
 
 
 ### 8.5 super 키워드
 
-super 키워드는 함수처럼 호출할 수도 있고, this와 같이 식별자처럼 참조할 수 있는 특수한 키워드이다.
+`super` 키워드는 함수처럼 호출할 수도 있고, `this`와 같이 식별자처럼 참조할 수 있는 특수한 키워드이다.
 
-- super를 **호출**: 수퍼클래스의 **constructor**를 호출한다.
-- super를 **참조**: 수퍼클래스의 **메서드**를 호출할 수 있다.
+- `super`를 **호출**: 수퍼클래스의 **`constructor`**를 호출한다.
+- `super`를 **참조**: 수퍼클래스의 **메서드**를 호출할 수 있다.
 
 
 
 #### super 호출
 
-: 수퍼클래스의 constructor를 호출
+: 수퍼클래스의 `constructor`를 호출
 
-수퍼클래스에서 추가한 프로퍼티와 서브클래스에서 추가한 프로퍼티를 갖는 인스턴스를 생성한다면 서브클래스의 constructor를 생략할 수 없다. 이때 new 연산자와 함께 서브클래스를 호출하면서 전달한 인수 중에서 수퍼클래스의 constructor에 전달할 필요가 있는 인수는 서브 클래스의 constructor에서 호출하는 super를 통해 전달한다.
+수퍼클래스에서 추가한 프로퍼티와 서브클래스에서 추가한 프로퍼티를 갖는 인스턴스를 생성한다면 서브클래스의 `constructor`를 생략할 수 없다. 이때 new 연산자와 함께 서브클래스를 호출하면서 전달한 인수 중에서 수퍼클래스의 `constructor`에 전달할 필요가 있는 인수는 서브 클래스의 `constructor`에서 호출하는 `super`를 통해 전달한다.
 
-- 서브클래스에서 constructor를 생략하지 않은 경우, 서브클래스의 constructor에서는 반드시 super를 호출
-- 서브클래스의 constructor에서 **super를 호출하기 전에는 this를 참조할 수 없다**.
-- super는 반드시 서브클래스의 constructor에서만 호출.
+- 서브클래스에서 `constructor`를 생략하지 않은 경우, 서브클래스의 `constructor`에서는 반드시 `super`를 호출
+- 서브클래스의 `constructor`에서 **`super`를 호출하기 전에는 `this`를 참조할 수 없다**.
+- `super`는 반드시 서브클래스의 `constructor`에서만 호출.
 
 ```js
 // 수퍼클래스
@@ -489,11 +491,11 @@ class Derived extends Base {
 }
 ```
 
-super는 자신을 참조하고 있는 메서드(Derived의 sayHi)가 바인딩되어 있는 객체(Derived.prototype)의 프로토타입(Base.prototype)을 가리킨다. 따라서 super.sayHi는 Base.prototype.sayHi를 가리킨다.
+`super`는 자신을 참조하고 있는 메서드(`Derived의 sayHi`)가 바인딩되어 있는 객체(`Derived.prototype`)의 프로토타입(`Base.prototype`)을 가리킨다. 따라서 `super.sayHi`는 `Base.prototype.sayHi`를 가리킨다.
 
 
 
-서브클래스의 정적 메서드 내에서 super.sayHi는 수퍼클래스의 정적 메서드 sayHi를 가리킨다.
+서브클래스의 정적 메서드 내에서 `super.sayHi`는 수퍼클래스의 정적 메서드 `sayHi`를 가리킨다.
 
 ```js
 // 수퍼클래스
@@ -515,10 +517,10 @@ class Derived extends Base {
 
 ### 8.6 상속 클래스의 인스턴스 생성 과정
 
-1. 서브클래스의 super 호출
-2. 수퍼클래스의 인스턴스 생성과 this 바인딩
+1. 서브클래스의 `super` 호출
+2. 수퍼클래스의 인스턴스 생성과 `this` 바인딩
 3. 수퍼클래스의 인스턴스 초기화
-4. 서브클래스의 constructor로의 복귀와 this 바인딩
+4. 서브클래스의 `constructor`로의 복귀와 `this` 바인딩
 5. 서브클래스의 인스턴스 초기화
 6. 인스턴스 반환
 
@@ -526,7 +528,7 @@ class Derived extends Base {
 
 ### 8.7 표준 빌트인 생성자 함수 확장
 
-extends 키워드 다음에는 클래스 뿐만 아니라, [[Construct]] 내부 메서드를 갖는 함수 객체로 평가될 수 있는 모든 표현식을 사용할 수 있다. 그러므로 String, Number, Array 같은 표준 빌트인 객체도 extends 키워드를 사용하여 확장할 수 있다.
+`extends` 키워드 다음에는 클래스 뿐만 아니라, `[[Construct]]` 내부 메서드를 갖는 함수 객체로 평가될 수 있는 모든 표현식을 사용할 수 있다. 그러므로 `String`, `Number`, `Array` 같은 표준 빌트인 객체도 `extends` 키워드를 사용하여 확장할 수 있다.
 
 ```js
 // Array 생성자 함수를 상속받아 확장한 MyArray
@@ -550,9 +552,9 @@ console.log(myArray.uniq());	// MyArray(3) [1, 2, 3]
 console.log(myArray.average());	// 1.75
 ```
 
- 주의할 점은 Array.prototype의 메서드 중에서 map, filter와 같이 새로운 배열을 반환하는 메서드가 **MyArray 클래스의 인스턴스를 반환**한다는 것이다.
+ 주의할 점은 `Array.prototype`의 메서드 중에서 `map`, `filter`와 같이 새로운 배열을 반환하는 메서드가 **`MyArray` 클래스의 인스턴스를 반환**한다는 것이다.
 
-만약 새로운 배열을 반환하는 메서드가 MyArray 클래스의 인스턴스를 반환하지 않고 Array의 인스턴스를 반환하면 MyArray 클래스의 메서드와 메서드 체이닝이 불가능하다.
+만약 새로운 배열을 반환하는 메서드가 `MyArray` 클래스의 인스턴스를 반환하지 않고 `Array`의 인스턴스를 반환하면 `MyArray` 클래스의 메서드와 메서드 체이닝이 불가능하다.
 
 ```js
 console.log(myArray.filter(v => v % 2) instanceof MyArray);	// true
