@@ -1,7 +1,7 @@
 ---
 date: '2021-11-22'
 title: 'DOM API'
-tags: ['FrontEnd', 'Study']
+tags: ['FrontEnd', 'Study', 'DOM API']
 summary: '브라우저가 제공하는 Web API 중 하나인 DOM API 이해하기'
 thumbnail: '../thumbnails/thumbnail_DOM_API.jpg'
 ---

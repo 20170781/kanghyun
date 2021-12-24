@@ -1,7 +1,7 @@
 ---
 date: '2021-09-15'
 title: 'SSR과 CSR 이해하기'
-tags: ['SSR/CSR', 'Study']
+tags: ['SSR/CSR', 'Study', 'FrontEnd']
 summary: 'Server-Side Rendering과 Client-Side Rendering의 개념 이해하기'
 thumbnail: '../thumbnails/thumbnail_ssr&csr.jpg'
 ---
