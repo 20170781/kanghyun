@@ -8,7 +8,7 @@ thumbnail: '../thumbnails/thumbnail_cors.jpg'
 
 
 
-<img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/1ebbd07a-def8-4eb2-816f-a2e2a35555f7/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20211224%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211224T053236Z&X-Amz-Expires=86400&X-Amz-Signature=da581e677f666e9ee484ac44117fbd2693ffc929a7e0577d16ad006a03145183&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject" alt="img"  />
+![image](https://user-images.githubusercontent.com/70627979/147853818-867e9a63-2fe8-4b8f-b7c7-d57b8bebd417.png)
 
 진행하던 플젝에서 url을 이용해 html 파일을 불러오는 작업을 진행했었는데, 위와 같은 오류가 발생했다. 지난 플젝에서도 CORS 정책과 관련된 오류를 마주친 적이 있었고 이를 해결했지만, 또 다시 마주친 김에 깊게 이해하고 이를 남기고 싶어 글을 쓰게 되었다.
 
