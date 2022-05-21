@@ -76,7 +76,7 @@ const PortfolioSummary: FC = () => {
             />
           </PortfolioBoxes>
         </ContentWrapper>
-        <SeeMoreBar text="PORTFOLIO" to="/portfolio" />
+        <SeeMoreBar text="PORTFOLIO" to="https://kanghyun98.notion.site/" />
       </SummaryWrapper>
     </SummarySection>
   );
